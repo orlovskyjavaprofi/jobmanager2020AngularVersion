@@ -10,3 +10,5 @@ Look up archive of your previous applications and with which result
 Set up notifications(experimantal feature)
 Create template letters , but send them via own email server.
 Prepare lists of companys where you wish to send out your applications.
+
+Here all scurm stories so far: 
