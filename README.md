@@ -11,4 +11,4 @@ Set up notifications(experimantal feature)
 Create template letters , but send them via own email server.
 Prepare lists of companys where you wish to send out your applications.
 
-Here all scurm stories so far: ask me via https://www.xing.com/profile/Alexander_Orlovsky or linkedin https://www.linkedin.com/in/alexanderorlovsky/ or trough my page www.javaprofide.de  so you can alway reach me via give sites! ;)
+Would you like participate in project and wish to know scrum stories so far then ask me via https://www.xing.com/profile/Alexander_Orlovsky or linkedin https://www.linkedin.com/in/alexanderorlovsky/ or trough my page www.javaprofide.de  so you can alway reach me via given sites! ;)
