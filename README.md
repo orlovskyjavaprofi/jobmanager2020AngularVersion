@@ -14,3 +14,6 @@ Prepare lists of companys where you wish to send out your applications.
 Would you like participate in project and wish to know scrum stories so far then ask me via https://www.xing.com/profile/Alexander_Orlovsky or linkedin https://www.linkedin.com/in/alexanderorlovsky/ or trough my page www.javaprofide.de  so you can alway reach me via given sites! ;)
 
 This project licensed under LGPL more read here https://www.gnu.org/licenses/old-licenses/lgpl-2.1
+
+Do you want to know more about this project ? 
+Then watch this youtube presentation: https://youtu.be/4Pxfwtuf51M
