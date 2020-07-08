@@ -14,10 +14,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'jobmanager2020'`, () => {
+  it(`should have as title 'Job manager 2020'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('jobmanager2020');
+    expect(app.title).toEqual('Job manager 2020');
   });
 
   it('should render title', () => {
@@ -25,7 +25,7 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain(
-      'jobmanager2020 app is running!'
+      'Job manager 2020 app is running!'
     );
   });
 });
