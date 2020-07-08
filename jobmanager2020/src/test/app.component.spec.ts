@@ -25,7 +25,7 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain(
-      'Job manager 2020 app is running!'
+      'Welcome to Job manager 2020 !'
     );
   });
 });
