@@ -1,9 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from '../app/app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ReactiveFormsModule],
       declarations: [AppComponent],
     }).compileComponents();
   }));
@@ -28,4 +30,6 @@ describe('AppComponent', () => {
       'Welcome to Job manager 2020 !'
     );
   });
+
+  //case: user click on button registration as result user should see new page registration!
 });
