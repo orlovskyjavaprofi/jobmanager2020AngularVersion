@@ -10,6 +10,7 @@ import { first } from 'rxjs/operators';
 export class UserregistrationComponent implements OnInit {
   registerNewUserForm!: FormGroup;
   submitted = false;
+  loading = false;
 
   constructor(private formBuilder: FormBuilder) {}
 
