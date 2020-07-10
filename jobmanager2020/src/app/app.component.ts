@@ -30,5 +30,7 @@ export class AppComponent implements OnInit {
     return this.mainPageForm.controls;
   }
 
-  onSubmit() {}
+  onSubmit() {
+    this.loading = true;
+  }
 }
