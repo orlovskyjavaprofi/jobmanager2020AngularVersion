@@ -1,5 +1,5 @@
-import { UserDetails } from '../app/shared/model/userdetails';
-import { UserEmploymentTypes } from '../app/shared/model/usertypeemployments';
+import { UserDetails } from '../../app/shared/model/userdetails';
+import { UserEmploymentTypes } from '../../app/shared/model/usertypeemployments';
 
 describe('UserDetails', () => {
   let userDetails: UserDetails = null;

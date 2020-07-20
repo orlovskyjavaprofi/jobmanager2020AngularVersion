@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { UserregistrationComponent } from '../app/userregistration/userregistration.component';
+import { UserregistrationComponent } from '../../app/userregistration/userregistration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
