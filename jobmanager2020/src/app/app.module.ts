@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './main/app.component';
 import { UserregistrationComponent } from './userregistration/userregistration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
