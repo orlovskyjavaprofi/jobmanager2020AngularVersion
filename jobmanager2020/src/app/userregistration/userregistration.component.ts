@@ -12,7 +12,11 @@ export class UserregistrationComponent implements OnInit {
   submitted = false;
   loading = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.registerNewUserForm = this.formBuilder.group({
@@ -31,5 +35,13 @@ export class UserregistrationComponent implements OnInit {
     return this.registerNewUserForm.controls;
   }
 
-  onSubmit() {}
+  onSubmit() {
+    this.submitted = true;
+    if (this.registerNewUserForm.invalid) {
+      return;
+    }
+    this.loading = true;
+    //AccountService must be implemented!
+    //AlertService must be implemented
+  }
 }
