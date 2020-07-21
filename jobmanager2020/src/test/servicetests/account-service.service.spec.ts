@@ -47,13 +47,18 @@ describe('AccountServiceService', () => {
       inputUserEmploymentState
     );
 
-    service = TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientTestingModule],
-      providers: [AccountServiceService],
-    });
+    service = TestBed.inject(AccountServiceService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('case user provided valid data', () => {
+    expect(service.userDetailsValidator(inputUserDetails)).toBe(true);
+  });
+
+  it('case user provided invalid data', () => {
+    expect(service.userDetailsValidator(null)).toBe(false);
   });
 });
