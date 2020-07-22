@@ -1,16 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { Observable } from 'rxjs';
-import { RouterTestingModule } from '@angular/router/testing';
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing';
-import { AccountServiceService } from '../../app/services/account-service.service';
-import { UserDetails } from '../../app/shared/model/userdetails';
-import { UserEmploymentTypes } from '../../app/shared/model/usertypeemployments';
+import { UserDetails } from 'src/app/shared/model/userdetails';
+import { UserEmploymentTypes } from 'src/app/shared/model/usertypeemployments';
 
-describe('AccountServiceService', () => {
-  let service: AccountServiceService;
+import { InmemorydbServiceService } from '../../app/services/inmemorydb-service.service';
+
+describe('InmemorydbServiceService', () => {
+  let service: InmemorydbServiceService;
+
   let inputUserDetails: UserDetails;
   let inputUserEmploymentState: UserEmploymentTypes;
 
@@ -33,7 +29,6 @@ describe('AccountServiceService', () => {
     userStreetNumber = '000000000';
     userStreetName = 'street name not set up!';
     inputUserEmploymentState = UserEmploymentTypes.Contractor;
-
     // tslint:disable-next-line: max-line-length
     inputUserDetails = new UserDetails(
       userFirstName,
@@ -47,22 +42,14 @@ describe('AccountServiceService', () => {
       inputUserEmploymentState
     );
 
-    service = TestBed.inject(AccountServiceService);
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(InmemorydbServiceService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
-  it('case user provided valid data', () => {
-    expect(service.userDetailsValidator(inputUserDetails)).toBe(true);
-  });
-
-  it('case user provided invalid data', () => {
-    expect(service.userDetailsValidator(null)).toBe(false);
-  });
-
-  it('case user provided valid data and was stored inmemory', () => {
-    expect(service.storeUserInMemory(inputUserDetails)).toBe(true);
+  it('case save user to db', () => {
+    expect(service.saveUserToMemory(inputUserDetails)).toBe(true);
   });
 });
