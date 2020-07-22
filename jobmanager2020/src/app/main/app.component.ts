@@ -14,23 +14,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'Job manager 2020';
-  mainPageForm!: FormGroup;
-  submitted = false;
-  loading = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.mainPageForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-    });
-  }
-  get getAllUserInputFromMainPageForm() {
-    return this.mainPageForm.controls;
-  }
-
-  onSubmit() {
-    this.loading = true;
-  }
+  ngOnInit() {}
 }

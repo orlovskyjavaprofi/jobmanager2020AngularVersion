@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('UserregistrationComponent', () => {
-  let component: UserregistrationComponent;
+  let userRegistrationComponent: UserregistrationComponent;
   let fixture: ComponentFixture<UserregistrationComponent>;
 
   beforeEach(async(() => {
@@ -16,12 +16,12 @@ describe('UserregistrationComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(UserregistrationComponent);
-    component = fixture.componentInstance;
+    userRegistrationComponent = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('case: should create component for new user registration', () => {
-    expect(component).toBeTruthy();
+    expect(userRegistrationComponent).toBeTruthy();
   });
 
   // case user provided input for   userFirstName
