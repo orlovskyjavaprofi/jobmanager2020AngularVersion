@@ -8,11 +8,11 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
   <body>
-    <h1>New user registration form!</h1>
+    <h1>New user registration!</h1>
     <!--  <div *ngIf="error" class="alert alert-danger">{{error}}</div> -->
     <form [formGroup]="registerNewUserForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="firstName">First Name</label>
+        <label for="firstName">First name</label>
         <input
           type="text"
           formControlName="firstName"

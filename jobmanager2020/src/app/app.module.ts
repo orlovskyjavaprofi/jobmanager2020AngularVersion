@@ -9,9 +9,10 @@ import { InmemorydbServiceService } from './services/inmemorydb-service.service'
 import { RoutermoduleModule } from './routermodule/routermodule.module';
 import { UserloginComponent } from './components/userlogin/userlogin.component';
 import { WelcomecomponentComponent } from './components/welcomecomponent/welcomecomponent.component';
+import { WrongurlerrorComponent } from './components/wrongurlerror/wrongurlerror.component';
 
 @NgModule({
-  declarations: [AppComponent, UserregistrationComponent, UserloginComponent, WelcomecomponentComponent],
+  declarations: [AppComponent, UserregistrationComponent, UserloginComponent, WelcomecomponentComponent, WrongurlerrorComponent],
   imports: [
     BrowserModule,
     FormsModule,
