@@ -11,9 +11,10 @@ import { UserloginComponent } from './components/userlogin/userlogin.component';
 import { WelcomecomponentComponent } from './components/welcomecomponent/welcomecomponent.component';
 import { WrongurlerrorComponent } from './components/wrongurlerror/wrongurlerror.component';
 import { LegaldisclaimerComponent } from './components/legaldisclaimer/legaldisclaimer.component';
+import { UseraccountComponent } from './components/useraccount/useraccount.component';
 
 @NgModule({
-  declarations: [AppComponent, UserregistrationComponent, UserloginComponent, WelcomecomponentComponent, WrongurlerrorComponent, LegaldisclaimerComponent],
+  declarations: [AppComponent, UserregistrationComponent, UserloginComponent, WelcomecomponentComponent, WrongurlerrorComponent, LegaldisclaimerComponent, UseraccountComponent],
   imports: [
     BrowserModule,
     FormsModule,
