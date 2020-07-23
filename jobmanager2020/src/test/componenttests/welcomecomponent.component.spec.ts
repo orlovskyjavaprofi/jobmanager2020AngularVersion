@@ -21,4 +21,12 @@ describe('WelcomecomponentComponent', () => {
   it('should create welcome component', () => {
     expect(welcomeComponent).toBeTruthy();
   });
+
+  it('should render title', () => {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('#welcomePage').textContent).toContain(
+      'Welcome to Job manager 2020 !'
+    );
+  });
 });
