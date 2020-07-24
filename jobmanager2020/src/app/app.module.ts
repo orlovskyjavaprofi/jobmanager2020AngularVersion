@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { CurrentjobapplicationsComponent } from './components/currentjobapplications/currentjobapplications.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
     WrongurlerrorComponent,
     LegaldisclaimerComponent,
     UseraccountComponent,
+    CurrentjobapplicationsComponent,
   ],
   imports: [
     BrowserModule,
