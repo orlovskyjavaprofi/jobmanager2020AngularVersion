@@ -1,1 +1,61 @@
-<p>useraccount works!</p>
+<div align="center">
+  <h1><u>User account</u></h1>
+</div>
+<div align="center">
+  <h2>
+    Here you can set up your profile and view settings for the view of your job
+    applications
+  </h2>
+</div>
+<!--user account upload image-->
+<mat-card style="margin-top: 10px; width: 50%;">
+  <mat-card-content>
+    User image
+  </mat-card-content>
+</mat-card>
+<br />
+<label class="image-upload-container btn btn-bwm">
+  <span>Select Image</span>&nbsp;
+  <input #imageInput type="file" accept="image/*" />
+</label>
+<br /><br />
+<!--user account upload image-->
+
+<!-- user personal information -->
+<div align="left">
+  User first name:<br />
+  User last name:<br />
+  User city:<br />
+  User job status:<br />
+  Most applied job:<br />
+  Amount of applications which are already sent:<br />
+</div>
+Amount of applications to be displayed on landing page:&nbsp;
+<mat-form-field appearance="fill">
+  <input matInput />
+</mat-form-field>
+
+<!--user multiple upload of files-->
+<h2>User personal file storage</h2>
+<div class="form-group">
+  <label for="file"
+    >Personal user files, upload your cv, cover letter, certificates,
+    credentials
+  </label>
+  <input
+    formControlName="file"
+    id="file"
+    type="file"
+    multiple
+    class="form-control"
+  />
+</div>
+<!--user multiple upload of files-->
+<br />
+<br />
+<div align="center">
+  <button mat-button color="warn">
+    Delete user accoount! (After this all your data stored int this platform
+    will be irrevocably deleted!)
+  </button>
+</div>

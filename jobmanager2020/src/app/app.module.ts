@@ -12,15 +12,30 @@ import { WelcomecomponentComponent } from './components/welcomecomponent/welcome
 import { WrongurlerrorComponent } from './components/wrongurlerror/wrongurlerror.component';
 import { LegaldisclaimerComponent } from './components/legaldisclaimer/legaldisclaimer.component';
 import { UseraccountComponent } from './components/useraccount/useraccount.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
-  declarations: [AppComponent, UserregistrationComponent, UserloginComponent, WelcomecomponentComponent, WrongurlerrorComponent, LegaldisclaimerComponent, UseraccountComponent],
+  declarations: [
+    AppComponent,
+    UserregistrationComponent,
+    UserloginComponent,
+    WelcomecomponentComponent,
+    WrongurlerrorComponent,
+    LegaldisclaimerComponent,
+    UseraccountComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     RoutermoduleModule,
     RouterModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatButtonModule,
   ],
   providers: [AccountServiceService, InmemorydbServiceService],
   bootstrap: [AppComponent],
