@@ -17,3 +17,6 @@ This project licensed under LGPL more read here https://www.gnu.org/licenses/old
 
 Do you want to know more about this project ? 
 Then watch this youtube presentation: https://youtu.be/4Pxfwtuf51M
+Then Go to gitter messenger https://t.co/Ev0LfYlK27?amp=1 and start asking questions and propose ideas!
+
+
