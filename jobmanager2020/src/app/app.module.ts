@@ -17,6 +17,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { CurrentjobapplicationsComponent } from './components/currentjobapplications/currentjobapplications.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { CdkTableModule } from '@angular/cdk/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,8 +42,18 @@ import { CurrentjobapplicationsComponent } from './components/currentjobapplicat
     MatCardModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    CdkTableModule,
   ],
-  providers: [AccountServiceService, InmemorydbServiceService],
+  providers: [
+    AccountServiceService,
+    InmemorydbServiceService,
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: { appearance: 'fill' },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
