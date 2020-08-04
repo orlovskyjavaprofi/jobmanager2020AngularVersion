@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CreatenewjobapplicationComponent } from '../components/createnewjobapplication/createnewjobapplication.component';
 import { CurrentjobapplicationsComponent } from '../components/currentjobapplications/currentjobapplications.component';
 import { LegaldisclaimerComponent } from '../components/legaldisclaimer/legaldisclaimer.component';
 import { UseraccountComponent } from '../components/useraccount/useraccount.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'legal', component: LegaldisclaimerComponent },
   { path: 'useracn', component: UseraccountComponent },
   { path: 'currentjobapps', component: CurrentjobapplicationsComponent },
+  { path: 'createnewjobappl', component: CreatenewjobapplicationComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: '**', component: WrongurlerrorComponent },
 ];
