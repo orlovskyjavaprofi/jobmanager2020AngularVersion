@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CreatenewjobapplicationComponent } from '../../app/components/createnewjobapplication/createnewjobapplication.component';
 
@@ -9,6 +12,7 @@ describe('CreatenewjobapplicationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CreatenewjobapplicationComponent],
+      imports: [MatInputModule, MatFormFieldModule, BrowserAnimationsModule],
     }).compileComponents();
   }));
 

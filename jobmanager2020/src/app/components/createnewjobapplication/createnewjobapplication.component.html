@@ -1,6 +1,207 @@
-<div align="center">
-  <h1><u>Create new job application</u></h1>
-</div>
-Date when job application was send: Country: City: Industry type: Company size:
-Company type: Company contact email: Contact salutation trough checkbox: Company
-contact person last name:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>New user registration</title>
+    <base href="/createnewjobappl" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <div align="center">
+      <h1><u>Create new job application</u></h1>
+    </div>
+    <form class="newjobapplication-form">
+      <table cellpadding="2px" cellspacing="2px" align="left">
+        <div class="form-group">
+          <tr>
+            <td>
+              <div align="center">
+                <label for="dateOfJobApplicationSend"
+                  >Date when job application was send:&nbsp;</label
+                >
+              </div>
+            </td>
+            <td width="5ptx"></td>
+            <td>
+              <mat-form-field class="input-field-full-width" appearance="fill">
+                <mat-label>Day.Month.Year</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </div>
+
+        <div class="form-group">
+          <tr>
+            <td>
+              <div align="center">
+                <label for="jobApplicant country">Country:&nbsp;</label>
+              </div>
+            </td>
+            <td width="215ptx"></td>
+            <td>
+              <mat-form-field class="input-field-full-width" appearance="fill">
+                <mat-label>Country</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </div>
+
+        <div class="form-group">
+          <tr>
+            <td>
+              <div align="center">
+                <label for="City">City:&nbsp;</label>
+              </div>
+            </td>
+            <td width="245ptx"></td>
+            <td>
+              <mat-form-field class="input-field-full-width" appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </div>
+
+        <div class="form-group">
+          <tr>
+            <td>
+              <div align="center">
+                <label for="Industry type">Industry type:&nbsp;</label>
+              </div>
+            </td>
+            <td width="180ptx"></td>
+            <td>
+              <mat-form-field class="input-field-full-width" appearance="fill">
+                <mat-label>Industry type</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </div>
+
+        <div class="form-group">
+          <tr>
+            <td>
+              <div align="center">
+                <label for="Company size:">Company size:&nbsp;</label>
+              </div>
+            </td>
+            <td width="170ptx"></td>
+            <td>
+              <mat-form-field class="input-field-full-width" appearance="fill">
+                <mat-label>Amount of workers</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </div>
+
+        <div class="form-group">
+          <tr>
+            <td>
+              <div align="center">
+                <label for="Company type:">Company type:&nbsp;</label>
+              </div>
+            </td>
+            <td width="170ptx"></td>
+            <td>
+              <mat-form-field class="input-field-full-width" appearance="fill">
+                <mat-label>Small, Medium , Large</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </div>
+
+        <div class="form-group">
+          <tr>
+            <td>
+              <div align="center">
+                <label for="Company contact email:"
+                  >Company contact email:&nbsp;</label
+                >
+              </div>
+            </td>
+            <td width="100ptx"></td>
+            <td>
+              <mat-form-field class="input-field-full-width" appearance="fill">
+                <mat-label>Company contact email:</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </div>
+        <!-- checkbox case yet to be implementend
+  <div class="form-group">
+    <tr>
+      <td>
+        <div align="center">
+          <label for="Company contact email:"
+            >Contact salutation trough checkbox:&nbsp;</label
+          >
+        </div>
+      </td>
+      <td width="5ptx"></td>
+      <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Company contact email:</mat-label>
+          <input matInput type="text" />
+        </mat-form-field>
+      </td>
+    </tr>
+  </div>
+-->
+
+        <div class="form-group">
+          <tr>
+            <td>
+              <div align="center">
+                <label for="Company contact person last name:"
+                  >Company contact person last name:&nbsp;</label
+                >
+              </div>
+            </td>
+            <td width="10ptx"></td>
+            <td>
+              <mat-form-field class="input-field-full-width" appearance="fill">
+                <mat-label>Contact last name</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </div>
+
+        <div class="form-group">
+          <tr>
+            <td>
+              <div align="center">
+                <label for="Add note:">Add note:&nbsp;</label>
+              </div>
+            </td>
+            <td width="205ptx"></td>
+            <td>
+              <mat-form-field class="input-field-full-width" appearance="fill">
+                <mat-label>Your note, ideas</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </div>
+        <tr>
+          <td>
+            <div align="left">
+              <button mat-raised-button color="primary">
+                Create and add new application !!!!!
+              </button>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <!--add close form tag here-->
+    </form>
+  </body>
+</html>

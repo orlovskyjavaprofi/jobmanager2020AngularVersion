@@ -1,0 +1,9 @@
+.newjobapplication-form {
+  min-width: 350px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.input-field-full-width {
+  width: 100%;
+}

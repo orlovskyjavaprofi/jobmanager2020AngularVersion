@@ -22,6 +22,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CreatenewjobapplicationComponent } from './components/createnewjobapplication/createnewjobapplication.component';
+import { MatInputModule } from '@angular/material/input';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +49,7 @@ import { CreatenewjobapplicationComponent } from './components/createnewjobappli
     MatTableModule,
     MatPaginatorModule,
     CdkTableModule,
+    MatInputModule,
   ],
   providers: [
     AccountServiceService,
