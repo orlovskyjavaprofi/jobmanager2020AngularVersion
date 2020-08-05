@@ -3,7 +3,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateemailComponent } from '../../app/components/createemail/createemail.component';
-
+import { MatRadioModule } from '@angular/material/radio';
 describe('CreateemailComponent', () => {
   let component: CreateemailComponent;
   let fixture: ComponentFixture<CreateemailComponent>;
@@ -11,7 +11,12 @@ describe('CreateemailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CreateemailComponent],
-      imports: [MatInputModule, MatFormFieldModule, BrowserAnimationsModule],
+      imports: [
+        MatInputModule,
+        MatFormFieldModule,
+        BrowserAnimationsModule,
+        MatRadioModule,
+      ],
     }).compileComponents();
   }));
 
