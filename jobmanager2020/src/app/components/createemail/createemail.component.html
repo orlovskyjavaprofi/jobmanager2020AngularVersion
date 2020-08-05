@@ -1,16 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <title>Create new email from job application</title>
     <base href="/createnewjobappl" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  </head>
-  <body>
+</head>
+
+<body>
     <div align="center">
-      <h1><u>Create new email from job application</u></h1>
+        <h1>
+            <u>Create new email from job application</u>
+        </h1>
     </div>
-    <!-- Include form for creating new email here-->
-  </body>
+    <form class="newemailfromjobappl-form">
+        <table cellpadding="2px" cellspacing="2px" align="center">
+            <tr>
+                <td>
+                    <mat-form-field class="input-field-full-width" appearance="fill">
+                        <mat-label>Your email title</mat-label>
+                        <input matInput placeholder="email title topic" value="Job application for job title" />
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <table cellpadding="2px" cellspacing="2px" align="center">
+            <tr>
+                <td>Text of email body</td>
+                <td width="16ptx" rowspan="2">&nbsp;</td>
+                <td rowspan="2">
+                    <p>Greeting text 1</p>
+                    <p>Greeting text 2</p>
+                    <p>Greeting text 3</p>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            <tr>
+                <td>Files attachments</td>
+            </tr>
+        </table>
+        <table cellpadding="2px" cellspacing="2px" align="center">
+            <tr>
+                <td>
+                    <div align="right">
+                        <button mat-raised-button color="primary">
+                Create and send email to your email box!
+              </button>
+                    </div>
+                </td>
+                <td width="20ptx">&nbsp;</td>
+                <td>
+                    <div align="left">
+                        <button mat-raised-button>
+                Save email, but not send it!
+              </button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
 </html>

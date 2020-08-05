@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateemailComponent } from '../../app/components/createemail/createemail.component';
 
 describe('CreateemailComponent', () => {
@@ -9,6 +11,7 @@ describe('CreateemailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CreateemailComponent],
+      imports: [MatInputModule, MatFormFieldModule, BrowserAnimationsModule],
     }).compileComponents();
   }));
 
