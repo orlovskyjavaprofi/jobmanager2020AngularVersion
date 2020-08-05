@@ -24,6 +24,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { CreatenewjobapplicationComponent } from './components/createnewjobapplication/createnewjobapplication.component';
 import { MatInputModule } from '@angular/material/input';
 import { CreateemailComponent } from './components/createemail/createemail.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { CreateemailComponent } from './components/createemail/createemail.compo
     MatPaginatorModule,
     CdkTableModule,
     MatInputModule,
+    MatRadioModule,
   ],
   providers: [
     AccountServiceService,
