@@ -19,6 +19,6 @@ Do you want to know more about this project ?
 Then watch this youtube presentation: https://youtu.be/4Pxfwtuf51M
 Then Go to gitter messenger https://t.co/Ev0LfYlK27?amp=1 and start asking questions and propose ideas!
 
-The HTML code is formated with "Pretty Formater" visual studio code plugin!
+The HTML code is formated with "Pretty Code Formater" visual studio code plugin!
 
 
