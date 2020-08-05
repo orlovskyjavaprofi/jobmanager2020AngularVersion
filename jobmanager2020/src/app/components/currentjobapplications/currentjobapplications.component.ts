@@ -35,7 +35,7 @@ export interface ApplicationDetailsDefineable {
   dateOfJobApplicationWhenItWasSend: string;
   specialNoteForJobapplication: string;
   editButton: string;
-  deliteButton: string;
+  deleteButton: string;
 }
 
 const ELEMENT_DATA: ApplicationDetailsDefineable[] = [
@@ -46,7 +46,7 @@ const ELEMENT_DATA: ApplicationDetailsDefineable[] = [
     dateOfJobApplicationWhenItWasSend: '01.02.2019',
     specialNoteForJobapplication: 'interesting',
     editButton: 'Edit',
-    deliteButton: 'Delete',
+    deleteButton: 'Delete',
   },
   {
     companyName: 'B Inc',
@@ -55,7 +55,7 @@ const ELEMENT_DATA: ApplicationDetailsDefineable[] = [
     dateOfJobApplicationWhenItWasSend: '04.03.2019',
     specialNoteForJobapplication: 'interesting',
     editButton: 'Edit',
-    deliteButton: 'Delite',
+    deleteButton: 'Delete',
   },
   {
     companyName: 'C Inc',
@@ -64,7 +64,7 @@ const ELEMENT_DATA: ApplicationDetailsDefineable[] = [
     dateOfJobApplicationWhenItWasSend: '05.04.2019',
     specialNoteForJobapplication: 'interesting',
     editButton: 'Edit',
-    deliteButton: 'Delite',
+    deleteButton: 'Delete',
   },
   {
     companyName: 'D Inc',
@@ -73,7 +73,7 @@ const ELEMENT_DATA: ApplicationDetailsDefineable[] = [
     dateOfJobApplicationWhenItWasSend: '10.04.2019',
     specialNoteForJobapplication: 'interesting',
     editButton: 'Edit',
-    deliteButton: 'Delite',
+    deleteButton: 'Delete',
   },
   {
     companyName: 'E Inc',
@@ -82,7 +82,7 @@ const ELEMENT_DATA: ApplicationDetailsDefineable[] = [
     dateOfJobApplicationWhenItWasSend: '09.04.2019',
     specialNoteForJobapplication: 'interesting',
     editButton: 'Edit',
-    deliteButton: 'Delite',
+    deleteButton: 'Delete',
   },
   {
     companyName: 'F Inc',
@@ -91,7 +91,7 @@ const ELEMENT_DATA: ApplicationDetailsDefineable[] = [
     dateOfJobApplicationWhenItWasSend: '01.02.2019',
     specialNoteForJobapplication: 'interesting',
     editButton: 'Edit',
-    deliteButton: 'Delite',
+    deleteButton: 'Delete',
   },
   {
     companyName: 'G Inc',
@@ -100,7 +100,7 @@ const ELEMENT_DATA: ApplicationDetailsDefineable[] = [
     dateOfJobApplicationWhenItWasSend: '01.02.2019',
     specialNoteForJobapplication: 'interesting',
     editButton: 'Edit',
-    deliteButton: 'Delite',
+    deleteButton: 'Delete',
   },
   {
     companyName: 'H Inc',
@@ -109,7 +109,7 @@ const ELEMENT_DATA: ApplicationDetailsDefineable[] = [
     dateOfJobApplicationWhenItWasSend: '01.02.2019',
     specialNoteForJobapplication: 'interesting',
     editButton: 'Edit',
-    deliteButton: 'Delite',
+    deleteButton: 'Delete',
   },
   {
     companyName: 'I Inc',
@@ -118,7 +118,7 @@ const ELEMENT_DATA: ApplicationDetailsDefineable[] = [
     dateOfJobApplicationWhenItWasSend: '01.02.2019',
     specialNoteForJobapplication: 'interesting',
     editButton: 'Edit',
-    deliteButton: 'Delite',
+    deleteButton: 'Delete',
   },
   {
     companyName: 'K Inc',
@@ -127,6 +127,6 @@ const ELEMENT_DATA: ApplicationDetailsDefineable[] = [
     dateOfJobApplicationWhenItWasSend: '01.02.2019',
     specialNoteForJobapplication: 'interesting',
     editButton: 'Edit',
-    deliteButton: 'Delite',
+    deleteButton: 'Delete',
   },
 ];

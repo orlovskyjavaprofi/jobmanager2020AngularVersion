@@ -23,6 +23,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CreatenewjobapplicationComponent } from './components/createnewjobapplication/createnewjobapplication.component';
 import { MatInputModule } from '@angular/material/input';
+import { CreateemailComponent } from './components/createemail/createemail.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatInputModule } from '@angular/material/input';
     UseraccountComponent,
     CurrentjobapplicationsComponent,
     CreatenewjobapplicationComponent,
+    CreateemailComponent,
   ],
   imports: [
     BrowserModule,
