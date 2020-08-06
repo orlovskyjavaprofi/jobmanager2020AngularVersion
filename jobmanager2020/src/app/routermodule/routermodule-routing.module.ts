@@ -4,6 +4,7 @@ import { CreateemailComponent } from '../components/createemail/createemail.comp
 import { CreatenewjobapplicationComponent } from '../components/createnewjobapplication/createnewjobapplication.component';
 import { CurrentjobapplicationsComponent } from '../components/currentjobapplications/currentjobapplications.component';
 import { LegaldisclaimerComponent } from '../components/legaldisclaimer/legaldisclaimer.component';
+import { SearchforapplicationComponent } from '../components/searchforapplication/searchforapplication.component';
 import { UseraccountComponent } from '../components/useraccount/useraccount.component';
 import { UserloginComponent } from '../components/userlogin/userlogin.component';
 import { UserregistrationComponent } from '../components/userregistration/userregistration.component';
@@ -19,6 +20,10 @@ const routes: Routes = [
   { path: 'currentjobapps', component: CurrentjobapplicationsComponent },
   { path: 'createnewjobappl', component: CreatenewjobapplicationComponent },
   { path: 'createnewemailfromjobappl', component: CreateemailComponent },
+  {
+    path: 'searchforajobapplication',
+    component: SearchforapplicationComponent,
+  },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: '**', component: WrongurlerrorComponent },
 ];

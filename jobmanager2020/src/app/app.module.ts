@@ -25,7 +25,8 @@ import { CreatenewjobapplicationComponent } from './components/createnewjobappli
 import { MatInputModule } from '@angular/material/input';
 import { CreateemailComponent } from './components/createemail/createemail.component';
 import { MatRadioModule } from '@angular/material/radio';
-
+import { SearchforapplicationComponent } from './components/searchforapplication/searchforapplication.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,8 +39,10 @@ import { MatRadioModule } from '@angular/material/radio';
     CurrentjobapplicationsComponent,
     CreatenewjobapplicationComponent,
     CreateemailComponent,
+    SearchforapplicationComponent,
   ],
   imports: [
+    MatCheckboxModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

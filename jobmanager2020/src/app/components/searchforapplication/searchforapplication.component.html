@@ -2,17 +2,105 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Current job applications</title>
-    <base href="/currentjobapps" />
+    <title>Search for job application</title>
+    <base href="/searchforajobapplication" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
+
   <body>
     <div align="center">
-      <h1><u>View current applications</u></h1>
+      <h1><u>Search for a job application</u></h1>
     </div>
+    <table cellpadding="2px" cellspacing="2px" align="center">
+      <tr>
+        <td width="63">&nbsp;</td>
+        <td colspan="3">
+          <div align="center"><h2>Select one or more search category!</h2></div>
+        </td>
+        <td width="50">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="63">&nbsp;</td>
+        <td width="469">
+          <div align="left">
+            <mat-checkbox class="checkbox-margin" color="primary">
+              Company name </mat-checkbox
+            ><br />
+            <mat-checkbox class="checkbox-margin" color="primary">
+              Company contact person </mat-checkbox
+            ><br />
+            <mat-checkbox class="checkbox-margin" color="primary">
+              Date of application </mat-checkbox
+            ><br />
+            <mat-checkbox class="checkbox-margin" color="primary">
+              Contact email of company </mat-checkbox
+            ><br />
+            <mat-checkbox class="checkbox-margin" color="primary">
+              Current state of the job application </mat-checkbox
+            ><br />
+          </div>
+        </td>
+        <td width="1" wudth="5px">&nbsp;</td>
+        <td width="272">
+          <div align="left">
+            <mat-checkbox class="checkbox-margin" color="primary">
+              Company type</mat-checkbox
+            ><br />
+            <mat-checkbox class="checkbox-margin" color="primary">
+              City name</mat-checkbox
+            ><br />
+            <mat-checkbox class="checkbox-margin" color="primary">
+              Country name</mat-checkbox
+            ><br />
+            <mat-checkbox class="checkbox-margin" color="primary">
+              Company size</mat-checkbox
+            ><br />
+            <mat-checkbox class="checkbox-margin" color="primary">
+              Company contact person last name</mat-checkbox
+            ><br />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+    <table align="center">
+      <tr>
+        <td>
+          <mat-form-field
+            style="width: 1000px;"
+            class="input-field-full-width"
+            appearance="fill"
+          >
+            <mat-label><b>Search</b></mat-label>
+            <input
+              matInput
+              placeholder="email title topic"
+              style="font-weight: bold;"
+              value="Please specify the search word here, if you selected only one term then search word should be applicable to the selected checkbox!"
+            />
+          </mat-form-field>
+        </td>
+        <td>&nbsp;</td>
+        <td>
+          <button mat-raised-button style="font-weight: bold;" color="primary">
+            Search!
+          </button>
+        </td>
+        <td>
+          <button mat-raised-button style="font-weight: bold;" color="warn">
+            Reset all checkboxes (Reset selection at the top!)
+          </button>
+        </td>
+      </tr>
+    </table>
+
+    <!--Result table!-->
+
     <div class class="mat-elevation-z8">
-      <table mat-table [dataSource]="dataForDataSource">
+      <table class="resultTable" mat-table [dataSource]="dataForDataSource">
         <!-- Company name -->
         <ng-container matColumnDef="Company name">
           <th mat-header-cell *matHeaderCellDef>
