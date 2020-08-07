@@ -30,6 +30,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PrintviewofselectedjobapplComponent } from './components/printviewofselectedjobappl/printviewofselectedjobappl.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { ResetuserpasswordComponent } from './components/resetuserpassword/resetuserpassword.component';
+import { UserselectjobapplfordeleteComponent } from './components/userselectjobapplfordelete/userselectjobapplfordelete.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { ResetuserpasswordComponent } from './components/resetuserpassword/reset
     SearchforapplicationComponent,
     PrintviewofselectedjobapplComponent,
     ResetuserpasswordComponent,
+    UserselectjobapplfordeleteComponent,
   ],
   imports: [
     MatMenuModule,

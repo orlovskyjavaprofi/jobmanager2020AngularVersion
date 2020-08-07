@@ -10,6 +10,7 @@ import { SearchforapplicationComponent } from '../components/searchforapplicatio
 import { UseraccountComponent } from '../components/useraccount/useraccount.component';
 import { UserloginComponent } from '../components/userlogin/userlogin.component';
 import { UserregistrationComponent } from '../components/userregistration/userregistration.component';
+import { UserselectjobapplfordeleteComponent } from '../components/userselectjobapplfordelete/userselectjobapplfordelete.component';
 import { WelcomecomponentComponent } from '../components/welcomecomponent/welcomecomponent.component';
 import { WrongurlerrorComponent } from '../components/wrongurlerror/wrongurlerror.component';
 
@@ -31,6 +32,10 @@ const routes: Routes = [
     component: SearchforapplicationComponent,
   },
   { path: 'resetuserpasswd', component: ResetuserpasswordComponent },
+  {
+    path: 'userselectjobapplfordel',
+    component: UserselectjobapplfordeleteComponent,
+  },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: '**', component: WrongurlerrorComponent },
 ];
