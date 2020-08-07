@@ -10,7 +10,46 @@
 
   <body>
     <div align="center">
-      <h1><u>Print view of job applications for a give timeline</u></h1>
+      <h1><u>Print view of job applications for a given timeline</u></h1>
     </div>
+    <table align="center">
+      <tr>
+        <td>
+          <label for="userFromDateForJobAppl"><b>From:</b>&nbsp;</label>
+        </td>
+        <td colspan="2">
+          <mat-form-field class="input-field-full-width" appearance="fill">
+            <mat-label>Day.Month.Year</mat-label>
+            <input matInput type="text" />
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="userToDateForJobAppl"><b>To:</b>&nbsp;</label>
+        </td>
+        <td colspan="2">
+          <mat-form-field class="input-field-full-width" appearance="fill">
+            <mat-label>Day.Month.Year</mat-label>
+            <input matInput type="text" />
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>
+          <div align="center">
+            <button
+              mat-raised-button
+              style="font-weight: bold;"
+              color="primary"
+            >
+              Generate print view
+            </button>
+          </div>
+        </td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
   </body>
 </html>

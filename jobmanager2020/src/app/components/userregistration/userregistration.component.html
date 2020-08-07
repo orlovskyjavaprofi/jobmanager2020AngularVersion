@@ -1,263 +1,300 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <title>New user registration</title>
-    <base href="/newuserregistration" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <meta charset="utf-8" />
+  <title>New user registration</title>
+  <base href="/newuserregistration" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
 </head>
 
-<body>
-    <h1>New user registration!</h1>
+<h1>New user registration!</h1>
 
-    <!--  <div *ngIf="error" class="alert alert-danger">{{error}}</div> -->
-    <form [formGroup]="registerNewUserForm" (ngSubmit)="onSubmit()">
-        <table cellpadding="2px" cellspacing="2px" align="left">
-            <div class="form-group">
-                <tr>
-                    <td>
-                        <div align="center">
-                            <label for="firstName"><b>First name</b>&nbsp;</label>
-                        </div>
-                    </td>
-                    <td width="70ptx"></td>
-                    <td>
-                        <input type="text" formcontrolname="firstName" class="form-control" [ngClass]="{
-                  'is-invalid':
-                    submitted &&
-                    getAllUserInputFromRegisterForm.firstName.errors
-                }" />
-                        <div *ngIf="
-                  submitted && getAllUserInputFromRegisterForm.firstName.errors
-                " class="invalid-feedback">
-                            <div *ngIf="
-                    getAllUserInputFromRegisterForm.firstName.errors.required
-                  ">
-                                First Name is required
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+<!--  <div *ngIf="error" class="alert alert-danger">{{error}}</div> -->
+<form [formGroup]="registerNewUserForm" (ngSubmit)="onSubmit()">
+  <table cellpadding="2px" cellspacing="2px" align="left">
+    <div class="form-group">
+      <tr>
+        <td>
+          <div align="center">
+            <label for="firstName"><b>First name</b>&nbsp;</label>
+          </div>
+        </td>
+        <td width="70ptx"></td>
+        <td>
+          <input
+            type="text"
+            formcontrolname="firstName"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                submitted && getAllUserInputFromRegisterForm.firstName.errors
+            }"
+          />
+          <div
+            *ngIf="
+              submitted && getAllUserInputFromRegisterForm.firstName.errors
+            "
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="getAllUserInputFromRegisterForm.firstName.errors.required"
+            >
+              First Name is required
             </div>
+          </div>
+        </td>
+      </tr>
+    </div>
 
-            <div class="form-group">
-                <tr>
-                    <td>
-                        <div align="center">
-                            <label for="lastName"><b>Last name</b>&nbsp;</label>
-                        </div>
-                    </td>
-                    <td width="70ptx"></td>
-                    <td>
-                        <input type="text" formcontrolname="lastName" class="form-control" [ngClass]="{
-                  'is-invalid':
-                    submitted && getAllUserInputFromRegisterForm.lastName.errors
-                }" />
-                        <div *ngIf="
-                  submitted && getAllUserInputFromRegisterForm.lastName.errors
-                " class="invalid-feedback">
-                            <div *ngIf="
-                    getAllUserInputFromRegisterForm.lastName.errors.required
-                  ">
-                                Last name is required!
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+    <div class="form-group">
+      <tr>
+        <td>
+          <div align="center">
+            <label for="lastName"><b>Last name</b>&nbsp;</label>
+          </div>
+        </td>
+        <td width="70ptx"></td>
+        <td>
+          <input
+            type="text"
+            formcontrolname="lastName"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                submitted && getAllUserInputFromRegisterForm.lastName.errors
+            }"
+          />
+          <div
+            *ngIf="submitted && getAllUserInputFromRegisterForm.lastName.errors"
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="getAllUserInputFromRegisterForm.lastName.errors.required"
+            >
+              Last name is required!
             </div>
+          </div>
+        </td>
+      </tr>
+    </div>
 
-            <div class="form-group">
-                <tr>
-                    <td>
-                        <div align="center">
-                            <label for="userEmail"><b>Your email adress</b>&nbsp;</label>
-                        </div>
-                    </td>
-                    <td width="15ptx"></td>
-                    <td>
-                        <input type="text" formcontrolname="userEmail" class="form-control" [ngClass]="{
-                  'is-invalid':
-                    submitted &&
-                    getAllUserInputFromRegisterForm.userEmail.errors
-                }" />
-                        <div *ngIf="
-                  submitted && getAllUserInputFromRegisterForm.userEmail.errors
-                " class="invalid-feedback">
-                            <div *ngIf="
-                    getAllUserInputFromRegisterForm.userEmail.errors.required
-                  ">
-                                Valid email is required!
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+    <div class="form-group">
+      <tr>
+        <td>
+          <div align="center">
+            <label for="userEmail"><b>Your email adress</b>&nbsp;</label>
+          </div>
+        </td>
+        <td width="15ptx"></td>
+        <td>
+          <input
+            type="text"
+            formcontrolname="userEmail"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                submitted && getAllUserInputFromRegisterForm.userEmail.errors
+            }"
+          />
+          <div
+            *ngIf="
+              submitted && getAllUserInputFromRegisterForm.userEmail.errors
+            "
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="getAllUserInputFromRegisterForm.userEmail.errors.required"
+            >
+              Valid email is required!
             </div>
+          </div>
+        </td>
+      </tr>
+    </div>
 
-            <div class="form-group">
-                <tr>
-                    <td>
-                        <div align="center">
-                            <label for="userCity"><b>Your city</b>&nbsp;</label>
-                        </div>
-                    </td>
-                    <td width="85ptx"></td>
-                    <td>
-                        <input type="text" formcontrolname="userCity" class="form-control" [ngClass]="{
-                  'is-invalid':
-                    submitted && getAllUserInputFromRegisterForm.userCity.errors
-                }" />
-                        <div *ngIf="
-                  submitted && getAllUserInputFromRegisterForm.userCity.errors
-                " class="invalid-feedback">
-                            <div *ngIf="
-                    getAllUserInputFromRegisterForm.userCity.errors.required
-                  ">
-                                City name is required!
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+    <div class="form-group">
+      <tr>
+        <td>
+          <div align="center">
+            <label for="userCity"><b>Your city</b>&nbsp;</label>
+          </div>
+        </td>
+        <td width="85ptx"></td>
+        <td>
+          <input
+            type="text"
+            formcontrolname="userCity"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                submitted && getAllUserInputFromRegisterForm.userCity.errors
+            }"
+          />
+          <div
+            *ngIf="submitted && getAllUserInputFromRegisterForm.userCity.errors"
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="getAllUserInputFromRegisterForm.userCity.errors.required"
+            >
+              City name is required!
             </div>
+          </div>
+        </td>
+      </tr>
+    </div>
 
-            <div class="form-group">
-                <tr>
-                    <td>
-                        <div align="center">
-                            <label for="userBirthday"><b>Your birthday</b>&nbsp;</label>
-                        </div>
-                    </td>
-                    <td width="50ptx"></td>
-                    <td>
-                        <input type="text" formcontrolname="userBirthday" class="form-control" [ngClass]="{
-                  'is-invalid':
-                    submitted &&
-                    getAllUserInputFromRegisterForm.userBirthday.errors
-                }" />
-                        <div *ngIf="
-                  submitted &&
-                  getAllUserInputFromRegisterForm.userBirthday.errors
-                " class="invalid-feedback">
-                            <div *ngIf="
-                    getAllUserInputFromRegisterForm.userBirthday.errors.required
-                  ">
-                                Please provide your birthday : day.month.year !
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+    <div class="form-group">
+      <tr>
+        <td>
+          <div align="center">
+            <label for="userBirthday"><b>Your birthday</b>&nbsp;</label>
+          </div>
+        </td>
+        <td width="50ptx"></td>
+        <td>
+          <input
+            type="text"
+            formcontrolname="userBirthday"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                submitted && getAllUserInputFromRegisterForm.userBirthday.errors
+            }"
+          />
+          <div
+            *ngIf="
+              submitted && getAllUserInputFromRegisterForm.userBirthday.errors
+            "
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="
+                getAllUserInputFromRegisterForm.userBirthday.errors.required
+              "
+            >
+              Please provide your birthday : day.month.year !
             </div>
+          </div>
+        </td>
+      </tr>
+    </div>
 
-            <div class="form-group">
-                <tr>
-                    <td>
-                        <div align="center">
-                            <label for="userCountry" align="center"><b>Your country</b>&nbsp;</label
-                >
-              </div>
-            </td>
-            <td width="56ptx"></td>
-            <td>
-              <input
-                type="text"
-                formcontrolname="userCountry"
-                class="form-control"
-                [ngClass]="{
-                  'is-invalid':
-                    submitted &&
-                    getAllUserInputFromRegisterForm.userCountry.errors
-                }"
-              />
-              <div
-                *ngIf="
-                  submitted &&
-                  getAllUserInputFromRegisterForm.userCountry.errors
-                "
-                class="invalid-feedback"
-              >
-                <div
-                  *ngIf="
-                    getAllUserInputFromRegisterForm.userCountry.errors.required
-                  "
-                >
-                  Please provide your country name !
-                </div>
-              </div>
-            </td>
-          </tr>
-        </div>
-
-        <div class="form-group">
-          <tr>
-            <td>
-              <div align="center">
-                <label for="userStreetName"><b>Your street</b>&nbsp;</label>
-                        </div>
-                    </td>
-                    <td width="70ptx"></td>
-                    <td>
-                        <input type="text" formcontrolname="userStreetName" class="form-control" [ngClass]="{
-                  'is-invalid':
-                    submitted &&
-                    getAllUserInputFromRegisterForm.userStreetName.errors
-                }" />
-                        <div *ngIf="
-                  submitted &&
-                  getAllUserInputFromRegisterForm.userStreetName.errors
-                " class="invalid-feedback">
-                            <div *ngIf="
-                    getAllUserInputFromRegisterForm.userStreetName.errors
-                      .required
-                  ">
-                                Please provide your stree name !
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+    <div class="form-group">
+      <tr>
+        <td>
+          <div align="center">
+            <label for="userCountry" align="center"
+              ><b>Your country</b>&nbsp;</label
+            >
+          </div>
+        </td>
+        <td width="56ptx"></td>
+        <td>
+          <input
+            type="text"
+            formcontrolname="userCountry"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                submitted && getAllUserInputFromRegisterForm.userCountry.errors
+            }"
+          />
+          <div
+            *ngIf="
+              submitted && getAllUserInputFromRegisterForm.userCountry.errors
+            "
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="
+                getAllUserInputFromRegisterForm.userCountry.errors.required
+              "
+            >
+              Please provide your country name !
             </div>
+          </div>
+        </td>
+      </tr>
+    </div>
 
-            <div class="form-group">
-                <tr>
-                    <td>
-                        <div align="center">
-                            <label for="userStreetNumber"><b>Your street number</b>&nbsp;</label
-                >
-              </div>
-            </td>
-            <td width="10ptx"></td>
-            <td>
-              <input
-                type="text"
-                formcontrolname="userStreetNumber"
-                class="form-control"
-                [ngClass]="{
-                  'is-invalid':
-                    submitted &&
-                    getAllUserInputFromRegisterForm.userStreetNumber.errors
-                }"
-              />
-              <div
-                *ngIf="
-                  submitted &&
-                  getAllUserInputFromRegisterForm.userStreetNumber.errors
-                "
-                class="invalid-feedback"
-              >
-                <div
-                  *ngIf="
-                    getAllUserInputFromRegisterForm.userStreetNumber.errors
-                      .required
-                  "
-                >
-                  Please provide your street number !
-                </div>
-              </div>
-            </td>
-          </tr>
-        </div>
+    <div class="form-group">
+      <tr>
+        <td>
+          <div align="center">
+            <label for="userStreetName"><b>Your street</b>&nbsp;</label>
+          </div>
+        </td>
+        <td width="70ptx"></td>
+        <td>
+          <input
+            type="text"
+            formcontrolname="userStreetName"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                submitted &&
+                getAllUserInputFromRegisterForm.userStreetName.errors
+            }"
+          />
+          <div
+            *ngIf="
+              submitted && getAllUserInputFromRegisterForm.userStreetName.errors
+            "
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="
+                getAllUserInputFromRegisterForm.userStreetName.errors.required
+              "
+            >
+              Please provide your stree name !
+            </div>
+          </div>
+        </td>
+      </tr>
+    </div>
 
-        <!--yet to be implemented!
+    <div class="form-group">
+      <tr>
+        <td>
+          <div align="center">
+            <label for="userStreetNumber"
+              ><b>Your street number</b>&nbsp;</label
+            >
+          </div>
+        </td>
+        <td width="10ptx"></td>
+        <td>
+          <input
+            type="text"
+            formcontrolname="userStreetNumber"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                submitted &&
+                getAllUserInputFromRegisterForm.userStreetNumber.errors
+            }"
+          />
+          <div
+            *ngIf="
+              submitted &&
+              getAllUserInputFromRegisterForm.userStreetNumber.errors
+            "
+            class="invalid-feedback"
+          >
+            <div
+              *ngIf="
+                getAllUserInputFromRegisterForm.userStreetNumber.errors.required
+              "
+            >
+              Please provide your street number !
+            </div>
+          </div>
+        </td>
+      </tr>
+    </div>
+
+    <!--yet to be implemented!
                                                                       <div class="form-group">
                                                                         <label for="userSelectedJobState">Select your current job state</label>
 
@@ -272,22 +309,22 @@
                                                                         </select>
                         </div>
                         -->
-                        <tr>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="form-group">
-                                    <div align="left">
-                                        <button mat-raised-button color="primary">
-                  Click here for registration!!!!!
-                </button>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-        </table>
-    </form>
-</body>
-
-</html>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="form-group">
+          <div align="left">
+            <button mat-raised-button color="primary">
+              Click here for registration!!!!!
+            </button>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+<br />
+<br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br />

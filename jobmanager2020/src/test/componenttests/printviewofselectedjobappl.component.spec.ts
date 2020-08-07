@@ -21,6 +21,7 @@ describe('PrintviewofselectedjobapplComponent', () => {
         MatTableModule,
         MatPaginatorModule,
         BrowserAnimationsModule,
+        MatTableModule,
       ],
     }).compileComponents();
   }));
