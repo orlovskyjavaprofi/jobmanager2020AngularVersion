@@ -2,40 +2,111 @@
 the user one by one trought interaction with web ui!-->
 <!-- header -->
 
-<b><u>Test menu</u></b
->&nbsp;&nbsp;
-<!--This menu is temporary write better menu!-->
-<a routerLink="">main</a>&nbsp;&nbsp;
-<a routerLink="/login">login</a>&nbsp;&nbsp;
-<a routerLink="/register">register</a>&nbsp;&nbsp;
-<a routerLink="/legal">legal</a>
-<br /><br />
-<b><u>Test menu for auth user:</u></b> >&nbsp;&nbsp;
-<b><a routerLink="/useracn">My user account</a></b
->&nbsp;&nbsp;
-<b><a routerLink="/currentjobapps">View current applications</a></b
->&nbsp;&nbsp;<b><a routerLink="/createnewjobappl">Create new application</a></b
->&nbsp;&nbsp;<b
-  ><a routerLink="/createnewemailfromjobappl"
-    >Create emails from applications</a
-  ></b
->&nbsp;&nbsp;
-<b><a routerLink="/searchforajobapplication">Search for job application</a></b
->&nbsp;&nbsp; <b>Select applications for print view</b>&nbsp;&nbsp;
-<b>Select application for deletion</b>&nbsp;&nbsp;
-<b>logout</b>
-<router-outlet></router-outlet>
-
-<br /><br /><br /><br /><br /><br /><br /><br />
-
-<!-- Footer -->
+<br />
 <div align="center">
-  <br />
-  <h3>
-    2020 Created by
-    <a href="http://www.javaprofide.de">Alexander Orlovsky </a> <br />
-    License:
-    <a href="https://www.gnu.org/licenses/old-licenses/lgpl-2.1">LGPL</a>
-  </h3>
+  <!--This menu is temporary write better menu!-->
+  <a routerLink=""
+    ><button mat-raised-button style="font-weight: bold;" color="primary">
+      Home
+    </button></a
+  >&nbsp;&nbsp;
+  <a routerLink="/login"
+    ><button mat-raised-button style="font-weight: bold;" color="primary">
+      Login
+    </button></a
+  >&nbsp;&nbsp;
+  <a routerLink="/register"
+    ><button mat-raised-button style="font-weight: bold;" color="primary">
+      Register
+    </button></a
+  >&nbsp;&nbsp;
+  <a routerLink="/legal"
+    ><button mat-raised-button style="font-weight: bold;" color="primary">
+      legal
+    </button></a
+  >
 </div>
-<!-- Footer -->
+<br /><br />
+<b><u>Test menu for auth user after successeful login:</u></b>
+<br />
+<b
+  ><a routerLink="/useracn">My user account</a>&nbsp;&nbsp;
+  <button
+    mat-button
+    [matMenuTriggerFor]="beforeMenu"
+    style="font-weight: bold; background-color: darkblue; color: white;"
+  >
+    I would like to
+  </button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button
+      mat-menu-item
+      style="font-weight: bold; background-color: deepskyblue;"
+    >
+      <b
+        ><a routerLink="/currentjobapps" style="color: white;"
+          >View current applications</a
+        ></b
+      >
+    </button>
+    <button
+      mat-menu-item
+      style="font-weight: bold; background-color: deepskyblue;"
+    >
+      <b
+        ><a routerLink="/createnewjobappl" style="color: white;"
+          >Create new application</a
+        ></b
+      >
+    </button>
+    <button
+      mat-menu-item
+      style="font-weight: bold; background-color: deepskyblue;"
+    >
+      <b
+        ><a routerLink="/createnewemailfromjobappl" style="color: white;"
+          >Create emails from applications</a
+        ></b
+      >
+    </button>
+    <button
+      mat-menu-item
+      style="font-weight: bold; background-color: deepskyblue;"
+    >
+      <b
+        ><a routerLink="/searchforajobapplication" style="color: white;"
+          >Search for job application</a
+        ></b
+      >
+    </button>
+    <button
+      mat-menu-item
+      style="font-weight: bold; background-color: deepskyblue;"
+    >
+      <b>Select application for deletion</b>
+    </button>
+  </mat-menu>
+  &nbsp;&nbsp;
+  <b
+    ><a routerLink="/printviewofselectedtimeline"
+      >Job applications print view for timeline</a
+    ></b
+  >&nbsp;&nbsp;
+  <b>logout</b>
+
+  <router-outlet></router-outlet>
+
+  <br /><br /><br /><br /><br /><br /><br /><br />
+
+  <!-- Footer -->
+  <div align="center">
+    <br />
+    <h3>
+      2020 Created by
+      <a href="http://www.javaprofide.de">Alexander Orlovsky </a> <br />
+      License:
+      <a href="https://www.gnu.org/licenses/old-licenses/lgpl-2.1">LGPL</a>
+    </h3>
+  </div>
+  <!-- Footer -->
+</b>

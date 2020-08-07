@@ -2,11 +2,17 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from '../../app/main/app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, RouterTestingModule],
+      imports: [
+        ReactiveFormsModule,
+        RouterTestingModule,
+        MatMenuModule,
+        MatButtonModule,
+      ],
       declarations: [AppComponent],
     }).compileComponents();
   }));
