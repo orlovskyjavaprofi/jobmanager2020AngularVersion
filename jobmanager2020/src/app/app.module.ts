@@ -29,6 +29,7 @@ import { SearchforapplicationComponent } from './components/searchforapplication
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PrintviewofselectedjobapplComponent } from './components/printviewofselectedjobappl/printviewofselectedjobappl.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { ResetuserpasswordComponent } from './components/resetuserpassword/resetuserpassword.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { MatMenuModule } from '@angular/material/menu';
     CreateemailComponent,
     SearchforapplicationComponent,
     PrintviewofselectedjobapplComponent,
+    ResetuserpasswordComponent,
   ],
   imports: [
     MatMenuModule,
