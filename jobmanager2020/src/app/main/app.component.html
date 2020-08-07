@@ -27,74 +27,89 @@ the user one by one trought interaction with web ui!-->
   >
 </div>
 <br />
-<div align="center">
+<div align="left">
   <b style="color: red;"
     ><u>Test menu for auth user after successeful login:</u></b
   >&nbsp;&nbsp;
-  <b
-    ><a routerLink="/useracn">My user account</a>&nbsp;&nbsp;
+
+  <button
+    mat-raised-button
+    style="font-weight: bold; background-color: darkblue;"
+  >
+    <b><a routerLink="/useracn" style="color: white;">My user account</a></b>
+  </button>
+  &nbsp;&nbsp;
+  <button
+    mat-button
+    [matMenuTriggerFor]="belowMenu"
+    style="font-weight: bold; background-color: darkblue; color: white;"
+  >
+    I would like to
+  </button>
+  <mat-menu #belowMenu="matMenu" yPosition="below">
     <button
-      mat-button
-      [matMenuTriggerFor]="beforeMenu"
-      style="font-weight: bold; background-color: darkblue; color: white;"
+      mat-menu-item
+      style="font-weight: bold; background-color: deepskyblue;"
     >
-      I would like to
+      <b
+        ><a routerLink="/currentjobapps" style="color: white;"
+          >View current applications</a
+        ></b
+      >
     </button>
-    <mat-menu #beforeMenu="matMenu" xPosition="before">
-      <button
-        mat-menu-item
-        style="font-weight: bold; background-color: deepskyblue;"
+    <button
+      mat-menu-item
+      style="font-weight: bold; background-color: deepskyblue;"
+    >
+      <b
+        ><a routerLink="/createnewjobappl" style="color: white;"
+          >Create new application</a
+        ></b
       >
-        <b
-          ><a routerLink="/currentjobapps" style="color: white;"
-            >View current applications</a
-          ></b
-        >
-      </button>
-      <button
-        mat-menu-item
-        style="font-weight: bold; background-color: deepskyblue;"
+    </button>
+    <button
+      mat-menu-item
+      style="font-weight: bold; background-color: deepskyblue;"
+    >
+      <b
+        ><a routerLink="/createnewemailfromjobappl" style="color: white;"
+          >Create emails from applications</a
+        ></b
       >
-        <b
-          ><a routerLink="/createnewjobappl" style="color: white;"
-            >Create new application</a
-          ></b
-        >
-      </button>
-      <button
-        mat-menu-item
-        style="font-weight: bold; background-color: deepskyblue;"
+    </button>
+    <button
+      mat-menu-item
+      style="font-weight: bold; background-color: deepskyblue;"
+    >
+      <b
+        ><a routerLink="/searchforajobapplication" style="color: white;"
+          >Search for job application</a
+        ></b
       >
-        <b
-          ><a routerLink="/createnewemailfromjobappl" style="color: white;"
-            >Create emails from applications</a
-          ></b
-        >
-      </button>
-      <button
-        mat-menu-item
-        style="font-weight: bold; background-color: deepskyblue;"
-      >
-        <b
-          ><a routerLink="/searchforajobapplication" style="color: white;"
-            >Search for job application</a
-          ></b
-        >
-      </button>
-      <button
-        mat-menu-item
-        style="font-weight: bold; background-color: deepskyblue;"
-      >
-        <b>Select application for deletion</b>
-      </button>
-    </mat-menu>
-    &nbsp;&nbsp;
+    </button>
+    <button
+      mat-menu-item
+      style="font-weight: bold; background-color: deepskyblue;"
+    >
+      <b>Select application for deletion</b>
+    </button>
+  </mat-menu>
+  &nbsp;&nbsp;
+  <button
+    mat-raised-button
+    style="font-weight: bold; background-color: darkblue;"
+  >
     <b
-      ><a routerLink="/printviewofselectedtimeline"
+      ><a routerLink="/printviewofselectedtimeline" style="color: white;"
         >Job applications print view for timeline</a
       ></b
-    >&nbsp;&nbsp;
-    <b>logout</b>
+    ></button
+  >&nbsp;&nbsp;<b>
+    <a routerLink=""
+      ><button mat-raised-button style="font-weight: bold;" color="warn">
+        <u>Logout</u>
+      </button></a
+    >
   </b>
 </div>
 <router-outlet></router-outlet>
