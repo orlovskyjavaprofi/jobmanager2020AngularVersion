@@ -6,101 +6,105 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
 </head>
 
-<h1>Login</h1>
-<div class="card">
-  <div class="card-body">
-    <form [formGroup]="mainPageForm" (ngSubmit)="onSubmit()">
-      <table>
-        <div class="form-group">
-          <tr>
-            <td>
-              <label for="username"><b>Username</b></label>
-            </td>
-            <td width="20px"></td>
-            <td>
-              <input
-                type="text"
-                formControlName="username"
-                class="form-control"
-                [ngClass]="{
-                  'is-invalid':
+<div align="center">
+  <h1>Login</h1>
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="mainPageForm" (ngSubmit)="onSubmit()">
+        <table>
+          <div class="form-group">
+            <tr>
+              <td>
+                <label for="username"><b>Username</b></label>
+              </td>
+              <td width="20px"></td>
+              <td>
+                <input
+                  type="text"
+                  formControlName="username"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      submitted &&
+                      getAllUserInputFromMainPageForm.username.errors
+                  }"
+                />
+                <div
+                  *ngIf="
                     submitted && getAllUserInputFromMainPageForm.username.errors
-                }"
-              />
-              <div
-                *ngIf="
-                  submitted && getAllUserInputFromMainPageForm.username.errors
-                "
-                class="invalid-feedback"
-              >
+                  "
+                  class="invalid-feedback"
+                >
+                  <div
+                    *ngIf="
+                      getAllUserInputFromMainPageForm.username.errors.required
+                    "
+                  >
+                    Username is required
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </div>
+
+          <div class="form-group">
+            <tr>
+              <td>
+                <label for="password"><b>Password</b></label>
+              </td>
+              <td width="20px"></td>
+              <td>
+                <input
+                  type="password"
+                  formControlName="password"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid':
+                      submitted &&
+                      getAllUserInputFromMainPageForm.password.errors
+                  }"
+                />
                 <div
                   *ngIf="
-                    getAllUserInputFromMainPageForm.username.errors.required
+                    submitted && getAllUserInputFromMainPageForm.password.errors
                   "
+                  class="invalid-feedback"
                 >
-                  Username is required
+                  <div
+                    *ngIf="
+                      getAllUserInputFromMainPageForm.password.errors.required
+                    "
+                  >
+                    Password is required
+                  </div>
                 </div>
-              </div>
-            </td>
-          </tr>
-        </div>
-
-        <div class="form-group">
+              </td>
+            </tr>
+          </div>
+        </table>
+        <br />
+        <table>
           <tr>
             <td>
-              <label for="password"><b>Password</b></label>
+              <div align="right">
+                <button mat-raised-button color="primary" style="width: 150px;">
+                  Login
+                </button>
+              </div>
             </td>
             <td width="20px"></td>
             <td>
-              <input
-                type="password"
-                formControlName="password"
-                class="form-control"
-                [ngClass]="{
-                  'is-invalid':
-                    submitted && getAllUserInputFromMainPageForm.password.errors
-                }"
-              />
-              <div
-                *ngIf="
-                  submitted && getAllUserInputFromMainPageForm.password.errors
-                "
-                class="invalid-feedback"
-              >
-                <div
-                  *ngIf="
-                    getAllUserInputFromMainPageForm.password.errors.required
-                  "
-                >
-                  Password is required
-                </div>
+              <div align="left">
+                <button mat-raised-button color="warn" style="width: 150px;">
+                  <a routerLink="/resetuserpasswd" style="color: white;">
+                    Reset password!</a
+                  >
+                </button>
               </div>
             </td>
           </tr>
-        </div>
-      </table>
-      <br />
-      <table>
-        <tr>
-          <td>
-            <div align="right">
-              <button mat-raised-button color="primary" style="width: 150px;">
-                Login
-              </button>
-            </div>
-          </td>
-          <td width="20px"></td>
-          <td>
-            <div align="left">
-              <button mat-raised-button color="warn" style="width: 150px;">
-                <a routerLink="/resetuserpasswd" style="color: white;">
-                  Reset password!</a
-                >
-              </button>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </form>
+        </table>
+      </form>
+    </div>
   </div>
 </div>
