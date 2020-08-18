@@ -20,29 +20,34 @@
           </td>
           <td width="70ptx"></td>
           <td>
-            <input
-              type="text"
-              formcontrolname="firstName"
-              class="form-control"
-              [ngClass]="{
-                'is-invalid':
-                  submitted && getAllUserInputFromRegisterForm.firstName.errors
-              }"
-            />
-            <div
-              *ngIf="
-                submitted && getAllUserInputFromRegisterForm.firstName.errors
-              "
-              class="invalid-feedback"
-            >
+            <mat-form-field class="input-field-full-width" appearance="fill">
+              <mat-label>Your first name</mat-label>
+              <input
+                matInput
+                type="text"
+                formcontrolname="firstName"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    submitted &&
+                    getAllUserInputFromRegisterForm.firstName.errors
+                }"
+              />
               <div
                 *ngIf="
-                  getAllUserInputFromRegisterForm.firstName.errors.required
+                  submitted && getAllUserInputFromRegisterForm.firstName.errors
                 "
+                class="invalid-feedback"
               >
-                First Name is required
+                <div
+                  *ngIf="
+                    getAllUserInputFromRegisterForm.firstName.errors.required
+                  "
+                >
+                  <b> First Name is required</b>
+                </div>
               </div>
-            </div>
+            </mat-form-field>
           </td>
         </tr>
       </div>
@@ -56,27 +61,33 @@
           </td>
           <td width="70ptx"></td>
           <td>
-            <input
-              type="text"
-              formcontrolname="lastName"
-              class="form-control"
-              [ngClass]="{
-                'is-invalid':
-                  submitted && getAllUserInputFromRegisterForm.lastName.errors
-              }"
-            />
-            <div
-              *ngIf="
-                submitted && getAllUserInputFromRegisterForm.lastName.errors
-              "
-              class="invalid-feedback"
-            >
+            <mat-form-field class="input-field-full-width" appearance="fill">
+              <mat-label>Your last name</mat-label>
+              <input
+                matInput
+                type="text"
+                formcontrolname="lastName"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    submitted && getAllUserInputFromRegisterForm.lastName.errors
+                }"
+              />
               <div
-                *ngIf="getAllUserInputFromRegisterForm.lastName.errors.required"
+                *ngIf="
+                  submitted && getAllUserInputFromRegisterForm.lastName.errors
+                "
+                class="invalid-feedback"
               >
-                Last name is required!
+                <div
+                  *ngIf="
+                    getAllUserInputFromRegisterForm.lastName.errors.required
+                  "
+                >
+                  <b>Last name is required!</b>
+                </div>
               </div>
-            </div>
+            </mat-form-field>
           </td>
         </tr>
       </div>
@@ -90,29 +101,34 @@
           </td>
           <td width="15ptx"></td>
           <td>
-            <input
-              type="text"
-              formcontrolname="userEmail"
-              class="form-control"
-              [ngClass]="{
-                'is-invalid':
-                  submitted && getAllUserInputFromRegisterForm.userEmail.errors
-              }"
-            />
-            <div
-              *ngIf="
-                submitted && getAllUserInputFromRegisterForm.userEmail.errors
-              "
-              class="invalid-feedback"
-            >
+            <mat-form-field class="input-field-full-width" appearance="fill">
+              <mat-label>Your email</mat-label>
+              <input
+                matInput
+                type="text"
+                formcontrolname="userEmail"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    submitted &&
+                    getAllUserInputFromRegisterForm.userEmail.errors
+                }"
+              />
               <div
                 *ngIf="
-                  getAllUserInputFromRegisterForm.userEmail.errors.required
+                  submitted && getAllUserInputFromRegisterForm.userEmail.errors
                 "
+                class="invalid-feedback"
               >
-                Valid email is required!
+                <div
+                  *ngIf="
+                    getAllUserInputFromRegisterForm.userEmail.errors.required
+                  "
+                >
+                  <b>Valid email is required!</b>
+                </div>
               </div>
-            </div>
+            </mat-form-field>
           </td>
         </tr>
       </div>
@@ -126,27 +142,33 @@
           </td>
           <td width="85ptx"></td>
           <td>
-            <input
-              type="text"
-              formcontrolname="userCity"
-              class="form-control"
-              [ngClass]="{
-                'is-invalid':
-                  submitted && getAllUserInputFromRegisterForm.userCity.errors
-              }"
-            />
-            <div
-              *ngIf="
-                submitted && getAllUserInputFromRegisterForm.userCity.errors
-              "
-              class="invalid-feedback"
-            >
+            <mat-form-field class="input-field-full-width" appearance="fill">
+              <mat-label>Provide city name</mat-label>
+              <input
+                matInput
+                type="text"
+                formcontrolname="userCity"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    submitted && getAllUserInputFromRegisterForm.userCity.errors
+                }"
+              />
               <div
-                *ngIf="getAllUserInputFromRegisterForm.userCity.errors.required"
+                *ngIf="
+                  submitted && getAllUserInputFromRegisterForm.userCity.errors
+                "
+                class="invalid-feedback"
               >
-                City name is required!
+                <div
+                  *ngIf="
+                    getAllUserInputFromRegisterForm.userCity.errors.required
+                  "
+                >
+                  <b>City name is required!</b>
+                </div>
               </div>
-            </div>
+            </mat-form-field>
           </td>
         </tr>
       </div>
@@ -160,30 +182,35 @@
           </td>
           <td width="50ptx"></td>
           <td>
-            <input
-              type="text"
-              formcontrolname="userBirthday"
-              class="form-control"
-              [ngClass]="{
-                'is-invalid':
-                  submitted &&
-                  getAllUserInputFromRegisterForm.userBirthday.errors
-              }"
-            />
-            <div
-              *ngIf="
-                submitted && getAllUserInputFromRegisterForm.userBirthday.errors
-              "
-              class="invalid-feedback"
-            >
+            <mat-form-field class="input-field-full-width" appearance="fill">
+              <mat-label>Your birthday</mat-label>
+              <input
+                matInput
+                type="text"
+                formcontrolname="userBirthday"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    submitted &&
+                    getAllUserInputFromRegisterForm.userBirthday.errors
+                }"
+              />
               <div
                 *ngIf="
-                  getAllUserInputFromRegisterForm.userBirthday.errors.required
+                  submitted &&
+                  getAllUserInputFromRegisterForm.userBirthday.errors
                 "
+                class="invalid-feedback"
               >
-                Please provide your birthday : day.month.year !
+                <div
+                  *ngIf="
+                    getAllUserInputFromRegisterForm.userBirthday.errors.required
+                  "
+                >
+                  <b>Please provide your birthday : day.month.year !</b>
+                </div>
               </div>
-            </div>
+            </mat-form-field>
           </td>
         </tr>
       </div>
@@ -199,30 +226,35 @@
           </td>
           <td width="56ptx"></td>
           <td>
-            <input
-              type="text"
-              formcontrolname="userCountry"
-              class="form-control"
-              [ngClass]="{
-                'is-invalid':
-                  submitted &&
-                  getAllUserInputFromRegisterForm.userCountry.errors
-              }"
-            />
-            <div
-              *ngIf="
-                submitted && getAllUserInputFromRegisterForm.userCountry.errors
-              "
-              class="invalid-feedback"
-            >
+            <mat-form-field class="input-field-full-width" appearance="fill">
+              <mat-label>Your country name</mat-label>
+              <input
+                matInput
+                type="text"
+                formcontrolname="userCountry"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    submitted &&
+                    getAllUserInputFromRegisterForm.userCountry.errors
+                }"
+              />
               <div
                 *ngIf="
-                  getAllUserInputFromRegisterForm.userCountry.errors.required
+                  submitted &&
+                  getAllUserInputFromRegisterForm.userCountry.errors
                 "
+                class="invalid-feedback"
               >
-                Please provide your country name !
+                <div
+                  *ngIf="
+                    getAllUserInputFromRegisterForm.userCountry.errors.required
+                  "
+                >
+                  <b> Please provide your country name !</b>
+                </div>
               </div>
-            </div>
+            </mat-form-field>
           </td>
         </tr>
       </div>
@@ -236,31 +268,36 @@
           </td>
           <td width="70ptx"></td>
           <td>
-            <input
-              type="text"
-              formcontrolname="userStreetName"
-              class="form-control"
-              [ngClass]="{
-                'is-invalid':
-                  submitted &&
-                  getAllUserInputFromRegisterForm.userStreetName.errors
-              }"
-            />
-            <div
-              *ngIf="
-                submitted &&
-                getAllUserInputFromRegisterForm.userStreetName.errors
-              "
-              class="invalid-feedback"
-            >
+            <mat-form-field class="input-field-full-width" appearance="fill">
+              <mat-label>Your stree name</mat-label>
+              <input
+                matInput
+                type="text"
+                formcontrolname="userStreetName"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    submitted &&
+                    getAllUserInputFromRegisterForm.userStreetName.errors
+                }"
+              />
               <div
                 *ngIf="
-                  getAllUserInputFromRegisterForm.userStreetName.errors.required
+                  submitted &&
+                  getAllUserInputFromRegisterForm.userStreetName.errors
                 "
+                class="invalid-feedback"
               >
-                Please provide your stree name !
+                <div
+                  *ngIf="
+                    getAllUserInputFromRegisterForm.userStreetName.errors
+                      .required
+                  "
+                >
+                  <b>Please provide your street name !</b>
+                </div>
               </div>
-            </div>
+            </mat-form-field>
           </td>
         </tr>
       </div>
@@ -276,32 +313,36 @@
           </td>
           <td width="10ptx"></td>
           <td>
-            <input
-              type="text"
-              formcontrolname="userStreetNumber"
-              class="form-control"
-              [ngClass]="{
-                'is-invalid':
-                  submitted &&
-                  getAllUserInputFromRegisterForm.userStreetNumber.errors
-              }"
-            />
-            <div
-              *ngIf="
-                submitted &&
-                getAllUserInputFromRegisterForm.userStreetNumber.errors
-              "
-              class="invalid-feedback"
-            >
+            <mat-form-field class="input-field-full-width" appearance="fill">
+              <mat-label>Your street number</mat-label>
+              <input
+                matInput
+                type="text"
+                formcontrolname="userStreetNumber"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid':
+                    submitted &&
+                    getAllUserInputFromRegisterForm.userStreetNumber.errors
+                }"
+              />
               <div
                 *ngIf="
+                  submitted &&
                   getAllUserInputFromRegisterForm.userStreetNumber.errors
-                    .required
                 "
+                class="invalid-feedback"
               >
-                Please provide your street number !
+                <div
+                  *ngIf="
+                    getAllUserInputFromRegisterForm.userStreetNumber.errors
+                      .required
+                  "
+                >
+                  <b> Please provide your street number !</b>
+                </div>
               </div>
-            </div>
+            </mat-form-field>
           </td>
         </tr>
       </div>

@@ -41,7 +41,5 @@ export class UserregistrationComponent implements OnInit {
       return;
     }
     this.loading = true;
-    //AccountService must be implemented!
-    //AlertService must be implemented
   }
 }

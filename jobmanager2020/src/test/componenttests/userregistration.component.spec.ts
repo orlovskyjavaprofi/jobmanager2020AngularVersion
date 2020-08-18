@@ -2,6 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserregistrationComponent } from '../../app/components/userregistration/userregistration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('UserregistrationComponent', () => {
   let userRegistrationComponent: UserregistrationComponent;
@@ -9,8 +12,14 @@ describe('UserregistrationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, RouterTestingModule],
       declarations: [UserregistrationComponent],
+      imports: [
+        ReactiveFormsModule,
+        RouterTestingModule,
+        MatInputModule,
+        MatFormFieldModule,
+        BrowserAnimationsModule,
+      ],
     }).compileComponents();
   }));
 
