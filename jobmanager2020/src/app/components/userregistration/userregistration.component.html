@@ -9,7 +9,7 @@
   <h1>New user registration!</h1>
 
   <!--  <div *ngIf="error" class="alert alert-danger">{{error}}</div> -->
-  <form [formGroup]="registerNewUserForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="registerNewUserForm" (ngSubmit)="onSubmit('newuserreg')">
     <table cellpadding="2px" cellspacing="2px" align="center">
       <div class="form-group">
         <tr>
@@ -25,6 +25,7 @@
               <input
                 matInput
                 type="text"
+                name="firstName"
                 formcontrolname="firstName"
                 class="form-control"
                 [ngClass]="{
@@ -66,6 +67,7 @@
               <input
                 matInput
                 type="text"
+                name="lastName"
                 formcontrolname="lastName"
                 class="form-control"
                 [ngClass]="{
@@ -106,6 +108,7 @@
               <input
                 matInput
                 type="text"
+                name="userEmail"
                 formcontrolname="userEmail"
                 class="form-control"
                 [ngClass]="{
@@ -147,6 +150,7 @@
               <input
                 matInput
                 type="text"
+                name="userCity"
                 formcontrolname="userCity"
                 class="form-control"
                 [ngClass]="{
@@ -187,6 +191,7 @@
               <input
                 matInput
                 type="text"
+                name="userBirthday"
                 formcontrolname="userBirthday"
                 class="form-control"
                 [ngClass]="{
@@ -231,6 +236,7 @@
               <input
                 matInput
                 type="text"
+                name="userCountry"
                 formcontrolname="userCountry"
                 class="form-control"
                 [ngClass]="{
@@ -273,6 +279,7 @@
               <input
                 matInput
                 type="text"
+                name="userStreetName"
                 formcontrolname="userStreetName"
                 class="form-control"
                 [ngClass]="{
@@ -318,6 +325,7 @@
               <input
                 matInput
                 type="text"
+                name="userStreetNumber"
                 formcontrolname="userStreetNumber"
                 class="form-control"
                 [ngClass]="{
