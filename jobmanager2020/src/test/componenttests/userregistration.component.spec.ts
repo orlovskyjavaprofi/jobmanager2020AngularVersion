@@ -56,7 +56,7 @@ describe('UserregistrationComponent', () => {
     let userCountryName: string = 'USA';
     let userStreetNumber: string = '22';
     let userStreetName: string = 'Row street';
-
+    let userCurrentEmploymentState: string = 'Unemployed';
     expect(
       userRegistrationComponent.userProvidedInput(
         userfirstName,
@@ -66,7 +66,8 @@ describe('UserregistrationComponent', () => {
         userBirthDay,
         userCountryName,
         userStreetNumber,
-        userStreetName
+        userStreetName,
+        userCurrentEmploymentState
       )
     ).toBe('new user should be created');
   });
@@ -80,6 +81,7 @@ describe('UserregistrationComponent', () => {
     let userCountryName: string = 'USA';
     let userStreetNumber: string = '22';
     let userStreetName: string = 'Row street';
+    let userCurrentEmploymentState: string = 'Freelancer';
 
     expect(
       userRegistrationComponent.userProvidedInput(
@@ -90,7 +92,8 @@ describe('UserregistrationComponent', () => {
         userBirthDay,
         userCountryName,
         userStreetNumber,
-        userStreetName
+        userStreetName,
+        userCurrentEmploymentState
       )
     ).toBe('user was not created');
   });
@@ -104,7 +107,7 @@ describe('UserregistrationComponent', () => {
     let userCountryName: string = 'USA';
     let userStreetNumber: string = '22';
     let userStreetName: string = 'Row street';
-
+    let userCurrentEmploymentState: string = 'Contractor';
     expect(
       userRegistrationComponent.userProvidedInput(
         userfirstName,
@@ -114,7 +117,8 @@ describe('UserregistrationComponent', () => {
         userBirthDay,
         userCountryName,
         userStreetNumber,
-        userStreetName
+        userStreetName,
+        userCurrentEmploymentState
       )
     ).toBe('user was not created');
   });
@@ -128,7 +132,7 @@ describe('UserregistrationComponent', () => {
     let userCountryName: string = 'USA';
     let userStreetNumber: string = '22';
     let userStreetName: string = 'Row street';
-
+    let userCurrentEmploymentState: string = 'Employee';
     expect(
       userRegistrationComponent.userProvidedInput(
         userfirstName,
@@ -138,7 +142,8 @@ describe('UserregistrationComponent', () => {
         userBirthDay,
         userCountryName,
         userStreetNumber,
-        userStreetName
+        userStreetName,
+        userCurrentEmploymentState
       )
     ).toBe('user was not created');
   });
@@ -152,7 +157,7 @@ describe('UserregistrationComponent', () => {
     let userCountryName: string = 'USA';
     let userStreetNumber: string = '22';
     let userStreetName: string = 'Row street';
-
+    let userCurrentEmploymentState: string = 'Employer';
     expect(
       userRegistrationComponent.userProvidedInput(
         userfirstName,
@@ -162,7 +167,8 @@ describe('UserregistrationComponent', () => {
         userBirthDay,
         userCountryName,
         userStreetNumber,
-        userStreetName
+        userStreetName,
+        userCurrentEmploymentState
       )
     ).toBe('user was not created');
   });
@@ -176,7 +182,7 @@ describe('UserregistrationComponent', () => {
     let userCountryName: string = '';
     let userStreetNumber: string = '22';
     let userStreetName: string = 'Row street';
-
+    let userCurrentEmploymentState: string = 'Employer';
     expect(
       userRegistrationComponent.userProvidedInput(
         userfirstName,
@@ -186,7 +192,8 @@ describe('UserregistrationComponent', () => {
         userBirthDay,
         userCountryName,
         userStreetNumber,
-        userStreetName
+        userStreetName,
+        userCurrentEmploymentState
       )
     ).toBe('user was not created');
   });
@@ -200,7 +207,7 @@ describe('UserregistrationComponent', () => {
     let userCountryName: string = 'ddd';
     let userStreetNumber: string = '';
     let userStreetName: string = 'Row street';
-
+    let userCurrentEmploymentState: string = 'Freelancer';
     expect(
       userRegistrationComponent.userProvidedInput(
         userfirstName,
@@ -210,7 +217,8 @@ describe('UserregistrationComponent', () => {
         userBirthDay,
         userCountryName,
         userStreetNumber,
-        userStreetName
+        userStreetName,
+        userCurrentEmploymentState
       )
     ).toBe('user was not created');
   });
@@ -224,7 +232,7 @@ describe('UserregistrationComponent', () => {
     let userCountryName: string = 'ddd';
     let userStreetNumber: string = 'ddd';
     let userStreetName: string = '';
-
+    let userCurrentEmploymentState: string = 'Freelancer';
     expect(
       userRegistrationComponent.userProvidedInput(
         userfirstName,
@@ -235,7 +243,8 @@ describe('UserregistrationComponent', () => {
         userBirthDay,
         userCountryName,
         userStreetNumber,
-        userStreetName
+        userStreetName,
+        userCurrentEmploymentState
       )
     ).toBe('user was not created');
   });
@@ -249,7 +258,7 @@ describe('UserregistrationComponent', () => {
     let userCountryName: string = 'ddd';
     let userStreetNumber: string = 'ddd';
     let userStreetName: string = 'cool';
-
+    let userCurrentEmploymentState: string = 'Freelancer';
     expect(
       userRegistrationComponent.userProvidedInput(
         userfirstName,
@@ -260,7 +269,8 @@ describe('UserregistrationComponent', () => {
         userBirthDay,
         userCountryName,
         userStreetNumber,
-        userStreetName
+        userStreetName,
+        userCurrentEmploymentState
       )
     ).toBe('user was not created');
   });
@@ -274,7 +284,7 @@ describe('UserregistrationComponent', () => {
     let userCountryName: string = '';
     let userStreetNumber: string = '';
     let userStreetName: string = '';
-
+    let userCurrentEmploymentState: string = 'Freelancer';
     expect(
       userRegistrationComponent.userProvidedInput(
         userfirstName,
@@ -284,7 +294,8 @@ describe('UserregistrationComponent', () => {
         userBirthDay,
         userCountryName,
         userStreetNumber,
-        userStreetName
+        userStreetName,
+        userCurrentEmploymentState
       )
     ).toBe('user was not created');
   });

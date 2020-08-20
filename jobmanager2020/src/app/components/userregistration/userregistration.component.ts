@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { UserDetails } from 'src/app/shared/model/userdetails';
 
@@ -9,7 +14,25 @@ import { UserDetails } from 'src/app/shared/model/userdetails';
   styleUrls: ['userregistration.component.css'],
 })
 export class UserregistrationComponent implements OnInit {
-  registerNewUserForm!: FormGroup;
+  userpossiblejobstates = [
+    { name: 'Unemployed' },
+    { name: 'Freelancer' },
+    { name: 'Contractor' },
+    { name: 'Employee' },
+    { name: 'Employer' },
+  ];
+
+  registerNewUserForm: FormGroup = new FormGroup({
+    firstName: new FormControl(),
+    lastName: new FormControl(),
+    userEmail: new FormControl(),
+    userCity: new FormControl(),
+    userBirthday: new FormControl(),
+    userCountry: new FormControl(),
+    userStreetName: new FormControl(),
+    userStreetNumber: new FormControl(),
+    preselectedJobState: new FormControl(),
+  });
   submitted = false;
   loading = false;
 
@@ -29,11 +52,22 @@ export class UserregistrationComponent implements OnInit {
       userCountry: ['', Validators.required],
       userStreetName: ['', Validators.required],
       userStreetNumber: ['', Validators.required],
+      preselectedJobState: ['', Validators.required],
     });
   }
 
   get getAllUserInputFromRegisterForm() {
     return this.registerNewUserForm.controls;
+  }
+
+  checkIfGivenStringNotNull(input: string): string {
+    let result: string = 'undefined';
+
+    if (input != null) {
+      result = input;
+    }
+
+    return result;
   }
 
   onSubmit(value: any): string {
@@ -48,19 +82,40 @@ export class UserregistrationComponent implements OnInit {
     let inputForCountry: string;
     let inputForStreetName: string;
     let inputForStreetNumber: string;
-
+    let inputForCurrentUserJobEmployment: string;
     this.submitted = true;
+
     if (this.registerNewUserForm.invalid) {
       return message;
     } else {
-      inputForFirstName = value.firstName;
-      inputForLastName = value.lastName;
-      inputForUserEmail = value.userEmail;
-      inputForUserCity = value.userCity;
-      inputForBirthday = value.userBirthday;
-      inputForCountry = value.userCountry;
-      inputForStreetName = value.userStreetName;
-      inputForStreetNumber = value.userStreetNumber;
+      inputForFirstName = this.checkIfGivenStringNotNull(
+        this.registerNewUserForm.controls['firstName'].value
+      );
+      inputForLastName = this.checkIfGivenStringNotNull(
+        this.registerNewUserForm.controls['lastName'].value
+      );
+      inputForUserEmail = this.checkIfGivenStringNotNull(
+        this.registerNewUserForm.controls['userEmail'].value
+      );
+      inputForUserCity = this.checkIfGivenStringNotNull(
+        this.registerNewUserForm.controls['userCity'].value
+      );
+      inputForBirthday = this.checkIfGivenStringNotNull(
+        this.registerNewUserForm.controls['userBirthday'].value
+      );
+      inputForCountry = this.checkIfGivenStringNotNull(
+        this.registerNewUserForm.controls['userCountry'].value
+      );
+      inputForStreetName = this.checkIfGivenStringNotNull(
+        this.registerNewUserForm.controls['userStreetName'].value
+      );
+      inputForStreetNumber = this.checkIfGivenStringNotNull(
+        this.registerNewUserForm.controls['userStreetNumber'].value
+      );
+
+      inputForCurrentUserJobEmployment = this.checkIfGivenStringNotNull(
+        this.registerNewUserForm.controls['preselectedJobState'].value
+      );
 
       message = this.userProvidedInput(
         inputForFirstName,
@@ -70,15 +125,20 @@ export class UserregistrationComponent implements OnInit {
         inputForBirthday,
         inputForCountry,
         inputForStreetNumber,
-        inputForStreetName
+        inputForStreetName,
+        inputForCurrentUserJobEmployment
       );
+
       if (message === 'new user should be created') {
         message = 'new user was registered';
         //create user details objects
         //implement call for the persistence
+        console.warn('Your registration was submited!');
+        this.router.navigate(['../login'], { relativeTo: this.route });
       }
     }
     this.loading = true;
+
     return message;
   }
 
@@ -90,7 +150,8 @@ export class UserregistrationComponent implements OnInit {
     userBirthDay: string,
     userCountryName: string,
     userStreetNumber: string,
-    userStreetName: string
+    userStreetName: string,
+    userCurrentJobState: string
   ): string {
     let newUserData: UserDetails;
     let createUser: boolean;
@@ -98,22 +159,27 @@ export class UserregistrationComponent implements OnInit {
     let message: string;
     message = 'user was not created';
     let inputchain: string;
-    inputchain = userfirstName.concat(
-      ',' +
-        userlastName.toString() +
+
+    inputchain = userfirstName
+      .toString()
+      .concat(
         ',' +
-        userEmail.toString() +
-        ',' +
-        userCity.toString() +
-        ',' +
-        userBirthDay.toString() +
-        ',' +
-        userCountryName.toString() +
-        ',' +
-        userStreetNumber.toString() +
-        ',' +
-        userStreetName.toString()
-    );
+          userlastName.toString() +
+          ',' +
+          userEmail.toString() +
+          ',' +
+          userCity.toString() +
+          ',' +
+          userBirthDay.toString() +
+          ',' +
+          userCountryName.toString() +
+          ',' +
+          userStreetNumber.toString() +
+          ',' +
+          userStreetName.toString() +
+          ',' +
+          userCurrentJobState.toString()
+      );
     let inputsArr = inputchain.split(',');
 
     for (let i in inputsArr) {

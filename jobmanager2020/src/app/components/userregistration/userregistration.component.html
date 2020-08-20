@@ -8,7 +8,6 @@
 <div align="center">
   <h1>New user registration!</h1>
 
-  <!--  <div *ngIf="error" class="alert alert-danger">{{error}}</div> -->
   <form [formGroup]="registerNewUserForm" (ngSubmit)="onSubmit('newuserreg')">
     <table cellpadding="2px" cellspacing="2px" align="center">
       <div class="form-group">
@@ -26,7 +25,7 @@
                 matInput
                 type="text"
                 name="firstName"
-                formcontrolname="firstName"
+                formControlName="firstName"
                 class="form-control"
                 [ngClass]="{
                   'is-invalid':
@@ -68,7 +67,7 @@
                 matInput
                 type="text"
                 name="lastName"
-                formcontrolname="lastName"
+                formControlName="lastName"
                 class="form-control"
                 [ngClass]="{
                   'is-invalid':
@@ -109,7 +108,7 @@
                 matInput
                 type="text"
                 name="userEmail"
-                formcontrolname="userEmail"
+                formControlName="userEmail"
                 class="form-control"
                 [ngClass]="{
                   'is-invalid':
@@ -151,7 +150,7 @@
                 matInput
                 type="text"
                 name="userCity"
-                formcontrolname="userCity"
+                formControlName="userCity"
                 class="form-control"
                 [ngClass]="{
                   'is-invalid':
@@ -192,7 +191,7 @@
                 matInput
                 type="text"
                 name="userBirthday"
-                formcontrolname="userBirthday"
+                formControlName="userBirthday"
                 class="form-control"
                 [ngClass]="{
                   'is-invalid':
@@ -237,7 +236,7 @@
                 matInput
                 type="text"
                 name="userCountry"
-                formcontrolname="userCountry"
+                formControlName="userCountry"
                 class="form-control"
                 [ngClass]="{
                   'is-invalid':
@@ -280,7 +279,7 @@
                 matInput
                 type="text"
                 name="userStreetName"
-                formcontrolname="userStreetName"
+                formControlName="userStreetName"
                 class="form-control"
                 [ngClass]="{
                   'is-invalid':
@@ -318,7 +317,7 @@
               >
             </div>
           </td>
-          <td width="10ptx"></td>
+          <td width="13ptx">&nbsp;</td>
           <td>
             <mat-form-field class="input-field-full-width" appearance="fill">
               <mat-label>Your street number</mat-label>
@@ -326,7 +325,7 @@
                 matInput
                 type="text"
                 name="userStreetNumber"
-                formcontrolname="userStreetNumber"
+                formControlName="userStreetNumber"
                 class="form-control"
                 [ngClass]="{
                   'is-invalid':
@@ -355,21 +354,51 @@
         </tr>
       </div>
 
-      <!--yet to be implemented!
-                                                                      <div class="form-group">
-                                                                        <label for="userSelectedJobState">Select your current job state</label>
+      <div class="form-group">
+        <tr>
+          <td>
+            <div align="center">
+              <label for="userEmploymentState"
+                ><b>Your current job state</b>&nbsp;</label
+              >
+            </div>
+          </td>
+          <td width="13ptx">&nbsp;</td>
+          <td>
+            <mat-form-field class="input-field-full-width" appearance="fill">
+              <select
+                matNativeControl
+                required
+                formControlName="preselectedJobState"
+              >
+                <option
+                  *ngFor="let pf of userpossiblejobstates"
+                  [ngValue]="pf.name"
+                >
+                  {{ pf.name }}
+                </option>
+              </select>
+              <div
+                *ngIf="
+                  submitted &&
+                  getAllUserInputFromRegisterForm.preselectedJobState.errors
+                "
+                class="invalid-feedback"
+              >
+                <div
+                  *ngIf="
+                    getAllUserInputFromRegisterForm.preselectedJobState.errors
+                      .required
+                  "
+                >
+                  <b> Please select your current job state !</b>
+                </div>
+              </div>
+            </mat-form-field>
+          </td>
+        </tr>
+      </div>
 
-                            <select matNativeControl [(ngModel)]="selectedJobStateByUser" name="selectionsForCurrentJobState">
-                                                                          <option value="" selected></option>
-                                                                          <option
-                                                                            *ngFor="let employemntCurrent of givenEmploymentsstates"
-                                                                            [value]="UserEmploymentTypes.value"
-                                                                          >
-                                                                            {{ employemntCurrent.viewValue }}
-                                                                          </option>
-                                                                        </select>
-                        </div>
-                        -->
       <tr>
         <td>&nbsp;</td>
       </tr>
@@ -377,7 +406,13 @@
         <td>
           <div class="form-group">
             <div align="center">
-              <button mat-raised-button color="primary">
+              <button
+                [disabled]="loading"
+                mat-raised-button
+                color="primary"
+                type="submit"
+              >
+                <span *ngIf="loading"></span>
                 Click here for registration!!!!!
               </button>
             </div>
