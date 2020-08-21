@@ -6,7 +6,14 @@ export abstract class CacheService {
       data = 'undefined';
     }
 
-    result = JSON.parse(data);
+    if (data !== undefined) {
+      try {
+        result = JSON.parse(data);
+      } catch (errror) {
+        //this ugly i know but it works ;)
+      }
+    }
+
     //this is kind of hack and Angular weakness
     if (data && data !== 'undefined') {
       return result;
