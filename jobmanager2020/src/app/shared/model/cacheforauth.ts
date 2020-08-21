@@ -1,10 +1,18 @@
 export abstract class CacheService {
   protected getItem<T>(key: string): T {
-    const data = localStorage.getItem(key);
-    if (data && data !== 'undefined') {
-      return JSON.parse(data);
+    let data = localStorage.getItem(key);
+    let result: any;
+    if (data == null) {
+      data = 'undefined';
     }
-    return null;
+
+    result = JSON.parse(data);
+    //this is kind of hack and Angular weakness
+    if (data && data !== 'undefined') {
+      return result;
+    } else {
+      return result;
+    }
   }
 
   protected setItem(key: string, data: object | string) {

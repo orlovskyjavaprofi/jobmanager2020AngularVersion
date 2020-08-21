@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomecomponentComponent },
   { path: 'register', component: UserregistrationComponent },
   { path: 'login', component: UserloginComponent },
+  { path: 'login/:redirectUrl', component: UserloginComponent },
   { path: 'legal', component: LegaldisclaimerComponent },
   { path: 'useracn', component: UseraccountComponent },
   { path: 'currentjobapps', component: CurrentjobapplicationsComponent },
@@ -36,12 +37,20 @@ const routes: Routes = [
     path: 'userselectjobapplfordel',
     component: UserselectjobapplfordeleteComponent,
   },
-  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: '/welcome',
+    pathMatch: 'full',
+  },
   { path: '**', component: WrongurlerrorComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'enabled',
+    }),
+  ],
   exports: [RouterModule],
 })
 export class RoutermoduleRoutingModule {}

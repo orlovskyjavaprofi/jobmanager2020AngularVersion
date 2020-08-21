@@ -51,7 +51,7 @@ import { AuthService } from './services/auth-service.service';
   imports: [
     MatMenuModule,
     MatCheckboxModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,
     ReactiveFormsModule,
     RoutermoduleModule,
