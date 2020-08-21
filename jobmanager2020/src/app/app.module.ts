@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './main/app.component';
 import { UserregistrationComponent } from './components/userregistration/userregistration.component';
-import { AccountServiceService } from './services/account-service.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InmemorydbServiceService } from './services/inmemorydb-service.service';
 import { RoutermoduleModule } from './routermodule/routermodule.module';
@@ -31,6 +30,7 @@ import { PrintviewofselectedjobapplComponent } from './components/printviewofsel
 import { MatMenuModule } from '@angular/material/menu';
 import { ResetuserpasswordComponent } from './components/resetuserpassword/resetuserpassword.component';
 import { UserselectjobapplfordeleteComponent } from './components/userselectjobapplfordelete/userselectjobapplfordelete.component';
+import { AuthService } from './services/auth-service.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +67,7 @@ import { UserselectjobapplfordeleteComponent } from './components/userselectjoba
     MatRadioModule,
   ],
   providers: [
-    AccountServiceService,
+    AuthService,
     InmemorydbServiceService,
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
