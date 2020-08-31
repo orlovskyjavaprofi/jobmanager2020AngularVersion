@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -12,6 +13,7 @@ describe('AppComponent', () => {
         RouterTestingModule,
         MatMenuModule,
         MatButtonModule,
+        HttpClientTestingModule,
       ],
       declarations: [AppComponent],
     }).compileComponents();

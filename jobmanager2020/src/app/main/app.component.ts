@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../services/auth-service.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,7 +16,19 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'Job manager 2020';
 
-  constructor() {}
+  _displayLogin = false;
 
-  ngOnInit() {}
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    this.authService.authStatus.subscribe((authStatus) => {
+      setTimeout(() => {
+        this._displayLogin = authStatus.isAuthenticated;
+      }, 0);
+    });
+  }
+
+  get displayLogin() {
+    return this._displayLogin;
+  }
 }

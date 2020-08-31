@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -12,7 +13,12 @@ describe('ResetuserpasswordComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ResetuserpasswordComponent],
-      imports: [MatInputModule, MatFormFieldModule, BrowserAnimationsModule],
+      imports: [
+        MatInputModule,
+        MatFormFieldModule,
+        BrowserAnimationsModule,
+        HttpClientTestingModule,
+      ],
     }).compileComponents();
   }));
 

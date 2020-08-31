@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 describe('UseraccountComponent', () => {
   let component: UseraccountComponent;
   let fixture: ComponentFixture<UseraccountComponent>;
@@ -17,6 +18,7 @@ describe('UseraccountComponent', () => {
         MatFormFieldModule,
         MatInputModule,
         BrowserAnimationsModule,
+        HttpClientTestingModule,
       ],
     }).compileComponents();
   }));
