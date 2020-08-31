@@ -25,7 +25,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     if (this.authService.currentUserValue != null) {
-      this._displayLogin = true;
+      if (this.authService.currentUserValue.username != null) {
+        if (this.authService.currentUserValue.username.length > 0) {
+          this._displayLogin = true;
+        }
+      }
     }
   }
 
