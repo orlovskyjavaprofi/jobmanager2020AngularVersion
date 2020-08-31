@@ -65,7 +65,7 @@ export class AuthService extends CacheService implements IAuthService {
   ): Observable<IServerAuthResponse> {
     if (!email.toLowerCase().endsWith('@test.com')) {
       return observableThrowError(
-        'Failed to login! Email needs to end with @test.com.'
+        'Failed to login! Email needs to end with @test.com'
       );
     }
 

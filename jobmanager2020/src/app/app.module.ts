@@ -31,6 +31,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { ResetuserpasswordComponent } from './components/resetuserpassword/resetuserpassword.component';
 import { UserselectjobapplfordeleteComponent } from './components/userselectjobapplfordelete/userselectjobapplfordelete.component';
 import { AuthService } from './services/auth-service.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +50,7 @@ import { AuthService } from './services/auth-service.service';
     UserselectjobapplfordeleteComponent,
   ],
   imports: [
+    HttpClientModule,
     MatMenuModule,
     MatCheckboxModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -10,20 +10,20 @@
   <h1>Login</h1>
   <div class="card">
     <div class="card-body">
-      <form [formGroup]="mainPageForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="mainPageForm" (ngSubmit)="login(mainPageForm)">
         <table>
           <div class="form-group">
             <tr>
               <td>
-                <label for="username"><b>Username</b></label>
+                <label for="username"><b>Email</b></label>
               </td>
-              <td width="20px"></td>
+              <td width="50px"></td>
               <td>
                 <mat-form-field
                   class="input-field-full-width"
                   appearance="fill"
                 >
-                  <mat-label>Type here your username</mat-label>
+                  <mat-label>Type here your email</mat-label>
                   <input
                     matInput
                     type="text"
@@ -99,11 +99,16 @@
           </div>
         </table>
         <br />
-        <table>
+        <table align="center">
           <tr>
             <td>
               <div align="right">
-                <button mat-raised-button color="primary" style="width: 150px;">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  style="width: 150px"
+                  [disabled]="mainPageForm.invalid"
+                >
                   Login
                 </button>
               </div>
@@ -111,11 +116,25 @@
             <td width="20px"></td>
             <td>
               <div align="left">
-                <button mat-raised-button color="warn" style="width: 150px;">
-                  <a routerLink="/resetuserpasswd" style="color: white;">
+                <button mat-raised-button color="warn" style="width: 150px">
+                  <a routerLink="/resetuserpasswd" style="color: white">
                     Reset password!</a
                   >
                 </button>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table align="center">
+          <tr>
+            <td>
+              <div
+                align="center"
+                *ngIf="loginError"
+                class="mat-caption error"
+                style="font-weight: bold; color: red"
+              >
+                {{ loginError }}
               </div>
             </td>
           </tr>
