@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../services/auth-service.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,16 +17,16 @@ import { AuthService } from '../services/auth-service.service';
 export class AppComponent implements OnInit {
   title = 'Job manager 2020';
 
-  _displayLogin = false;
+  public _displayLogin = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+    this._displayLogin = false;
+  }
 
   ngOnInit() {
-    this.authService.authStatus.subscribe((authStatus) => {
-      setTimeout(() => {
-        this._displayLogin = authStatus.isAuthenticated;
-      }, 0);
-    });
+    if (this.authService.currentUserValue != null) {
+      this._displayLogin = true;
+    }
   }
 
   get displayLogin() {

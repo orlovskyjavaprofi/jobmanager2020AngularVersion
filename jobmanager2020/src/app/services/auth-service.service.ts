@@ -1,143 +1,48 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { sign } from 'fake-jwt-sign';
-import jwt_decode from 'jwt-decode';
-import {
-  BehaviorSubject,
-  Observable,
-  of,
-  throwError as observableThrowError,
-} from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
-import { Role } from 'src/app/shared/model/role.enum';
-import { transformError } from 'src/app/shared/common/errormessagegenerator';
-import { CacheService } from 'src/app/shared/model/cacheforauth';
-export interface IAuthService {
-  authStatus: BehaviorSubject<IAuthStatus>;
-  login(email: string, password: string): Observable<IAuthStatus>;
-  logout(): boolean;
-  getToken(): string;
-}
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { UserCridentials } from '../../app/shared/model/usercridentials';
+import { Router } from '@angular/router';
+@Injectable({ providedIn: 'root' })
+export class AuthService {
+  private currentUserSubject: BehaviorSubject<UserCridentials>;
+  public currentUser: Observable<UserCridentials>;
 
-export interface IAuthStatus {
-  isAuthenticated: boolean;
-  userRole: Role;
-  userId: string;
-}
-
-interface IServerAuthResponse {
-  accessToken: string;
-}
-
-export const defaultAuthStatus = {
-  isAuthenticated: false,
-  userRole: Role.None,
-  userId: '',
-};
-
-@Injectable({
-  providedIn: 'root',
-})
-export class AuthService extends CacheService implements IAuthService {
-  authStatus = new BehaviorSubject<IAuthStatus>(
-    this.getItem('authStatus') || defaultAuthStatus
-  );
-  private readonly authProvider: (
-    email: string,
-    password: string
-  ) => Observable<IServerAuthResponse>;
-
-  constructor(private httpClient: HttpClient) {
-    super();
-    this.authStatus.subscribe((authStatus) =>
-      this.setItem('authStatus', authStatus)
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<UserCridentials>(
+      (this.currentUser = JSON.parse(
+        localStorage.getItem('currentUser') || '{}'
+      ))
     );
-    // Fake login function to simulate roles
-    this.authProvider = this.fakeAuthProvider;
-    // Example of a real login call to server-side
-    // this.authProvider = this.exampleAuthProvider
+
+    this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  private fakeAuthProvider(
-    email: string,
-    password: string
-  ): Observable<IServerAuthResponse> {
-    if (!email.toLowerCase().endsWith('@test.com')) {
-      return observableThrowError(
-        'Failed to login! Email needs to end with @test.com'
+  public get currentUserValue(): UserCridentials {
+    return this.currentUserSubject.value;
+  }
+
+  login(username: string, password: string) {
+    return this.http
+      .post<any>(`${environment.apiUrl}/users/authenticate`, {
+        username,
+        password,
+      })
+      .pipe(
+        map((user) => {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          this.currentUserSubject.next(user);
+
+          return user;
+        })
       );
-    }
-
-    const authStatus = {
-      isAuthenticated: true,
-      userId: 'e4d1bc2ab25c',
-      userRole: email.toLowerCase().includes('user')
-        ? Role.User
-        : email.toLowerCase().includes('admin')
-        ? Role.Admin
-        : Role.None,
-    } as IAuthStatus;
-
-    const authResponse = {
-      accessToken: sign(authStatus, 'secret', {
-        expiresIn: '1h',
-        algorithm: 'none',
-      }),
-    } as IServerAuthResponse;
-
-    return of(authResponse);
-  }
-
-  login(email: string, password: string): Observable<IAuthStatus> {
-    this.logout();
-
-    const loginResponse = this.authProvider(email, password).pipe(
-      map((value) => {
-        this.setToken(value.accessToken);
-        return jwt_decode(value.accessToken) as IAuthStatus;
-      }),
-      catchError(transformError)
-    );
-
-    loginResponse.subscribe(
-      (res) => {
-        this.authStatus.next(res);
-      },
-      (err) => {
-        this.logout();
-        return observableThrowError(err);
-      }
-    );
-
-    return loginResponse;
   }
 
   logout() {
-    let result: boolean;
-    result = false;
-    this.clearToken();
-    this.authStatus.next(defaultAuthStatus);
-    if (this.authStatus != null) {
-      result = true;
-    }
-
-    return result;
-  }
-
-  private setToken(jwt: string) {
-    this.setItem('jwt', jwt);
-  }
-
-  private getDecodedToken(): IAuthStatus {
-    return jwt_decode(this.getItem('jwt'));
-  }
-
-  getToken(): string {
-    return this.getItem('jwt') || '';
-  }
-
-  private clearToken() {
-    this.removeItem('jwt');
+    // remove user from local storage to log user out
+    localStorage.removeItem('currentUser');
   }
 }
