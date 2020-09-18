@@ -1,37 +1,13 @@
-## Welcome to GitHub Pages
+Helo and welcome to project jobmanager 2020 (Angular version)
 
-You can use the [editor on GitHub](https://github.com/orlovskyjavaprofi/jobmanager2020AngularVersion/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Job manager 2020 Angular version ;-) Job manager for all your application needs!! Deploy a docker image into your container favorite distributed system and enjoy fully independent system!
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Manage your applicatios Write notes how good was your experience meanining your tech interview Analyse what type of industry you hit most times Look up archive of your previous applications and with which result Set up notifications(experimantal feature) Create template letters , but send them via own email server. Prepare lists of companys where you wish to send out your applications.
 
-### Markdown
+Would you like participate in project and wish to know scrum stories so far then ask me via https://www.xing.com/profile/Alexander_Orlovsky or linkedin https://www.linkedin.com/in/alexanderorlovsky/ or trough my page www.javaprofide.de so you can alway reach me via given sites! ;)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This project licensed under LGPL more read here https://www.gnu.org/licenses/old-licenses/lgpl-2.1
 
-```markdown
-Syntax highlighted code block
+Do you want to know more about this project ? Then watch this youtube presentation: https://youtu.be/4Pxfwtuf51M Then Go to gitter messenger https://t.co/Ev0LfYlK27?amp=1 and start asking questions and propose ideas!
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/orlovskyjavaprofi/jobmanager2020AngularVersion/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+The HTML code is formated with "Pretty Code Formater" visual studio code plugin!
