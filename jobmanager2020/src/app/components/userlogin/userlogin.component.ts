@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth-service.service';
+import { InmemorydbServiceService } from 'src/app/services/inmemorydb-service.service';
 import { Role } from 'src/app/shared/model/role.enum';
+import { UserCridentials } from 'src/app/shared/model/usercridentials';
 
 @Component({
   templateUrl: './userlogin.component.html',
@@ -19,6 +21,7 @@ export class UserloginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private inMemService: InmemorydbServiceService,
     private router: Router,
     private route: ActivatedRoute
   ) {
@@ -56,6 +59,14 @@ export class UserloginComponent implements OnInit {
         },
         (error) => (this.loginError = error)
       );
+  }
+
+  validateUserForLogin(providedUserCridentials: UserCridentials): boolean{
+    let searchResultByUserCridentials = false;
+    if (providedUserCridentials ===   this.inMemService.findSpecifiedUserDetails(providedUserCridentials)){
+      searchResultByUserCridentials = true;
+     }
+    return searchResultByUserCridentials;
   }
 
   homeRoutePerRole(role: Role) {

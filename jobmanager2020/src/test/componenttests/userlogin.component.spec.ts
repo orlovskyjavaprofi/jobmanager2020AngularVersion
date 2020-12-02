@@ -1,3 +1,4 @@
+import { UseraccountComponent } from './../../app/components/useraccount/useraccount.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
@@ -8,10 +9,12 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AuthService } from 'src/app/services/auth-service.service';
 
 import { UserloginComponent } from '../../app/components/userlogin/userlogin.component';
+import { UserCridentials } from '../../app/shared/model/usercridentials';
 
 describe('UserloginComponent', () => {
   let loginComponent: UserloginComponent;
   let fixture: ComponentFixture<UserloginComponent>;
+  let testUserCridentials: UserCridentials;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -31,6 +34,7 @@ describe('UserloginComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(UserloginComponent);
     loginComponent = fixture.componentInstance;
+    testUserCridentials = new UserCridentials( 'John', '123456');
     fixture.detectChanges();
   });
 
@@ -38,5 +42,8 @@ describe('UserloginComponent', () => {
     expect(loginComponent).toBeTruthy();
   });
 
-  //case: user click on button registration as result user should see new page registration!
+  it('invalid user not allowed to login', () => {
+    expect(loginComponent.validateUserForLogin(testUserCridentials)).toBeFalsy();
+  });
+
 });

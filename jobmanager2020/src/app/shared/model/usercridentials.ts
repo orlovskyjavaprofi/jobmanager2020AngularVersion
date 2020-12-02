@@ -3,4 +3,9 @@ export class UserCridentials {
   username: string | undefined;
   password: string | undefined;
   token?: string;
+
+  constructor(inputUsername: string | undefined, inputPassword: string | undefined){
+    this.username = inputUsername;
+    this.password = inputPassword;
+  }
 }
