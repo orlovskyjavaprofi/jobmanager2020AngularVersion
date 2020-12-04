@@ -61,11 +61,13 @@ export class UserloginComponent implements OnInit {
       );
   }
 
-  validateUserForLogin(providedUserCridentials: UserCridentials): boolean{
-    let searchResultByUserCridentials = false;
-    if (providedUserCridentials ===   this.inMemService.findSpecifiedUserDetails(providedUserCridentials)){
+  validateUserForLogin(providedUserCridentials: UserCridentials, inputSetOfCredentials: Set<UserCridentials>): boolean{
+    let searchResultByUserCridentials: boolean = false;
+
+    if (providedUserCridentials === this.inMemService.findSpecifiedUserDetails(providedUserCridentials, inputSetOfCredentials)){
       searchResultByUserCridentials = true;
      }
+
     return searchResultByUserCridentials;
   }
 

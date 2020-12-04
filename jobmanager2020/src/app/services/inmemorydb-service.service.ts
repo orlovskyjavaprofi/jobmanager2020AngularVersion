@@ -11,12 +11,12 @@ export class InmemorydbServiceService {
   private inMemoryStorageSet = new Set<UserDetails>();
   private inMemoryStorageSetOfUserCridentials = new Set<UserCridentials>();
 
-  saveUserToMemory(inputUserDetails: UserDetails): boolean {
+  saveUserToMemory(inputUserDetails: UserDetails, inputForUserPassword: string): boolean {
     let result: boolean;
     result = false;
 
     if (!(inputUserDetails === null)) {
-      this.setInMemDB(inputUserDetails);
+      this.setInMemDB(inputUserDetails, inputForUserPassword);
 
       result = true;
     }
@@ -31,20 +31,47 @@ export class InmemorydbServiceService {
     return this.inMemoryStorageSetOfUserCridentials;
   }
 
-  public setInMemDB(inputForUserDetails: UserDetails): void {
+  public setInMemDB(inputForUserDetails: UserDetails, userPassword: string): void {
+    //check if the user already exist in "database" and refues insertion!
     this.inMemoryStorageSet.add(inputForUserDetails);
-    //store user mail and generate random strong 12 digit password and store it in UserCridentials inmemorydb!
+    let lengthOfInputUserPassword;
+
+    if (userPassword !== null && userPassword !== undefined){
+     lengthOfInputUserPassword = userPassword.length;
+    }else{
+      lengthOfInputUserPassword = 0;
+    }
+
+    if (lengthOfInputUserPassword === 0 ){
+       userPassword = this.makeRandomPassword();
+    } else if (lengthOfInputUserPassword < 5){
+      userPassword = this.makeRandomPassword();
+    }
+
+    this.inMemoryStorageSetOfUserCridentials.add(new UserCridentials(inputForUserDetails.userEmail, userPassword ));
+
+    //generate and send email to the user so that user notified that he or she can login
   }
 
-  public findSpecifiedUserDetails(userCridentialsWhichMustBeFound: UserCridentials): UserCridentials{
-    let resultOfSearch: UserCridentials;
+  private makeRandomPassword() {
+    let length          = 12;
+    let result: string   = '';
+    let characters: string       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789<>|-_,.;:?\`´!!§$%&/()=?/^°';
+    let charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
+       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+ }
 
-    resultOfSearch = new UserCridentials("none","none");
+  public findSpecifiedUserDetails(userCridentialsMatch: UserCridentials, userCridentialsInDB: Set<UserCridentials>): UserCridentials{
+    let resultOfSearch: UserCridentials = new UserCridentials("none", "none");
 
-    for(let itemUserCridentials of this.getInMemDBUserCridentials().values()){
-      if(userCridentialsWhichMustBeFound === itemUserCridentials){
-        resultOfSearch = itemUserCridentials;
-        break;
+    for (let itemUserCridentials of userCridentialsInDB.values()) {
+
+      if (userCridentialsMatch === itemUserCridentials){
+          resultOfSearch = itemUserCridentials;
+          break;
       }
     }
 
