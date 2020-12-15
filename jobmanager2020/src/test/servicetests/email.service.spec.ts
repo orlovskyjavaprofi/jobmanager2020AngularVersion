@@ -16,9 +16,17 @@ describe('EmailService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('case: validate email topic and body text', () => {
+  it('case: validate email topic and body text both inpus invalid', () => {
     expect(
       service.validateIfEmailTopicAndBodyNotEmpty(emailtopic, emailbody)
     ).toBeFalsy();
+  });
+
+  it('case: validate email topic and body text both inpus valid', () => {
+    emailtopic = 'application as software developer';
+    emailbody = 'this is a simple test';
+    expect(
+      service.validateIfEmailTopicAndBodyNotEmpty(emailtopic, emailbody)
+    ).toBeTruthy();
   });
 });

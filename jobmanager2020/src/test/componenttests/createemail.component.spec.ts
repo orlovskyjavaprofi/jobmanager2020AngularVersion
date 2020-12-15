@@ -35,9 +35,17 @@ describe('CreateemailComponent', () => {
     expect(createNewEmailComponent).toBeTruthy();
   });
 
-
   it('case: topic of the email or the body text of the email are missing!', () => {
-    expect(createNewEmailComponent.sendEmail(emailTopic, emailBodyMessage)).toBeFalsy();
+    expect(
+      createNewEmailComponent.sendEmail(emailTopic, emailBodyMessage)
+    ).toBeFalsy();
   });
 
+  it('case: topic of the email or the body text of the email are present!', () => {
+    emailTopic = 'application as softwaredeveloper';
+    emailBodyMessage = 'simple test as introduction';
+    expect(
+      createNewEmailComponent.sendEmail(emailTopic, emailBodyMessage)
+    ).toBeTruthy();
+  });
 });

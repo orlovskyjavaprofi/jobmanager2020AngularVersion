@@ -12,7 +12,6 @@ export class EmailService {
   ): boolean {
     let validationResult: boolean = false;
 
-    //chekc if both field are undefined!
     if (inputEmailTopic !== undefined && inputEmailBodyMessage !== undefined) {
       if (inputEmailTopic.length > 9 && inputEmailBodyMessage.length > 20) {
         validationResult = true;
