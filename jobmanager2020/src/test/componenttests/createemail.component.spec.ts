@@ -5,9 +5,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateemailComponent } from '../../app/components/createemail/createemail.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { stringify } from 'querystring';
 describe('CreateemailComponent', () => {
-  let component: CreateemailComponent;
+  let createNewEmailComponent: CreateemailComponent;
   let fixture: ComponentFixture<CreateemailComponent>;
+  let emailTopic: string;
+  let emailBodyMessage: string;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,11 +27,17 @@ describe('CreateemailComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CreateemailComponent);
-    component = fixture.componentInstance;
+    createNewEmailComponent = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create create new email component', () => {
-    expect(component).toBeTruthy();
+    expect(createNewEmailComponent).toBeTruthy();
   });
+
+
+  it('case: topic of the email or the body text of the email are missing!', () => {
+    expect(createNewEmailComponent.sendEmail(emailTopic, emailBodyMessage)).toBeFalsy();
+  });
+
 });
