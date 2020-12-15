@@ -63,6 +63,6 @@ describe('AccountServiceService', () => {
   });
 
   it('case user provided valid data and was stored inmemory', () => {
-    expect(service.storeUserInMemory(inputUserDetails)).toBe(true);
+    expect(service.storeUserInMemory(inputUserDetails,"someRandomPassword")).toBe(true);
   });
 });

@@ -50,6 +50,6 @@ describe('InmemorydbServiceService', () => {
     expect(service).toBeTruthy();
   });
   it('case save user to db', () => {
-    expect(service.saveUserToMemory(inputUserDetails)).toBe(true);
+    expect(service.saveUserToMemory(inputUserDetails, "randomPassword")).toBe(true);
   });
 });

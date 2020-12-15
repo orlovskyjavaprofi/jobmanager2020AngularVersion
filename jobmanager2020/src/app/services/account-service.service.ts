@@ -22,12 +22,12 @@ export class AccountServiceService {
     return result;
   }
 
-  storeUserInMemory(inputUserDetails: UserDetails): boolean {
+  storeUserInMemory(inputUserDetails: UserDetails, inputUserPassword: string): boolean {
     let result = false;
 
     result = this.userDetailsValidator(inputUserDetails);
     if (result === true) {
-      this.inmemorydbServiceService.saveUserToMemory(inputUserDetails);
+      this.inmemorydbServiceService.saveUserToMemory(inputUserDetails, inputUserPassword);
     }
 
     return result;
