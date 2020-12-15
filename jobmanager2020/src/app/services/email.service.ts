@@ -20,4 +20,15 @@ export class EmailService {
 
     return validationResult;
   }
+
+  validateUserPdfFile(userInputFile: File): boolean {
+    let validationResult: boolean = false;
+
+    if (userInputFile !== undefined) {
+      validationResult = true;
+    }
+    //check for pdf too!
+
+    return validationResult;
+  }
 }

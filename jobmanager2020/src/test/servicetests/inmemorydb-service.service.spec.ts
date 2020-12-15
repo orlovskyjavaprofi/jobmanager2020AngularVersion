@@ -50,6 +50,12 @@ describe('InmemorydbServiceService', () => {
     expect(service).toBeTruthy();
   });
   it('case save user to db', () => {
-    expect(service.saveUserToMemory(inputUserDetails, "randomPassword")).toBe(true);
+    expect(service.saveUserToMemory(inputUserDetails, 'randomPassword')).toBe(
+      true
+    );
   });
+
+  //test case store provided file in memory userlogin cridential , and the file itself
+  //verification of the file done by email service
+  //expected result file stored true, file not stored false
 });

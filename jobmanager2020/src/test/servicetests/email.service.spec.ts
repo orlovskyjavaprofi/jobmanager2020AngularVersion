@@ -6,7 +6,7 @@ describe('EmailService', () => {
   let service: EmailService;
   let emailtopic: string;
   let emailbody: string;
-
+  let userfile: File;
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(EmailService);
@@ -28,5 +28,9 @@ describe('EmailService', () => {
     expect(
       service.validateIfEmailTopicAndBodyNotEmpty(emailtopic, emailbody)
     ).toBeTruthy();
+  });
+
+  it('case: validate that provided file is not a valid file', () => {
+    expect(service.validateUserPdfFile(userfile)).toBeFalsy();
   });
 });

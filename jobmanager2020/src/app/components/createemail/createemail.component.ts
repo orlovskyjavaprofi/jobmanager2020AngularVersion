@@ -18,6 +18,7 @@ export class CreateemailComponent implements OnInit {
     );
 
     if (validationResultFromEmailService === true) {
+      //validate that a file was provided and the file which was provided ia a pdf file!
       emailsendresult = true;
     }
 
