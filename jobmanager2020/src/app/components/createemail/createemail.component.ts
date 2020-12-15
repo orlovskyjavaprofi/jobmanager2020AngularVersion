@@ -14,7 +14,7 @@ export class CreateemailComponent implements OnInit {
   sendEmail(emailTopic: string, emailBodyMessage: string): boolean{
      let emailsendresult: boolean = false;
 
-     // check the length of emailTopic and emailBodyMessage
+     // emailsendservice should check the length of emailTopic and emailBodyMessage
 
      return emailsendresult;
   }
