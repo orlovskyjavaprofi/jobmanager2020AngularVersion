@@ -12,4 +12,15 @@ export class UserEmailDetails {
     this.userEmailBodyText = userInputforEmailBodyText;
     this.userPdfJobApplFile = userInputForPdfFile;
   }
+
+  public getUserEmailTopic(): string {
+    return this.userEmailTopic;
+  }
+  public getUserEmailBodyText(): string {
+    return this.userEmailBodyText;
+  }
+
+  public getUserEmailFileAttachment(): File {
+    return this.userPdfJobApplFile;
+  }
 }

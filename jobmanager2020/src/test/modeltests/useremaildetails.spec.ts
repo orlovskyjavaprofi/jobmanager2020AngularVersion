@@ -25,6 +25,20 @@ describe('UserEmailDetails', () => {
     expect(UserEmailDetails).toBeDefined();
   });
 
+  test('case: check that user email topipc was set', () => {
+    expect(userEmailDetails.getUserEmailTopic()).toBe(userEmailTopic);
+  });
+
+  test('case: check that user email body text was set', () => {
+    expect(userEmailDetails.getUserEmailBodyText()).toBe(userEmailBodyText);
+  });
+
+  test('case: check that user email pdf file was set', () => {
+    expect(userEmailDetails.getUserEmailFileAttachment()).toBe(
+      userPdfJobApplFile
+    );
+  });
+
   afterEach(() => {
     userEmailDetails = null;
   });
