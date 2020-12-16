@@ -4,6 +4,8 @@ import { UserEmploymentTypes } from 'src/app/shared/model/usertypeemployments';
 
 import { InmemorydbServiceService } from '../../app/services/inmemorydb-service.service';
 import fs from 'fs';
+import { UserJobApplications } from 'src/app/shared/model/userjobapplications';
+import { UserEmailDetails } from 'src/app/shared/model/useremaildetails';
 describe('InmemorydbServiceService', () => {
   let service: InmemorydbServiceService;
 
@@ -90,6 +92,74 @@ describe('InmemorydbServiceService', () => {
           userApplicationPDFFile
         )
       ).toBeTruthy();
+    } catch (err) {
+      console.error(err);
+    }
+  });
+
+  it('verify that a user with given email login exist', () => {
+    try {
+      const data = fs.readFileSync('src/test/testassets/testdocument.pdf');
+      userApplicationPDFFile = new File([data], 'testdocument.pdf', {
+        type: 'application/pdf',
+      });
+
+      let inputUserEmail: string;
+      inputUserEmail = 'johnsmith@test.com';
+      inputUserEmailTopic = 'Job application as software developer';
+      inputUserEmailBody = 'This is simple text for test';
+      let testUserJobAppl: UserJobApplications = new UserJobApplications(
+        inputUserEmail
+      );
+      testUserJobAppl
+        .getinMemorySetOfUserEmailDetails()
+        .add(
+          new UserEmailDetails(
+            inputUserEmailTopic,
+            inputUserEmailBody,
+            userApplicationPDFFile
+          )
+        );
+
+      service.getInMemDBUserJobApplicationsPerUser().add(testUserJobAppl);
+
+      expect(
+        service.checkIfGivenUserExistInStorageOfEmailDetails(inputUserEmail)
+      ).toBeTruthy();
+    } catch (err) {
+      console.error(err);
+    }
+  });
+
+  it('case user email login exist in user job applications set and the new user email details must be atached to it', () => {
+    try {
+      const data = fs.readFileSync('src/test/testassets/testdocument.pdf');
+      userApplicationPDFFile = new File([data], 'testdocument.pdf', {
+        type: 'application/pdf',
+      });
+
+      let inputUserEmail: string;
+      inputUserEmail = 'johnsmith@test.com';
+      inputUserEmailTopic = 'Job application as software developer';
+      inputUserEmailBody = 'This is simple text for test';
+      let testUserJobAppl: UserJobApplications = new UserJobApplications(
+        inputUserEmail
+      );
+      testUserJobAppl
+        .getinMemorySetOfUserEmailDetails()
+        .add(
+          new UserEmailDetails(
+            inputUserEmailTopic,
+            inputUserEmailBody,
+            userApplicationPDFFile
+          )
+        );
+
+      service.getInMemDBUserJobApplicationsPerUser().add(testUserJobAppl);
+
+      expect(service.findUserJobApplicationByUserEmail(inputUserEmail)).toBe(
+        testUserJobAppl
+      );
     } catch (err) {
       console.error(err);
     }

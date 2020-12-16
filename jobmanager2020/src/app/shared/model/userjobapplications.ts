@@ -24,9 +24,9 @@ export class UserJobApplications {
   }
 
   public findUserEmailDetailsByEmailDetails(
-    userInputForEmailDetails
+    userInputForEmailDetails: UserEmailDetails
   ): UserEmailDetails {
-    let emptyFile: File;
+    const emptyFile: File = new File([''], 'filename');
     let resultOfSearch: UserEmailDetails = new UserEmailDetails(
       'undefined',
       'undefined',

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { UserCridentials } from '../shared/model/usercridentials';
 import { UserDetails } from '../shared/model/userdetails';
-
+import { UserEmailDetails } from '../shared/model/useremaildetails';
+import { UserJobApplications } from '../shared/model/userjobapplications';
 @Injectable({
   providedIn: 'root',
 })
@@ -10,6 +11,7 @@ export class InmemorydbServiceService {
 
   private inMemoryStorageSet = new Set<UserDetails>();
   private inMemoryStorageSetOfUserCridentials = new Set<UserCridentials>();
+  private inMemoryStorageSetOfUserJobApplications = new Set<UserJobApplications>();
 
   saveUserToMemory(
     inputUserDetails: UserDetails,
@@ -32,6 +34,10 @@ export class InmemorydbServiceService {
 
   public getInMemDBUserCridentials(): Set<UserCridentials> {
     return this.inMemoryStorageSetOfUserCridentials;
+  }
+
+  public getInMemDBUserJobApplicationsPerUser(): Set<UserJobApplications> {
+    return this.inMemoryStorageSetOfUserJobApplications;
   }
 
   public setInMemDB(
@@ -76,22 +82,60 @@ export class InmemorydbServiceService {
       Object.is(inputUserEmailBody, undefined) === false;
     let validateinputUserEmailJobApplFile: boolean =
       Object.is(userApplicationPDFFile, undefined) === false;
-
+    let newUserJobApplication: UserJobApplications;
+    let foundJobApplicationAndsaved: number = 0;
     if (
       validateInputUserEmail &&
       validateInputUserEmailTopic &&
       validateinputUserEmailBody &&
       validateinputUserEmailJobApplFile
     ) {
-      //Verify that user with give email exist
-      //if exist in db then store the user job application in db
-      //otherwise not return false
-      //User must have n job applications store in form of collection
+      if (
+        this.checkIfGivenUserExistInStorageOfEmailDetails(inputUserEmail) ===
+        false
+      ) {
+        newUserJobApplication = new UserJobApplications(inputUserEmail);
+        newUserJobApplication
+          .getinMemorySetOfUserEmailDetails()
+          .add(
+            new UserEmailDetails(
+              inputUserEmailTopic,
+              inputUserEmailBody,
+              userApplicationPDFFile
+            )
+          );
+        this.getInMemDBUserJobApplicationsPerUser().add(newUserJobApplication);
+        saveResult = true;
+      } else {
+        foundJobApplicationAndsaved = this.findUserJobApplicationByUserEmail(
+          inputUserEmail
+        ).addAndCountEmailDetailsToUserJobApplication(
+          new UserEmailDetails(
+            inputUserEmailTopic,
+            inputUserEmailBody,
+            userApplicationPDFFile
+          )
+        );
 
-      saveResult = true;
+        saveResult = this.checkIfJobApplicationWasAddToExistingUser(
+          foundJobApplicationAndsaved
+        );
+      }
     }
 
     return saveResult;
+  }
+
+  private checkIfJobApplicationWasAddToExistingUser(
+    saveAmountCounter: number
+  ): boolean {
+    let result: boolean = false;
+
+    if (saveAmountCounter > 0) {
+      result = true;
+    }
+
+    return result;
   }
 
   private makeRandomPassword() {
@@ -120,5 +164,34 @@ export class InmemorydbServiceService {
     }
 
     return resultOfSearch;
+  }
+
+  public findUserJobApplicationByUserEmail(
+    inputForUserEmail: string
+  ): UserJobApplications {
+    let userJobApplicationResult: UserJobApplications;
+    userJobApplicationResult = new UserJobApplications('undefined');
+    for (const itemUserJobApplication of this.getInMemDBUserJobApplicationsPerUser().values()) {
+      if (inputForUserEmail === itemUserJobApplication.getUserEmailLogin()) {
+        userJobApplicationResult = itemUserJobApplication;
+        break;
+      }
+    }
+    return userJobApplicationResult;
+  }
+
+  public checkIfGivenUserExistInStorageOfEmailDetails(
+    inputForUserEmail: string
+  ): boolean {
+    let result: boolean = false;
+
+    for (const itemUserEmailDetails of this.getInMemDBUserJobApplicationsPerUser().values()) {
+      if (inputForUserEmail === itemUserEmailDetails.getUserEmailLogin()) {
+        result = true;
+        break;
+      }
+    }
+
+    return result;
   }
 }
