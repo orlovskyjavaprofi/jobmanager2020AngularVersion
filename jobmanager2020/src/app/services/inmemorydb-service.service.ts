@@ -38,7 +38,7 @@ export class InmemorydbServiceService {
     inputForUserDetails: UserDetails,
     userPassword: string
   ): void {
-    //check if the user already exist in "database" and refues insertion!
+    // check if the user already exist in "database" and refues insertion!
     this.inMemoryStorageSet.add(inputForUserDetails);
     let lengthOfInputUserPassword;
 
@@ -58,7 +58,7 @@ export class InmemorydbServiceService {
       new UserCridentials(inputForUserDetails.userEmail, userPassword)
     );
 
-    //generate and send email to the user so that user notified that he or she can login!
+    // generate and send email to the user so that user notified that he or she can login!
   }
 
   public saveUserJobApplication(
@@ -67,17 +67,34 @@ export class InmemorydbServiceService {
     inputUserEmailBody: string,
     userApplicationPDFFile: File
   ): boolean {
-    let saveResult: boolean = false;
+    let saveResult = false;
+    let validateInputUserEmail: boolean =
+      Object.is(inputUserEmail, undefined) === false;
+    let validateInputUserEmailTopic: boolean =
+      Object.is(inputUserEmailTopic, undefined) === false;
+    let validateinputUserEmailBody: boolean =
+      Object.is(inputUserEmailBody, undefined) === false;
+    let validateinputUserEmailJobApplFile: boolean =
+      Object.is(userApplicationPDFFile, undefined) === false;
+
+    if (
+      validateInputUserEmail &&
+      validateInputUserEmailTopic &&
+      validateinputUserEmailBody &&
+      validateinputUserEmailJobApplFile
+    ) {
+      saveResult = true;
+    }
 
     return saveResult;
   }
 
   private makeRandomPassword() {
-    let length = 12;
-    let result: string = '';
-    let characters: string =
+    const length = 12;
+    let result = '';
+    const characters =
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789<>|-_,.;:?`´!!§$%&/()=?/^°';
-    let charactersLength = characters.length;
+    const charactersLength = characters.length;
     for (let i = 0; i < length; i++) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
@@ -90,7 +107,7 @@ export class InmemorydbServiceService {
   ): UserCridentials {
     let resultOfSearch: UserCridentials = new UserCridentials('none', 'none');
 
-    for (let itemUserCridentials of userCridentialsInDB.values()) {
+    for (const itemUserCridentials of userCridentialsInDB.values()) {
       if (userCridentialsMatch === itemUserCridentials) {
         resultOfSearch = itemUserCridentials;
         break;

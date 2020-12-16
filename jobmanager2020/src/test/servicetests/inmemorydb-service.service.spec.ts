@@ -3,7 +3,7 @@ import { UserDetails } from 'src/app/shared/model/userdetails';
 import { UserEmploymentTypes } from 'src/app/shared/model/usertypeemployments';
 
 import { InmemorydbServiceService } from '../../app/services/inmemorydb-service.service';
-
+import fs from 'fs';
 describe('InmemorydbServiceService', () => {
   let service: InmemorydbServiceService;
 
@@ -67,6 +67,31 @@ describe('InmemorydbServiceService', () => {
         inputUserEmailBody,
         userApplicationPDFFile
       )
-    ).toBeFalsy;
+    ).toBeFalsy();
+  });
+
+  it('case save user job application to db when user provided valid input', () => {
+    try {
+      const data = fs.readFileSync('src/test/testassets/testdocument.pdf');
+      userApplicationPDFFile = new File([data], 'testdocument.pdf', {
+        type: 'application/pdf',
+      });
+
+      let inputUserEmail: string;
+      inputUserEmail = 'johnsmith@test.com';
+      inputUserEmailTopic = 'Job application as software developer';
+      inputUserEmailBody = 'This is simple text for test';
+
+      expect(
+        service.saveUserJobApplication(
+          inputUserEmail,
+          inputUserEmailTopic,
+          inputUserEmailBody,
+          userApplicationPDFFile
+        )
+      ).toBeTruthy();
+    } catch (err) {
+      console.error(err);
+    }
   });
 });
