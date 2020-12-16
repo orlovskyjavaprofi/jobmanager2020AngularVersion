@@ -40,7 +40,7 @@ describe('EmailService', () => {
 
       /*
      This code only need for manual verfifcation
-    fs.writeFile('src/test/testassets/res.pdf', data, (err) => {
+      fs.writeFile('src/test/testassets/res.pdf', data, (err) => {
         if (err) {
           console.error(err);
           return;
