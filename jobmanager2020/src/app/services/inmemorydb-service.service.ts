@@ -83,6 +83,11 @@ export class InmemorydbServiceService {
       validateinputUserEmailBody &&
       validateinputUserEmailJobApplFile
     ) {
+      //Verify that user with give email exist
+      //if exist in db then store the user job application in db
+      //otherwise not return false
+      //User must have n job applications store in form of collection
+
       saveResult = true;
     }
 
