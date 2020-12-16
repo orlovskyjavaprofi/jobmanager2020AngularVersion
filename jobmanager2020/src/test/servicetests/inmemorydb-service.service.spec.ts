@@ -18,6 +18,9 @@ describe('InmemorydbServiceService', () => {
   let userCountry: string;
   let userStreetNumber: string;
   let userStreetName: string;
+  let userApplicationPDFFile: File;
+  let inputUserEmailTopic: string;
+  let inputUserEmailBody: string;
 
   beforeEach(() => {
     userFirstName = 'user first name not set up!';
@@ -55,7 +58,15 @@ describe('InmemorydbServiceService', () => {
     );
   });
 
-  //test case store provided file in memory userlogin cridential , and the file itself
-  //verification of the file done by email service
-  //expected result file stored true, file not stored false
+  it('case not save user job application to db when user provided invalid input', () => {
+    let inputUserEmail: string;
+    expect(
+      service.saveUserJobApplication(
+        inputUserEmail,
+        inputUserEmailTopic,
+        inputUserEmailBody,
+        userApplicationPDFFile
+      )
+    ).toBeFalsy;
+  });
 });
