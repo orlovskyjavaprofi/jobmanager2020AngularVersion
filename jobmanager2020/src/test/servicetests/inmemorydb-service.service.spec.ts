@@ -23,6 +23,8 @@ describe('InmemorydbServiceService', () => {
   let userApplicationPDFFile: File;
   let inputUserEmailTopic: string;
   let inputUserEmailBody: string;
+  let inputForCompanyName: string;
+  let companyName: string;
 
   beforeEach(() => {
     userFirstName = 'user first name not set up!';
@@ -67,7 +69,8 @@ describe('InmemorydbServiceService', () => {
         inputUserEmail,
         inputUserEmailTopic,
         inputUserEmailBody,
-        userApplicationPDFFile
+        userApplicationPDFFile,
+        inputForCompanyName
       )
     ).toBeFalsy();
   });
@@ -83,13 +86,14 @@ describe('InmemorydbServiceService', () => {
       inputUserEmail = 'johnsmith@test.com';
       inputUserEmailTopic = 'Job application as software developer';
       inputUserEmailBody = 'This is simple text for test';
-
+      companyName = 'RandomCompany';
       expect(
         service.saveUserJobApplication(
           inputUserEmail,
           inputUserEmailTopic,
           inputUserEmailBody,
-          userApplicationPDFFile
+          userApplicationPDFFile,
+          companyName
         )
       ).toBeTruthy();
     } catch (err) {
@@ -108,6 +112,7 @@ describe('InmemorydbServiceService', () => {
       inputUserEmail = 'johnsmith@test.com';
       inputUserEmailTopic = 'Job application as software developer';
       inputUserEmailBody = 'This is simple text for test';
+      inputForCompanyName = 'Random company';
       let testUserJobAppl: UserJobApplications = new UserJobApplications(
         inputUserEmail
       );
@@ -117,7 +122,8 @@ describe('InmemorydbServiceService', () => {
           new UserEmailDetails(
             inputUserEmailTopic,
             inputUserEmailBody,
-            userApplicationPDFFile
+            userApplicationPDFFile,
+            inputForCompanyName
           )
         );
 
@@ -142,6 +148,7 @@ describe('InmemorydbServiceService', () => {
       inputUserEmail = 'johnsmith@test.com';
       inputUserEmailTopic = 'Job application as software developer';
       inputUserEmailBody = 'This is simple text for test';
+      inputForCompanyName = 'Random company';
       let testUserJobAppl: UserJobApplications = new UserJobApplications(
         inputUserEmail
       );
@@ -151,7 +158,8 @@ describe('InmemorydbServiceService', () => {
           new UserEmailDetails(
             inputUserEmailTopic,
             inputUserEmailBody,
-            userApplicationPDFFile
+            userApplicationPDFFile,
+            inputForCompanyName
           )
         );
 

@@ -5,6 +5,7 @@ describe('UserEmailDetails', () => {
   let userEmailBodyText: string = 'this is a test example of body email text';
   let userPdfJobApplFile: File;
   let userEmailDetails: UserEmailDetails;
+  let userCompanyForAppl: string = 'RandomCorp';
 
   beforeEach(() => {
     try {
@@ -15,7 +16,8 @@ describe('UserEmailDetails', () => {
       userEmailDetails = new UserEmailDetails(
         userEmailTopic,
         userEmailBodyText,
-        userPdfJobApplFile
+        userPdfJobApplFile,
+        userCompanyForAppl
       );
     } catch (err) {
       console.error(err);
@@ -37,6 +39,10 @@ describe('UserEmailDetails', () => {
     expect(userEmailDetails.getUserEmailFileAttachment()).toBe(
       userPdfJobApplFile
     );
+  });
+
+  test('case: check that user company name was set', () => {
+    expect(userEmailDetails.getCompanyWhereUserAppl()).toBe(userCompanyForAppl);
   });
 
   afterEach(() => {

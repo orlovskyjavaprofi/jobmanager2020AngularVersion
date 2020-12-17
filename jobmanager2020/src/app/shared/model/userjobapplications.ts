@@ -30,13 +30,41 @@ export class UserJobApplications {
     let resultOfSearch: UserEmailDetails = new UserEmailDetails(
       'undefined',
       'undefined',
-      emptyFile
+      emptyFile,
+      'undefined'
     );
 
     for (const itemUserEmailDetails of this.getinMemorySetOfUserEmailDetails().values()) {
       if (userInputForEmailDetails === itemUserEmailDetails) {
         resultOfSearch = itemUserEmailDetails;
         break;
+      }
+    }
+
+    return resultOfSearch;
+  }
+
+  public findEmailDetailsByCompanyName(
+    inputForCompanyName: string
+  ): UserEmailDetails {
+    let resultOfSearch: UserEmailDetails;
+    const emptyFile: File = new File([''], 'filename');
+
+    resultOfSearch = new UserEmailDetails(
+      'undefined',
+      'undefined',
+      emptyFile,
+      'undefined'
+    );
+
+    if (inputForCompanyName.length > 0) {
+      for (const itemUserEmailDetails of this.getinMemorySetOfUserEmailDetails().values()) {
+        if (
+          inputForCompanyName === itemUserEmailDetails.getCompanyWhereUserAppl()
+        ) {
+          resultOfSearch = itemUserEmailDetails;
+          break;
+        }
       }
     }
 

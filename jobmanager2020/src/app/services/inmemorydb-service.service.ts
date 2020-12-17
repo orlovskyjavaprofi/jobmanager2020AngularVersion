@@ -71,7 +71,8 @@ export class InmemorydbServiceService {
     inputUserEmail: string,
     inputUserEmailTopic: string,
     inputUserEmailBody: string,
-    userApplicationPDFFile: File
+    userApplicationPDFFile: File,
+    inputForCompanyName: string
   ): boolean {
     let saveResult = false;
     let validateInputUserEmail: boolean =
@@ -84,11 +85,14 @@ export class InmemorydbServiceService {
       Object.is(userApplicationPDFFile, undefined) === false;
     let newUserJobApplication: UserJobApplications;
     let foundJobApplicationAndsaved: number = 0;
+    let validateInputCompanyName: boolean =
+      Object.is(inputForCompanyName, undefined) === false;
     if (
       validateInputUserEmail &&
       validateInputUserEmailTopic &&
       validateinputUserEmailBody &&
-      validateinputUserEmailJobApplFile
+      validateinputUserEmailJobApplFile &&
+      validateInputCompanyName
     ) {
       if (
         this.checkIfGivenUserExistInStorageOfEmailDetails(inputUserEmail) ===
@@ -101,7 +105,8 @@ export class InmemorydbServiceService {
             new UserEmailDetails(
               inputUserEmailTopic,
               inputUserEmailBody,
-              userApplicationPDFFile
+              userApplicationPDFFile,
+              inputForCompanyName
             )
           );
         this.getInMemDBUserJobApplicationsPerUser().add(newUserJobApplication);
@@ -113,7 +118,8 @@ export class InmemorydbServiceService {
           new UserEmailDetails(
             inputUserEmailTopic,
             inputUserEmailBody,
-            userApplicationPDFFile
+            userApplicationPDFFile,
+            inputForCompanyName
           )
         );
 

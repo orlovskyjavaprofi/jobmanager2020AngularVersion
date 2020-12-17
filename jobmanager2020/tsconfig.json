@@ -27,6 +27,7 @@
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "target": "es2015",
+    "types": ["node", "jest"],
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"]
   }

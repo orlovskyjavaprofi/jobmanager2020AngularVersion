@@ -9,6 +9,7 @@ describe('UserJobApplications', () => {
   let userEmailTopic: string;
   let userEmailBodyText: string;
   let userEmailPdfFile: File;
+  let companyName: string;
 
   beforeEach(() => {
     userEmailLogin = 'johnsmith@test.com';
@@ -17,6 +18,7 @@ describe('UserJobApplications', () => {
     try {
       userEmailTopic = 'Applications as software developer';
       userEmailBodyText = 'this is a simple text';
+      companyName = 'RandomCompany';
       const data = fs.readFileSync('src/test/testassets/testdocument.pdf');
       userEmailPdfFile = new File([data], 'testdocument.pdf', {
         type: 'application/pdf',
@@ -24,7 +26,8 @@ describe('UserJobApplications', () => {
       userEmailDetails = new UserEmailDetails(
         userEmailTopic,
         userEmailBodyText,
-        userEmailPdfFile
+        userEmailPdfFile,
+        companyName
       );
     } catch (err) {
       console.error(err);
@@ -54,6 +57,15 @@ describe('UserJobApplications', () => {
     expect(
       userJobApplications.findUserEmailDetailsByEmailDetails(userEmailDetails)
     ).toBe(userEmailDetails);
+  });
+
+  test('case: find email details by given company name', () => {
+    userJobApplications.addAndCountEmailDetailsToUserJobApplication(
+      userEmailDetails
+    );
+    expect(userJobApplications.findEmailDetailsByCompanyName(companyName)).toBe(
+      userEmailDetails
+    );
   });
 
   afterEach(() => {
