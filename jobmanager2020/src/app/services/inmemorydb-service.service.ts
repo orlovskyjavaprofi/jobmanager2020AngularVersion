@@ -45,6 +45,7 @@ export class InmemorydbServiceService {
     userPassword: string
   ): void {
     // check if the user already exist in "database" and refues insertion!
+    //begin of if
     this.inMemoryStorageSet.add(inputForUserDetails);
     let lengthOfInputUserPassword;
 
@@ -65,6 +66,7 @@ export class InmemorydbServiceService {
     );
 
     // generate and send email to the user so that user notified that he or she can login!
+    //end of if
   }
 
   public saveUserJobApplication(

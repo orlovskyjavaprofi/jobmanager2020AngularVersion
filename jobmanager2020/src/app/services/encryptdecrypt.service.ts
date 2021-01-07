@@ -25,8 +25,8 @@ export class EncryptdecryptService {
   public decryptUserData(inputForkey: string, encryptedData: SecureLS): string {
     let result: string = 'undefined';
     if (
-      encryptedData != null &&
-      encryptedData != undefined &&
+      encryptedData !== null &&
+      encryptedData !== undefined &&
       inputForkey.length >= 12
     ) {
       result = encryptedData.get(inputForkey).data;
