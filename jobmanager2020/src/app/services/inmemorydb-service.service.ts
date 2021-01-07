@@ -44,29 +44,28 @@ export class InmemorydbServiceService {
     inputForUserDetails: UserDetails,
     userPassword: string
   ): void {
-    // check if the user already exist in "database" and refues insertion!
-    //begin of if
-    this.inMemoryStorageSet.add(inputForUserDetails);
-    let lengthOfInputUserPassword;
+    if (this.findUserByEmail(inputForUserDetails.getUserEmail()) === false) {
+      this.inMemoryStorageSet.add(inputForUserDetails);
+      let lengthOfInputUserPassword;
 
-    if (userPassword !== null && userPassword !== undefined) {
-      lengthOfInputUserPassword = userPassword.length;
-    } else {
-      lengthOfInputUserPassword = 0;
+      if (userPassword !== null && userPassword !== undefined) {
+        lengthOfInputUserPassword = userPassword.length;
+      } else {
+        lengthOfInputUserPassword = 0;
+      }
+
+      if (lengthOfInputUserPassword === 0) {
+        userPassword = this.makeRandomPassword();
+      } else if (lengthOfInputUserPassword < 5) {
+        userPassword = this.makeRandomPassword();
+      }
+
+      this.inMemoryStorageSetOfUserCridentials.add(
+        new UserCridentials(inputForUserDetails.userEmail, userPassword)
+      );
+
+      // generate and send email to the user so that user notified that he or she can login!
     }
-
-    if (lengthOfInputUserPassword === 0) {
-      userPassword = this.makeRandomPassword();
-    } else if (lengthOfInputUserPassword < 5) {
-      userPassword = this.makeRandomPassword();
-    }
-
-    this.inMemoryStorageSetOfUserCridentials.add(
-      new UserCridentials(inputForUserDetails.userEmail, userPassword)
-    );
-
-    // generate and send email to the user so that user notified that he or she can login!
-    //end of if
   }
 
   public saveUserJobApplication(
@@ -195,6 +194,19 @@ export class InmemorydbServiceService {
 
     for (const itemUserEmailDetails of this.getInMemDBUserJobApplicationsPerUser().values()) {
       if (inputForUserEmail === itemUserEmailDetails.getUserEmailLogin()) {
+        result = true;
+        break;
+      }
+    }
+
+    return result;
+  }
+
+  public findUserByEmail(inputForUserEmail: string): boolean {
+    let result: boolean = false;
+
+    for (const itemUserDetails of this.getInMemDB().values()) {
+      if (inputForUserEmail === itemUserDetails.getUserEmail()) {
         result = true;
         break;
       }

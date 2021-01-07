@@ -172,4 +172,30 @@ describe('InmemorydbServiceService', () => {
       console.error(err);
     }
   });
+
+  it('case new user tries to register more then one time!', () => {
+    userEmail = 'testuser@test.company.com';
+    inputUserEmploymentState = UserEmploymentTypes.Contractor;
+    // tslint:disable-next-line: max-line-length
+    inputUserDetails = new UserDetails(
+      userFirstName,
+      userLastName,
+      userEmail,
+      userCityName,
+      userBirthDay,
+      userCountry,
+      userStreetNumber,
+      userStreetName,
+      inputUserEmploymentState
+    );
+    service.saveUserToMemory(inputUserDetails, 'randomPassword');
+    expect(service.findUserByEmail(userEmail)).toBe(true);
+  });
+
+  it('case unique user is identified for registration!', () => {
+    userEmail = 'testuser@test.company.com';
+
+    service.saveUserToMemory(inputUserDetails, 'randomPassword');
+    expect(service.findUserByEmail(userEmail)).toBe(false);
+  });
 });
