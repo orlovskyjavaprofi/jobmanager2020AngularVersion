@@ -34,7 +34,6 @@ the user one by one trought interaction with web ui!-->
   <!-- add here the ngIf statement which should check if the user have right to access it !
     if so then it should display this menu, but otherwise dont!-->
   <button
-    *ngIf="_displayLogin"
     mat-raised-button
     style="font-weight: bold; background-color: darkblue"
   >
@@ -42,7 +41,6 @@ the user one by one trought interaction with web ui!-->
   </button>
   &nbsp;&nbsp;
   <button
-    *ngIf="_displayLogin"
     mat-button
     [matMenuTriggerFor]="belowMenu"
     style="font-weight: bold; background-color: darkblue; color: white"
@@ -51,7 +49,6 @@ the user one by one trought interaction with web ui!-->
   </button>
   <mat-menu #belowMenu="matMenu" yPosition="below">
     <button
-      *ngIf="_displayLogin"
       mat-menu-item
       style="font-weight: bold; background-color: rgb(23, 9, 127)"
     >
@@ -62,7 +59,6 @@ the user one by one trought interaction with web ui!-->
       >
     </button>
     <button
-      *ngIf="_displayLogin"
       mat-menu-item
       style="font-weight: bold; background-color: rgb(23, 9, 127)"
     >
@@ -73,7 +69,6 @@ the user one by one trought interaction with web ui!-->
       >
     </button>
     <button
-      *ngIf="_displayLogin"
       mat-menu-item
       style="font-weight: bold; background-color: rgb(23, 9, 127)"
     >
@@ -84,7 +79,6 @@ the user one by one trought interaction with web ui!-->
       >
     </button>
     <button
-      *ngIf="_displayLogin"
       mat-menu-item
       style="font-weight: bold; background-color: rgb(23, 9, 127)"
     >
@@ -94,11 +88,7 @@ the user one by one trought interaction with web ui!-->
         ></b
       >
     </button>
-    <button
-      *ngIf="_displayLogin"
-      mat-menu-item
-      style="font-weight: bold; background-color: red"
-    >
+    <button mat-menu-item style="font-weight: bold; background-color: red">
       <b
         ><a routerLink="/userselectjobapplfordel" style="color: white"
           >Select job application for deletion</a
@@ -108,7 +98,6 @@ the user one by one trought interaction with web ui!-->
   </mat-menu>
   &nbsp;&nbsp;
   <button
-    *ngIf="_displayLogin"
     mat-raised-button
     style="font-weight: bold; background-color: darkblue"
   >
@@ -119,12 +108,7 @@ the user one by one trought interaction with web ui!-->
     ></button
   >&nbsp;&nbsp;<b>
     <a routerLink=""
-      ><button
-        *ngIf="_displayLogin"
-        mat-raised-button
-        style="font-weight: bold"
-        color="warn"
-      >
+      ><button mat-raised-button style="font-weight: bold" color="warn">
         <u>Logout</u>
       </button></a
     >
@@ -132,7 +116,7 @@ the user one by one trought interaction with web ui!-->
 </div>
 <router-outlet></router-outlet>
 
-<div>Auth menu state : {{ _displayLogin }}</div>
+<div>Auth menu state :</div>
 <br /><br /><br />
 
 <!-- Footer -->

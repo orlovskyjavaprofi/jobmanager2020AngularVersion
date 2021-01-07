@@ -45,28 +45,21 @@ export class UserloginComponent implements OnInit {
     return this.mainPageForm.controls;
   }
 
-  async login(submittedForm: FormGroup) {
-    this.loading = true;
-    this.authService
-      .login(submittedForm.value.username, submittedForm.value.password)
-      .subscribe(
-        (authStatus) => {
-          if (authStatus.isAuthenticated) {
-            this.router.navigate([
-              this.redirectUrl || this.homeRoutePerRole(authStatus.userRole),
-            ]);
-          }
-        },
-        (error) => (this.loginError = error)
-      );
-  }
-
-  validateUserForLogin(providedUserCridentials: UserCridentials, inputSetOfCredentials: Set<UserCridentials>): boolean{
+  validateUserForLogin(
+    providedUserCridentials: UserCridentials,
+    inputSetOfCredentials: Set<UserCridentials>
+  ): boolean {
     let searchResultByUserCridentials: boolean = false;
 
-    if (providedUserCridentials === this.inMemService.findSpecifiedUserDetails(providedUserCridentials, inputSetOfCredentials)){
+    if (
+      providedUserCridentials ===
+      this.inMemService.findSpecifiedUserDetails(
+        providedUserCridentials,
+        inputSetOfCredentials
+      )
+    ) {
       searchResultByUserCridentials = true;
-     }
+    }
 
     return searchResultByUserCridentials;
   }

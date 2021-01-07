@@ -17,23 +17,7 @@ import { AuthService } from '../services/auth-service.service';
 export class AppComponent implements OnInit {
   title = 'Job manager 2020';
 
-  public _displayLogin = false;
+  constructor() {}
 
-  constructor(private authService: AuthService) {
-    this._displayLogin = false;
-  }
-
-  ngOnInit() {
-    if (this.authService.currentUserValue != null) {
-      if (this.authService.currentUserValue.username != null) {
-        if (this.authService.currentUserValue.username.length > 0) {
-          this._displayLogin = true;
-        }
-      }
-    }
-  }
-
-  get displayLogin() {
-    return this._displayLogin;
-  }
+  ngOnInit() {}
 }
