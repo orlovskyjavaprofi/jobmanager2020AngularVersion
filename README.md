@@ -19,6 +19,8 @@ Do you want to know more about this project ?
 Then watch this youtube presentation: https://youtu.be/4Pxfwtuf51M
 Then Go to gitter messenger https://t.co/Ev0LfYlK27?amp=1 and start asking questions and propose ideas!
 
+Project development mode is SCRUM , scrum stories would be available in 2021 on https://easybacklog.com (send to Alexander Orlovsky your memebership request)
+
 The HTML code is formated with "Pretty Code Formater" visual studio code plugin!
 
 
