@@ -27,7 +27,7 @@
     "@angular/platform-browser-dynamic": "^10.2.3",
     "@angular/platform-server": "^10.0.14",
     "@angular/router": "^10.2.3",
-    "@nestjs/common": "^7.6.1",
+    "@nestjs/common": "^7.6.5",
     "@nestjs/core": "^7.6.1",
     "@nestjs/ng-universal": "^4.2.0",
     "@nestjs/platform-express": "^7.6.1",
@@ -41,6 +41,7 @@
     "reflect-metadata": "^0.1.13",
     "require": "^2.4.20",
     "rxjs": "~6.5.5",
+    "secure-ls": "^1.2.6",
     "tslib": "^2.0.3",
     "zone.js": "~0.10.3"
   },
