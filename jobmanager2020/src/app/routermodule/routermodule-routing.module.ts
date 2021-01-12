@@ -8,6 +8,7 @@ import { CurrentjobapplicationsComponent } from '../components/currentjobapplica
 import { LegaldisclaimerComponent } from '../components/legaldisclaimer/legaldisclaimer.component';
 import { PrintviewofselectedjobapplComponent } from '../components/printviewofselectedjobappl/printviewofselectedjobappl.component';
 import { ResetuserpasswordComponent } from '../components/resetuserpassword/resetuserpassword.component';
+import { SavsmtpmailsettingsComponent } from '../components/savsmtpmailsettings/savsmtpmailsettings.component';
 import { SearchforapplicationComponent } from '../components/searchforapplication/searchforapplication.component';
 import { UseraccountComponent } from '../components/useraccount/useraccount.component';
 import { UserloginComponent } from '../components/userlogin/userlogin.component';
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: 'sendmessagetocandidate',
     component: CompanysendmessagetouserComponent,
+  },
+  {
+    path: 'savemailsettings',
+    component: SavsmtpmailsettingsComponent,
   },
   {
     path: '',

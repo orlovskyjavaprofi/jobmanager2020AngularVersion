@@ -20,6 +20,11 @@ the user one by one trought interaction with web ui!-->
       Register
     </button></a
   >&nbsp;&nbsp;
+  <a routerLink="/sendmessagetocandidate"
+    ><button mat-raised-button style="font-weight: bold" color="primary">
+      Send message to a candidate for you job opening or position
+    </button></a
+  >&nbsp;&nbsp;
   <a routerLink="/legal"
     ><button mat-raised-button style="font-weight: bold" color="primary">
       Legal
@@ -27,10 +32,13 @@ the user one by one trought interaction with web ui!-->
   >
 </div>
 <br />
-<div align="left">
+<div align="center">
   <b style="color: red"
-    ><u>Test menu for auth user after successeful login:</u></b
-  >&nbsp;&nbsp;
+    ><u
+      >Todo: display this menu only if user is auth and only after successeful
+      login:</u
+    ></b
+  ><br />
   <!-- add here the ngIf statement which should check if the user have right to access it !
     if so then it should display this menu, but otherwise dont!-->
   <button
@@ -97,6 +105,7 @@ the user one by one trought interaction with web ui!-->
     </button>
   </mat-menu>
   &nbsp;&nbsp;
+
   <button
     mat-raised-button
     style="font-weight: bold; background-color: darkblue"
@@ -106,7 +115,31 @@ the user one by one trought interaction with web ui!-->
         >Job applications print view for timeline</a
       ></b
     ></button
-  >&nbsp;&nbsp;<b>
+  >&nbsp;&nbsp;
+
+  <button
+    mat-raised-button
+    style="font-weight: bold; background-color: darkblue"
+  >
+    <b
+      ><a routerLink="/savemailsettings" style="color: white"
+        >Set up smtp mail settings</a
+      ></b
+    ></button
+  >&nbsp;&nbsp;
+
+  <button
+    mat-raised-button
+    style="font-weight: bold; background-color: darkblue"
+  >
+    <b
+      ><a routerLink="/messagesofcompanies" style="color: white"
+        >View messages from companies</a
+      ></b
+    ></button
+  >&nbsp;&nbsp;
+
+  <b>
     <a routerLink=""
       ><button mat-raised-button style="font-weight: bold" color="warn">
         <u>Logout</u>
@@ -115,8 +148,8 @@ the user one by one trought interaction with web ui!-->
   </b>
 </div>
 <router-outlet></router-outlet>
-
-<div>Auth menu state :</div>
+<br /><br /><br />
+<div align="center">Auth menu state :</div>
 <br /><br /><br />
 
 <!-- Footer -->
