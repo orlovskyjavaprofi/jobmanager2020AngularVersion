@@ -34,6 +34,9 @@ import { AuthService } from './services/auth-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminusersmanagementComponent } from './components/adminusersmanagement/adminusersmanagement.component';
 import { RegisteradminuserComponent } from './registeradminuser/registeradminuser.component';
+import { ViewcompaniesmessagesComponent } from './components/viewcompaniesmessages/viewcompaniesmessages.component';
+import { CompanysendmessagetouserComponent } from './components/companysendmessagetouser/companysendmessagetouser.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +55,8 @@ import { RegisteradminuserComponent } from './registeradminuser/registeradminuse
     UserselectjobapplfordeleteComponent,
     AdminusersmanagementComponent,
     RegisteradminuserComponent,
+    ViewcompaniesmessagesComponent,
+    CompanysendmessagetouserComponent,
   ],
   imports: [
     HttpClientModule,

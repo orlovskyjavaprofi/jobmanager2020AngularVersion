@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminusersmanagementComponent } from '../components/adminusersmanagement/adminusersmanagement.component';
+import { CompanysendmessagetouserComponent } from '../components/companysendmessagetouser/companysendmessagetouser.component';
 import { CreateemailComponent } from '../components/createemail/createemail.component';
 import { CreatenewjobapplicationComponent } from '../components/createnewjobapplication/createnewjobapplication.component';
 import { CurrentjobapplicationsComponent } from '../components/currentjobapplications/currentjobapplications.component';
@@ -12,6 +13,7 @@ import { UseraccountComponent } from '../components/useraccount/useraccount.comp
 import { UserloginComponent } from '../components/userlogin/userlogin.component';
 import { UserregistrationComponent } from '../components/userregistration/userregistration.component';
 import { UserselectjobapplfordeleteComponent } from '../components/userselectjobapplfordelete/userselectjobapplfordelete.component';
+import { ViewcompaniesmessagesComponent } from '../components/viewcompaniesmessages/viewcompaniesmessages.component';
 import { WelcomecomponentComponent } from '../components/welcomecomponent/welcomecomponent.component';
 import { WrongurlerrorComponent } from '../components/wrongurlerror/wrongurlerror.component';
 import { RegisteradminuserComponent } from '../registeradminuser/registeradminuser.component';
@@ -42,6 +44,14 @@ const routes: Routes = [
   {
     path: 'registeruseradmin',
     component: RegisteradminuserComponent,
+  },
+  {
+    path: 'messagesofcompanies',
+    component: ViewcompaniesmessagesComponent,
+  },
+  {
+    path: 'sendmessagetocandidate',
+    component: CompanysendmessagetouserComponent,
   },
   {
     path: '',
