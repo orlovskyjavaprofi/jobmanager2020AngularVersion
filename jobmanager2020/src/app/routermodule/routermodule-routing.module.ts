@@ -14,6 +14,7 @@ import { UserregistrationComponent } from '../components/userregistration/userre
 import { UserselectjobapplfordeleteComponent } from '../components/userselectjobapplfordelete/userselectjobapplfordelete.component';
 import { WelcomecomponentComponent } from '../components/welcomecomponent/welcomecomponent.component';
 import { WrongurlerrorComponent } from '../components/wrongurlerror/wrongurlerror.component';
+import { RegisteradminuserComponent } from '../registeradminuser/registeradminuser.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomecomponentComponent },
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'userselectjobapplfordel',
     component: UserselectjobapplfordeleteComponent,
+  },
+  {
+    path: 'registeruseradmin',
+    component: RegisteradminuserComponent,
   },
   {
     path: '',
