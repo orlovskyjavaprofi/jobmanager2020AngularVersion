@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminusersmanagementComponent } from '../components/adminusersmanagement/adminusersmanagement.component';
 import { CreateemailComponent } from '../components/createemail/createemail.component';
 import { CreatenewjobapplicationComponent } from '../components/createnewjobapplication/createnewjobapplication.component';
 import { CurrentjobapplicationsComponent } from '../components/currentjobapplications/currentjobapplications.component';
@@ -41,6 +42,10 @@ const routes: Routes = [
     path: '',
     redirectTo: '/welcome',
     pathMatch: 'full',
+  },
+  {
+    path: 'admusersmgmt',
+    component: AdminusersmanagementComponent,
   },
   { path: '**', component: WrongurlerrorComponent },
 ];
