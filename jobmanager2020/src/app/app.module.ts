@@ -32,6 +32,7 @@ import { ResetuserpasswordComponent } from './components/resetuserpassword/reset
 import { UserselectjobapplfordeleteComponent } from './components/userselectjobapplfordelete/userselectjobapplfordelete.component';
 import { AuthService } from './services/auth-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminusersmanagementComponent } from './components/adminusersmanagement/adminusersmanagement.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
     PrintviewofselectedjobapplComponent,
     ResetuserpasswordComponent,
     UserselectjobapplfordeleteComponent,
+    AdminusersmanagementComponent,
   ],
   imports: [
     HttpClientModule,
