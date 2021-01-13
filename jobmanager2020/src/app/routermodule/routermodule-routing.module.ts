@@ -12,6 +12,7 @@ import { ResetuserpasswordComponent } from '../components/resetuserpassword/rese
 import { SavsmtpmailsettingsComponent } from '../components/savsmtpmailsettings/savsmtpmailsettings.component';
 import { SearchforapplicationComponent } from '../components/searchforapplication/searchforapplication.component';
 import { UseraccountComponent } from '../components/useraccount/useraccount.component';
+import { UsergreetingtextsmanagerComponent } from '../components/usergreetingtextsmanager/usergreetingtextsmanager.component';
 import { UserloginComponent } from '../components/userlogin/userlogin.component';
 import { UserregistrationComponent } from '../components/userregistration/userregistration.component';
 import { UserresetpasswordComponent } from '../components/userresetpassword/userresetpassword.component';
@@ -69,6 +70,10 @@ const routes: Routes = [
   {
     path: 'recentuserjobappl',
     component: RecentuserjobapplComponent,
+  },
+  {
+    path: 'usergreetingtextsmanager',
+    component: UsergreetingtextsmanagerComponent,
   },
   {
     path: '',
