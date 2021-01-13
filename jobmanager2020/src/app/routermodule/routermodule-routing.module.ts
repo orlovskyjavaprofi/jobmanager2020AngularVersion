@@ -13,6 +13,7 @@ import { SearchforapplicationComponent } from '../components/searchforapplicatio
 import { UseraccountComponent } from '../components/useraccount/useraccount.component';
 import { UserloginComponent } from '../components/userlogin/userlogin.component';
 import { UserregistrationComponent } from '../components/userregistration/userregistration.component';
+import { UserresetpasswordComponent } from '../components/userresetpassword/userresetpassword.component';
 import { UserselectjobapplfordeleteComponent } from '../components/userselectjobapplfordelete/userselectjobapplfordelete.component';
 import { ViewcompaniesmessagesComponent } from '../components/viewcompaniesmessages/viewcompaniesmessages.component';
 import { WelcomecomponentComponent } from '../components/welcomecomponent/welcomecomponent.component';
@@ -54,9 +55,14 @@ const routes: Routes = [
     path: 'sendmessagetocandidate',
     component: CompanysendmessagetouserComponent,
   },
+
   {
     path: 'savemailsettings',
     component: SavsmtpmailsettingsComponent,
+  },
+  {
+    path: 'validuserresetpassword',
+    component: UserresetpasswordComponent,
   },
   {
     path: '',
