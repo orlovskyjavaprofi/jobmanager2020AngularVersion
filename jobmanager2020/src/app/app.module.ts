@@ -38,6 +38,7 @@ import { ViewcompaniesmessagesComponent } from './components/viewcompaniesmessag
 import { CompanysendmessagetouserComponent } from './components/companysendmessagetouser/companysendmessagetouser.component';
 import { SavsmtpmailsettingsComponent } from './components/savsmtpmailsettings/savsmtpmailsettings.component';
 import { UserresetpasswordComponent } from './components/userresetpassword/userresetpassword.component';
+import { RecentuserjobapplComponent } from './components/recentuserjobappl/recentuserjobappl.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { UserresetpasswordComponent } from './components/userresetpassword/userr
     CompanysendmessagetouserComponent,
     SavsmtpmailsettingsComponent,
     UserresetpasswordComponent,
+    RecentuserjobapplComponent,
   ],
   imports: [
     HttpClientModule,

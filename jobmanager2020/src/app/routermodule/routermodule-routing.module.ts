@@ -7,6 +7,7 @@ import { CreatenewjobapplicationComponent } from '../components/createnewjobappl
 import { CurrentjobapplicationsComponent } from '../components/currentjobapplications/currentjobapplications.component';
 import { LegaldisclaimerComponent } from '../components/legaldisclaimer/legaldisclaimer.component';
 import { PrintviewofselectedjobapplComponent } from '../components/printviewofselectedjobappl/printviewofselectedjobappl.component';
+import { RecentuserjobapplComponent } from '../components/recentuserjobappl/recentuserjobappl.component';
 import { ResetuserpasswordComponent } from '../components/resetuserpassword/resetuserpassword.component';
 import { SavsmtpmailsettingsComponent } from '../components/savsmtpmailsettings/savsmtpmailsettings.component';
 import { SearchforapplicationComponent } from '../components/searchforapplication/searchforapplication.component';
@@ -63,6 +64,11 @@ const routes: Routes = [
   {
     path: 'validuserresetpassword',
     component: UserresetpasswordComponent,
+  },
+
+  {
+    path: 'recentuserjobappl',
+    component: RecentuserjobapplComponent,
   },
   {
     path: '',
