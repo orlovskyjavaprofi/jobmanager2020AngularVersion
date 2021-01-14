@@ -8,6 +8,7 @@ import { CurrentjobapplicationsComponent } from '../components/currentjobapplica
 import { LegaldisclaimerComponent } from '../components/legaldisclaimer/legaldisclaimer.component';
 import { PrintviewofselectedjobapplComponent } from '../components/printviewofselectedjobappl/printviewofselectedjobappl.component';
 import { RecentuserjobapplComponent } from '../components/recentuserjobappl/recentuserjobappl.component';
+import { RegisteradminuserComponent } from '../components/registeradminuser/registeradminuser.component';
 import { ResetuserpasswordComponent } from '../components/resetuserpassword/resetuserpassword.component';
 import { SavsmtpmailsettingsComponent } from '../components/savsmtpmailsettings/savsmtpmailsettings.component';
 import { SearchforapplicationComponent } from '../components/searchforapplication/searchforapplication.component';
@@ -20,7 +21,6 @@ import { UserselectjobapplfordeleteComponent } from '../components/userselectjob
 import { ViewcompaniesmessagesComponent } from '../components/viewcompaniesmessages/viewcompaniesmessages.component';
 import { WelcomecomponentComponent } from '../components/welcomecomponent/welcomecomponent.component';
 import { WrongurlerrorComponent } from '../components/wrongurlerror/wrongurlerror.component';
-import { RegisteradminuserComponent } from '../registeradminuser/registeradminuser.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomecomponentComponent },

@@ -33,13 +33,14 @@ import { UserselectjobapplfordeleteComponent } from './components/userselectjoba
 import { AuthService } from './services/auth-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminusersmanagementComponent } from './components/adminusersmanagement/adminusersmanagement.component';
-import { RegisteradminuserComponent } from './registeradminuser/registeradminuser.component';
+
 import { ViewcompaniesmessagesComponent } from './components/viewcompaniesmessages/viewcompaniesmessages.component';
 import { CompanysendmessagetouserComponent } from './components/companysendmessagetouser/companysendmessagetouser.component';
 import { SavsmtpmailsettingsComponent } from './components/savsmtpmailsettings/savsmtpmailsettings.component';
 import { UserresetpasswordComponent } from './components/userresetpassword/userresetpassword.component';
 import { RecentuserjobapplComponent } from './components/recentuserjobappl/recentuserjobappl.component';
 import { UsergreetingtextsmanagerComponent } from './components/usergreetingtextsmanager/usergreetingtextsmanager.component';
+import { RegisteradminuserComponent } from './components/registeradminuser/registeradminuser.component';
 
 @NgModule({
   declarations: [
