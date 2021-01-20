@@ -1,6 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AdminUserAffiliation } from 'src/app/shared/model/adminuseraffiliation.enum';
 
 import { RegisteradminuserComponent } from '../../app/components/registeradminuser/registeradminuser.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 describe('RegisteradminuserComponent', () => {
   let component: RegisteradminuserComponent;
@@ -9,6 +17,16 @@ describe('RegisteradminuserComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [RegisteradminuserComponent],
+      imports: [
+        ReactiveFormsModule,
+        RouterTestingModule,
+        MatInputModule,
+        MatFormFieldModule,
+        BrowserAnimationsModule,
+        MatSelectModule,
+        FormsModule,
+        MatCheckboxModule,
+      ],
     }).compileComponents();
   });
 
@@ -21,4 +39,43 @@ describe('RegisteradminuserComponent', () => {
   it('should create register admin user component', () => {
     expect(component).toBeTruthy();
   });
+
+  it('case user provided valid input for admin registration', () => {
+    let adminFirstName: string = 'John';
+    let adminLastName: string = 'Smith';
+    let adminEmail: string = 'test@user.com';
+    let adminOrga: AdminUserAffiliation = AdminUserAffiliation.NPO;
+    let adminPassword: string = 'testpassword123556*';
+
+    expect(
+      component.registerUser(
+        adminFirstName,
+        adminLastName,
+        adminEmail,
+        adminOrga,
+        adminPassword
+      )
+    ).toBe(true);
+  });
+
+  it('case user provided invalid input for admin registration', () => {
+    let adminFirstName: string = '';
+    let adminLastName: string = '';
+    let adminEmail: string = '';
+    let adminOrga: AdminUserAffiliation = AdminUserAffiliation.CLP;
+    let adminPassword: string = '';
+
+    expect(
+      component.registerUser(
+        adminFirstName,
+        adminLastName,
+        adminEmail,
+        adminOrga,
+        adminPassword
+      )
+    ).toBe(false);
+  });
+
+  //write testcase when theformular is completely filled and the gdpr checkbox is checked
+  //expected result register button is activated
 });

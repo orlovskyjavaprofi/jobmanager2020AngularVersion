@@ -41,6 +41,7 @@ import { UserresetpasswordComponent } from './components/userresetpassword/userr
 import { RecentuserjobapplComponent } from './components/recentuserjobappl/recentuserjobappl.component';
 import { UsergreetingtextsmanagerComponent } from './components/usergreetingtextsmanager/usergreetingtextsmanager.component';
 import { RegisteradminuserComponent } from './components/registeradminuser/registeradminuser.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { RegisteradminuserComponent } from './components/registeradminuser/regis
     CdkTableModule,
     MatInputModule,
     MatRadioModule,
+    MatSelectModule,
   ],
   providers: [
     AuthService,

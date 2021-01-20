@@ -1,8 +1,121 @@
 <h1 align="center"><u>Register admin user for Jobmanager 2020!</u></h1>
 <br />
 <div align="center">
-  <b
-    >This page create a admin user only one time, if for some reason you need to
-    reset admin user, please write your own reset admin component!</b
-  >
+  <!--input for first name , last name, email, organization type, password, selection box for orga, reset form button, register admin button-->
+  <form>
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input
+        matInput
+        placeholder="Firstname"
+        [formControl]="firstNameControl"
+        value="Type here your first name..."
+      />
+      <mat-error
+        *ngIf="
+          firstNameControl.hasError('maxlength') &&
+          firstNameControl.hasError('minlength') &&
+          !firstNameControl.hasError('required')
+        "
+      >
+        Please enter a valid input text for first name
+      </mat-error>
+      <mat-error *ngIf="lastNameControl.hasError('required')">
+        <strong>Required:</strong> Please provide atleast 4 characters for valid
+        first name!
+      </mat-error>
+    </mat-form-field>
+    <br /><br />
+    <mat-form-field>
+      <mat-label>Last name</mat-label>
+      <input
+        matInput
+        placeholder="Last name"
+        [formControl]="lastNameControl"
+        value="Type here your last name..."
+      />
+      <mat-error
+        *ngIf="
+          lastNameControl.hasError('maxlength') &&
+          lastNameControl.hasError('minlength') &&
+          !lastNameControl.hasError('required')
+        "
+      >
+        Please enter a valid input text for last name
+      </mat-error>
+      <mat-error *ngIf="lastNameControl.hasError('required')">
+        <strong>Required:</strong> Please provide atleast 4 characters for valid
+        last name !
+      </mat-error>
+    </mat-form-field>
+    <br /><br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        [formControl]="emailFormControl"
+        placeholder="Ex. youremail@example.com"
+      />
+      <mat-error
+        *ngIf="
+          emailFormControl.hasError('email') &&
+          !emailFormControl.hasError('required')
+        "
+      >
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        <strong>Required:</strong> Valid email!
+      </mat-error>
+    </mat-form-field>
+    <br /><br />
+    <mat-form-field>
+      <mat-label>Write password</mat-label>
+      <input
+        type="password"
+        matInput
+        [formControl]="passwordControl"
+        placeholder="user password"
+      />
+      <mat-error
+        *ngIf="
+          passwordControl.hasError('minlength') &&
+          !passwordControl.hasError('required')
+        "
+      >
+        Password minimum length 10 characters!
+      </mat-error>
+      <mat-error *ngIf="passwordControl.hasError('required')">
+        <strong>Required:</strong> Valid password!
+      </mat-error>
+    </mat-form-field>
+    <br /><br />
+    <b>This platform run by following type of organization</b>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Organization or person for running this platform</mat-label>
+
+      <mat-select>
+        <mat-option
+          *ngFor="let adminAffiliate of adminAffiliateOrgas"
+          [value]="adminAffiliate.value"
+        >
+          {{ adminAffiliate.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br /><br />
+    <section>
+      <mat-checkbox
+        ><b>I am agree to run this platform according to</b>&nbsp;
+        <a href="https://gdpr.eu/tag/gdpr/"
+          >european General Data Protection Regulation</a
+        >
+      </mat-checkbox>
+    </section>
+    <br /><br />
+    <button mat-raised-button color="warn">Reset</button>&nbsp;&nbsp;
+    <button mat-raised-button disabled>Register new admin user</button>
+  </form>
 </div>
