@@ -6,6 +6,8 @@ import { InmemorydbServiceService } from '../../app/services/inmemorydb-service.
 import fs from 'fs';
 import { UserJobApplications } from 'src/app/shared/model/userjobapplications';
 import { UserEmailDetails } from 'src/app/shared/model/useremaildetails';
+import { AdminUserAffiliation } from 'src/app/shared/model/adminuseraffiliation.enum';
+import { AdminUserForLogin } from 'src/app/shared/model/adminuser';
 describe('InmemorydbServiceService', () => {
   let service: InmemorydbServiceService;
 
@@ -197,5 +199,49 @@ describe('InmemorydbServiceService', () => {
 
     service.saveUserToMemory(inputUserDetails, 'randomPassword');
     expect(service.findUserByEmail(userEmail)).toBe(false);
+  });
+
+  it('case store admin user in inmemorydb!', () => {
+    let adminFirstName: string = 'John';
+    let adminLastName: string = 'Smith';
+    let adminEmail: string = 'test@user.com';
+    let adminActivated: boolean = false;
+    let adminOrga: AdminUserAffiliation = AdminUserAffiliation.NPO;
+    let adminPassword: string = 'testpassword123556*';
+
+    let testadminuser: AdminUserForLogin = new AdminUserForLogin(
+      adminFirstName,
+      adminLastName,
+      adminEmail,
+      adminActivated,
+      adminOrga,
+      adminPassword
+    );
+
+    expect(service.storeAdminUser(testadminuser)).toBe(true);
+  });
+
+  it('case admin user was created check!', () => {
+    let adminFirstName: string = 'John';
+    let adminLastName: string = 'Smith';
+    let adminEmail: string = 'test@user.com';
+    let adminActivated: boolean = false;
+    let adminOrga: AdminUserAffiliation = AdminUserAffiliation.NPO;
+    let adminPassword: string = 'testpassword123556*';
+
+    let testadminuser: AdminUserForLogin = new AdminUserForLogin(
+      adminFirstName,
+      adminLastName,
+      adminEmail,
+      adminActivated,
+      adminOrga,
+      adminPassword
+    );
+    service.storeAdminUser(testadminuser);
+    expect(service.checkIfAdminUserWasCreated()).toBe(true);
+  });
+
+  it('case admin user was not created check!', () => {
+    expect(service.checkIfAdminUserWasCreated()).toBe(false);
   });
 });

@@ -3,6 +3,7 @@ import { UserCridentials } from '../shared/model/usercridentials';
 import { UserDetails } from '../shared/model/userdetails';
 import { UserEmailDetails } from '../shared/model/useremaildetails';
 import { UserJobApplications } from '../shared/model/userjobapplications';
+import { AdminUserForLogin } from 'src/app/shared/model/adminuser';
 @Injectable({
   providedIn: 'root',
 })
@@ -12,6 +13,7 @@ export class InmemorydbServiceService {
   private inMemoryStorageSet = new Set<UserDetails>();
   private inMemoryStorageSetOfUserCridentials = new Set<UserCridentials>();
   private inMemoryStorageSetOfUserJobApplications = new Set<UserJobApplications>();
+  private inMemoryAdminUser!: AdminUserForLogin;
 
   saveUserToMemory(
     inputUserDetails: UserDetails,
@@ -38,6 +40,27 @@ export class InmemorydbServiceService {
 
   public getInMemDBUserJobApplicationsPerUser(): Set<UserJobApplications> {
     return this.inMemoryStorageSetOfUserJobApplications;
+  }
+
+  public storeAdminUser(inMemoryAdminUser: AdminUserForLogin): boolean {
+    let result: boolean = false;
+
+    if (inMemoryAdminUser != null) {
+      this.inMemoryAdminUser = inMemoryAdminUser;
+      result = true;
+    }
+
+    return result;
+  }
+
+  public checkIfAdminUserWasCreated(): boolean {
+    let result: boolean = false;
+
+    if (this.inMemoryAdminUser != null) {
+      result = true;
+    }
+
+    return result;
   }
 
   public setInMemDB(
