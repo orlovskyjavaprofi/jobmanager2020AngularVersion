@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -9,6 +9,8 @@ import { AdminUserAffiliation } from 'src/app/shared/model/adminuseraffiliation.
 
 import { RegisteradminuserComponent } from '../../app/components/registeradminuser/registeradminuser.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
 describe('RegisteradminuserComponent', () => {
   let component: RegisteradminuserComponent;
@@ -20,12 +22,13 @@ describe('RegisteradminuserComponent', () => {
       imports: [
         ReactiveFormsModule,
         RouterTestingModule,
-        MatInputModule,
-        MatFormFieldModule,
-        BrowserAnimationsModule,
-        MatSelectModule,
         FormsModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
         MatCheckboxModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
       ],
     }).compileComponents();
   });
@@ -33,6 +36,7 @@ describe('RegisteradminuserComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(RegisteradminuserComponent);
     component = fixture.componentInstance;
+
     fixture.detectChanges();
   });
 
@@ -75,7 +79,4 @@ describe('RegisteradminuserComponent', () => {
       )
     ).toBe(false);
   });
-
-  //write testcase when theformular is completely filled and the gdpr checkbox is checked
-  //expected result register button is activated
 });

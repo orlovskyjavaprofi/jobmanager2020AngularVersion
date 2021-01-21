@@ -1,26 +1,25 @@
 <h1 align="center"><u>Register admin user for Jobmanager 2020!</u></h1>
 <br />
 <div align="center">
-  <!--input for first name , last name, email, organization type, password, selection box for orga, reset form button, register admin button-->
-  <form>
+  <form [formGroup]="newAdminUserRegForm">
     <mat-form-field>
       <mat-label>First name</mat-label>
       <input
         matInput
         placeholder="Firstname"
-        [formControl]="firstNameControl"
+        formControlName="firstNameControl"
         value="Type here your first name..."
       />
       <mat-error
         *ngIf="
-          firstNameControl.hasError('maxlength') &&
-          firstNameControl.hasError('minlength') &&
-          !firstNameControl.hasError('required')
+          newAdminUserRegForm.hasError('maxlength') &&
+          newAdminUserRegForm.hasError('minlength') &&
+          !newAdminUserRegForm.hasError('required')
         "
       >
         Please enter a valid input text for first name
       </mat-error>
-      <mat-error *ngIf="lastNameControl.hasError('required')">
+      <mat-error *ngIf="newAdminUserRegForm.hasError('required')">
         <strong>Required:</strong> Please provide atleast 4 characters for valid
         first name!
       </mat-error>
@@ -31,19 +30,19 @@
       <input
         matInput
         placeholder="Last name"
-        [formControl]="lastNameControl"
+        formControlName="lastNameControl"
         value="Type here your last name..."
       />
       <mat-error
         *ngIf="
-          lastNameControl.hasError('maxlength') &&
-          lastNameControl.hasError('minlength') &&
-          !lastNameControl.hasError('required')
+          newAdminUserRegForm.hasError('maxlength') &&
+          newAdminUserRegForm.hasError('minlength') &&
+          !newAdminUserRegForm.hasError('required')
         "
       >
         Please enter a valid input text for last name
       </mat-error>
-      <mat-error *ngIf="lastNameControl.hasError('required')">
+      <mat-error *ngIf="newAdminUserRegForm.hasError('required')">
         <strong>Required:</strong> Please provide atleast 4 characters for valid
         last name !
       </mat-error>
@@ -54,18 +53,18 @@
       <input
         type="email"
         matInput
-        [formControl]="emailFormControl"
+        formControlName="emailFormControl"
         placeholder="Ex. youremail@example.com"
       />
       <mat-error
         *ngIf="
-          emailFormControl.hasError('email') &&
-          !emailFormControl.hasError('required')
+          newAdminUserRegForm.hasError('email') &&
+          newAdminUserRegForm.hasError('required')
         "
       >
         Please enter a valid email address
       </mat-error>
-      <mat-error *ngIf="emailFormControl.hasError('required')">
+      <mat-error *ngIf="newAdminUserRegForm.hasError('required')">
         <strong>Required:</strong> Valid email!
       </mat-error>
     </mat-form-field>
@@ -75,18 +74,18 @@
       <input
         type="password"
         matInput
-        [formControl]="passwordControl"
+        formControlName="passwordControl"
         placeholder="user password"
       />
       <mat-error
         *ngIf="
-          passwordControl.hasError('minlength') &&
-          !passwordControl.hasError('required')
+          newAdminUserRegForm.hasError('minlength') &&
+          !newAdminUserRegForm.hasError('required')
         "
       >
         Password minimum length 10 characters!
       </mat-error>
-      <mat-error *ngIf="passwordControl.hasError('required')">
+      <mat-error *ngIf="newAdminUserRegForm.hasError('required')">
         <strong>Required:</strong> Valid password!
       </mat-error>
     </mat-form-field>
@@ -96,7 +95,7 @@
     <mat-form-field appearance="fill">
       <mat-label>Organization or person for running this platform</mat-label>
 
-      <mat-select>
+      <mat-select formControlName="selOrgaFormControl">
         <mat-option
           *ngFor="let adminAffiliate of adminAffiliateOrgas"
           [value]="adminAffiliate.value"
@@ -108,14 +107,39 @@
     <br /><br />
     <section>
       <mat-checkbox
+        name="chkBoxGdprState"
+        [(ngModel)]="chkBoxGdprState"
+        ngDefaultControl
+        formControlName="checkBoxGDPRControl"
+        color="primary"
         ><b>I am agree to run this platform according to</b>&nbsp;
         <a href="https://gdpr.eu/tag/gdpr/"
-          >european General Data Protection Regulation</a
+          >European General Data Protection Regulation</a
         >
+        <mat-error *ngIf="!newAdminUserRegForm.hasError('required')">
+          <b><u>Please use this platform responsibly!</u></b>
+        </mat-error>
+        <mat-error *ngIf="newAdminUserRegForm.hasError('required')">
+          <strong>Required:</strong>
+          You need to checked GDPR checkbox in order to proceed with this
+          registration!
+        </mat-error>
       </mat-checkbox>
     </section>
     <br /><br />
-    <button mat-raised-button color="warn">Reset</button>&nbsp;&nbsp;
-    <button mat-raised-button disabled>Register new admin user</button>
+    <button mat-raised-button color="warn" (click)="resetNewAdminRegForm()">
+      Reset</button
+    >&nbsp;&nbsp;
+    <button
+      mat-raised-button
+      name="registrationBtnControl"
+      ngDefaultControl
+      formControlName="registrationBtnControl"
+      color="primary"
+      [disabled]="!chkBoxGdprState"
+      (click)="onFormSubmit()"
+    >
+      Register new admin user
+    </button>
   </form>
 </div>

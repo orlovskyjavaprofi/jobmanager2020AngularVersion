@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { InmemorydbServiceService } from 'src/app/services/inmemorydb-service.service';
 import { AdminUserForLogin } from 'src/app/shared/model/adminuser';
-import { AdminUserAffiliation } from 'src/app/shared/model/adminuseraffiliation.enum';
+import {
+  AdminUserAffiliation,
+  findKeyForEnumOfUserAdminAffilOrga,
+  selectEnumForTheGivenUserAdminOrga,
+} from 'src/app/shared/model/adminuseraffiliation.enum';
 
 interface AdminAffiliatesTypes {
   value: string;
@@ -16,28 +20,34 @@ interface AdminAffiliatesTypes {
 })
 export class RegisteradminuserComponent implements OnInit {
   constructor(private inMemService: InmemorydbServiceService) {}
+  chkBoxGdprState: boolean = false;
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-
-  passwordControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(10),
-  ]);
-
-  firstNameControl = new FormControl('', [
-    Validators.required,
-    Validators.maxLength(20),
-    Validators.minLength(4),
-  ]);
-
-  lastNameControl = new FormControl('', [
-    Validators.required,
-    Validators.maxLength(20),
-    Validators.minLength(4),
-  ]);
+  newAdminUserRegForm = new FormGroup({
+    registrationBtnControl: new FormControl(''),
+    checkBoxGDPRControl: new FormControl('', [
+      Validators.required,
+      Validators.requiredTrue,
+    ]),
+    emailFormControl: new FormControl('', [
+      Validators.required,
+      Validators.email,
+    ]),
+    passwordControl: new FormControl('', [
+      Validators.required,
+      Validators.minLength(10),
+    ]),
+    firstNameControl: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(20),
+      Validators.minLength(4),
+    ]),
+    lastNameControl: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(20),
+      Validators.minLength(4),
+    ]),
+    selOrgaFormControl: new FormControl(''),
+  });
 
   adminAffiliateOrgas: AdminAffiliatesTypes[] = [
     {
@@ -60,10 +70,57 @@ export class RegisteradminuserComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  //write method which triggered by GDPR checkbox when its checked, if checkbox is true meaning that is checked
-  // register button should activated when this condition met!
-  //when register button activated check during OnSubmit that Gdpr checkbox is activated! and only then call
-  //registerUSer method,
+  public resetNewAdminRegForm(): void {
+    this.newAdminUserRegForm.reset({
+      registrationBtnControl: '',
+      checkBoxGDPRControl: '',
+      emailFormControl: '',
+      passwordControl: '',
+      firstNameControl: '',
+      lastNameControl: '',
+      selOrgaFormControl: '',
+    });
+  }
+
+  onFormSubmit(): void {
+    let registrationsubmitted: boolean = false;
+    let keyforenumofuseradminaffialiation: string;
+    if (Object.is(this.newAdminUserRegForm.value.checkBoxGDPRControl, true)) {
+      keyforenumofuseradminaffialiation = findKeyForEnumOfUserAdminAffilOrga(
+        this.newAdminUserRegForm.value.selOrgaFormControl
+      );
+
+      registrationsubmitted = this.registerUser(
+        this.newAdminUserRegForm.value.firstNameControl,
+        this.newAdminUserRegForm.value.lastNameControl,
+        this.newAdminUserRegForm.value.emailFormControl,
+        selectEnumForTheGivenUserAdminOrga(keyforenumofuseradminaffialiation),
+        this.newAdminUserRegForm.value.passwordControl
+      );
+      console.log('Registration submission state: ' + registrationsubmitted);
+    }
+
+    console.log(
+      'User first name: ' + this.newAdminUserRegForm.value.firstNameControl
+    );
+    console.log(
+      'User last name: ' + this.newAdminUserRegForm.value.lastNameControl
+    );
+    console.log(
+      'User email: ' + this.newAdminUserRegForm.value.emailFormControl
+    );
+    console.log(
+      'User password: ' + this.newAdminUserRegForm.value.passwordControl
+    );
+    console.log(
+      'User affiliate organization: ' +
+        this.newAdminUserRegForm.value.selOrgaFormControl
+    );
+    console.log(
+      'USer selected chebox GDPR: ' +
+        this.newAdminUserRegForm.value.checkBoxGDPRControl
+    );
+  }
 
   registerUser(
     inputForFirstName: string,
