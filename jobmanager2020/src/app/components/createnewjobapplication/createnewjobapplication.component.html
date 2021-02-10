@@ -319,6 +319,15 @@
                   type="text"
                   formControlName="addNoteaboutCompanyFormatControl"
                 />
+                <mat-error
+                  *ngIf="
+                    newJobApplForm.hasError('maxlength') &&
+                    newJobApplForm.hasError('minlength') &&
+                    !newJobApplForm.hasError('required')
+                  "
+                >
+                  Please provide some meaningful description!
+                </mat-error>
               </mat-form-field>
             </div>
           </td>

@@ -47,7 +47,11 @@ export class CreatenewjobapplicationComponent implements OnInit {
       Validators.maxLength(20),
       Validators.minLength(3),
     ]),
-    addNoteaboutCompanyFormatControl: new FormControl(''),
+    addNoteaboutCompanyFormatControl: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(20),
+      Validators.minLength(3),
+    ]),
   });
 
   selectionViewForDifferentCompanyContactSalutationTypes: contractForJobApplicationSelectionRepresentation[] = [
@@ -129,6 +133,68 @@ export class CreatenewjobapplicationComponent implements OnInit {
   }
 
   onFormSubmit(): void {
+    if (Object.is(this.validateUserInputForNewJobApplAndStoreInmem(), true)) {
+      this.debutOutput();
+    }
+  }
+
+  //write method method which would forward the user input to inmem persistance to store the new job application safely in the inmemdb
+
+  validateUserInputForNewJobApplAndStoreInmem(): boolean {
+    let result: boolean = false;
+
+    let checkForUserDateInput: boolean =
+      this.newJobApplForm.value.dateInputFormatControl.length > 0 &&
+      this.newJobApplForm.value.dateInputFormatControl != null;
+    let checkForUserCountryInput: boolean =
+      this.newJobApplForm.value.countryInputFormatControl.length > 0 &&
+      this.newJobApplForm.value.countryInputFormatControl != null;
+    let checkForUserCityInput: boolean =
+      this.newJobApplForm.value.cityInputFormatControl.length > 0 &&
+      this.newJobApplForm.value.cityInputFormatControl != null;
+    let checkUserInputForIndustryType: boolean =
+      this.newJobApplForm.value.companyIndustryTypeFormatcontrol.length > 0 &&
+      this.newJobApplForm.value.companyIndustryTypeFormatcontrol != null;
+    let checkUserInputForSizeType: boolean =
+      this.newJobApplForm.value.selCompanySizeTypeFormControl.length > 0 &&
+      this.newJobApplForm.value.selCompanySizeTypeFormControl != null;
+    let checkUserInputForBusinessType: boolean =
+      this.newJobApplForm.value.selCompanyBusinessTypeFormControl.length > 0 &&
+      this.newJobApplForm.value.selCompanyBusinessTypeFormControl != null;
+    let checkUserInputForEmail: boolean =
+      this.newJobApplForm.value.companyContactEmailFormatcontrol.length > 0 &&
+      this.newJobApplForm.value.companyContactEmailFormatcontrol != null;
+    let checkUserInputForSalutation: boolean =
+      this.newJobApplForm.value.selCompanyContactSalutationFormcontrol.length >
+        0 &&
+      this.newJobApplForm.value.selCompanyContactSalutationFormcontrol != null;
+    let checkUserInputForLastContactName: boolean =
+      this.newJobApplForm.value.companyContactLastNameFormatcontrol.length >
+        0 &&
+      this.newJobApplForm.value.companyContactLastNameFormatcontrol != null;
+    let checkUserInputForNote: boolean =
+      this.newJobApplForm.value.addNoteaboutCompanyFormatControl.length > 0 &&
+      this.newJobApplForm.value.addNoteaboutCompanyFormatControl != null;
+
+    if (
+      Object.is(checkForUserDateInput, true) &&
+      Object.is(checkForUserCountryInput, true) &&
+      Object.is(checkForUserCityInput, true) &&
+      Object.is(checkUserInputForIndustryType, true) &&
+      Object.is(checkUserInputForSizeType, true) &&
+      Object.is(checkUserInputForBusinessType, true) &&
+      Object.is(checkUserInputForEmail, true) &&
+      Object.is(checkUserInputForSalutation, true) &&
+      Object.is(checkUserInputForLastContactName, true) &&
+      Object.is(checkUserInputForNote, true)
+    ) {
+      result = true;
+    }
+
+    return result;
+  }
+
+  private debutOutput(): void {
     console.log(
       'Date when job application was send: ' +
         this.newJobApplForm.value.dateInputFormatControl
