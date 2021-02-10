@@ -155,13 +155,7 @@ the user one by one trought interaction with web ui!-->
       ></b
     >
   </button>
-  &nbsp;User:
-  <b><a routerLink="/useracn" style="color: black">test user</a></b>
-  &nbsp;Login state:
-  <font color="blue"
-    ><b><u>signed in</u></b></font
-  >
-  &nbsp;&nbsp;
+  &nbsp;
   <b>
     <a routerLink=""
       ><button mat-raised-button style="font-weight: bold" color="warn">
@@ -169,15 +163,33 @@ the user one by one trought interaction with web ui!-->
       </button></a
     >
   </b>
+  <br />
+  <br />
+  <div align="right">
+    <table>
+      <tr>
+        <td>
+          User:&nbsp;<a routerLink="/useracn" style="color: black">test user</a>
+        </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>
+          Login state:
+          <font color="blue"
+            ><b><u>signed in</u></b></font
+          >
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
 <router-outlet></router-outlet>
-<br /><br /><br />
+<br />
 <div align="center">Auth menu state :</div>
-<br /><br /><br />
-
+<br />
 <!-- Footer -->
 <div align="center">
-  <br />
   <h3>
     2021 Created by
     <a href="http://www.javaprofide.de">Alexander Orlovsky </a> <br />
