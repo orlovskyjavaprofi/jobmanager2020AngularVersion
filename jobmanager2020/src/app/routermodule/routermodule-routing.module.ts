@@ -21,6 +21,7 @@ import { UserselectjobapplfordeleteComponent } from '../components/userselectjob
 import { ViewcompaniesmessagesComponent } from '../components/viewcompaniesmessages/viewcompaniesmessages.component';
 import { WelcomecomponentComponent } from '../components/welcomecomponent/welcomecomponent.component';
 import { WrongurlerrorComponent } from '../components/wrongurlerror/wrongurlerror.component';
+import { ImpressumComponent } from '../components/impressum/impressum.component';
 
 const routes: Routes = [
   { path: 'welcome', component: WelcomecomponentComponent },
@@ -74,6 +75,10 @@ const routes: Routes = [
   {
     path: 'usergreetingtextsmanager',
     component: UsergreetingtextsmanagerComponent,
+  },
+  {
+    path: 'impressum',
+    component: ImpressumComponent,
   },
   {
     path: '',
