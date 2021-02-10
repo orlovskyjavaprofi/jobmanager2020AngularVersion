@@ -12,7 +12,7 @@
   </h1>
 </div>
 <div align="center">
-  <form class="newjobapplication-form">
+  <form class="newjobapplication-form" [formGroup]="newJobApplForm">
     <table cellpadding="2px" cellspacing="2px" align="left">
       <div class="form-group">
         <tr>
@@ -86,16 +86,22 @@
 
       <div class="form-group">
         <tr>
+          <td><b>Company size type:</b></td>
+          <td width="138ptx"></td>
           <td>
-            <div align="center">
-              <label for="Company size:"><b>Company size:</b>&nbsp;</label>
-            </div>
-          </td>
-          <td width="170ptx"></td>
-          <td>
-            <mat-form-field class="input-field-full-width" appearance="fill">
-              <mat-label>Amount of workers</mat-label>
-              <input matInput type="text" />
+            <mat-form-field appearance="fill">
+              <mat-label>Company size: </mat-label>
+
+              <mat-select formControlName="selCompanySizeTypeFormControl">
+                <mat-option
+                  *ngFor="
+                    let selItemCompanySize of selectionViewForDifferentCompanySizeTypes
+                  "
+                  [value]="selItemCompanySize.value"
+                >
+                  {{ selItemCompanySize.viewValue }}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </td>
         </tr>

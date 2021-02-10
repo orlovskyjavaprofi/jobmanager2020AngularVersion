@@ -1,6 +1,6 @@
 export enum CompanySizeTypes {
-  Small,
-  Middle,
-  Large,
-  Huge,
+  Small = 'Small',
+  Middle = 'Middle',
+  Large = 'Large',
+  Huge = 'Huge',
 }
