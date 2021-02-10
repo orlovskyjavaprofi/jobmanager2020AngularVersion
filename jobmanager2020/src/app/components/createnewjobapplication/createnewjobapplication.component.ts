@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CompanySizeTypes } from 'src/app/shared/model/companysizes';
 import { CompanyTypes } from 'src/app/shared/model/companytypes';
 import { SalutationTypes } from 'src/app/shared/model/salutationtypes';
@@ -17,6 +17,36 @@ export class CreatenewjobapplicationComponent implements OnInit {
     selCompanySizeTypeFormControl: new FormControl(''),
     selCompanyBusinessTypeFormControl: new FormControl(''),
     selCompanyContactSalutationFormcontrol: new FormControl(''),
+    dateInputFormatControl: new FormControl('', [
+      Validators.required,
+      Validators.pattern(
+        '^(0[1-9]|[12][0-9]|3[01])[.](0[1-9]|1[012])[.](19|20)\\d\\d$'
+      ),
+    ]),
+    countryInputFormatControl: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(20),
+      Validators.minLength(4),
+    ]),
+    cityInputFormatControl: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(20),
+      Validators.minLength(4),
+    ]),
+    companyIndustryTypeFormatcontrol: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(20),
+      Validators.minLength(5),
+    ]),
+    companyContactEmailFormatcontrol: new FormControl('', [
+      Validators.required,
+      Validators.email,
+    ]),
+    companyContactLastNameFormatcontrol: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(20),
+      Validators.minLength(3),
+    ]),
   });
 
   selectionViewForDifferentCompanyContactSalutationTypes: contractForJobApplicationSelectionRepresentation[] = [
@@ -81,4 +111,18 @@ export class CreatenewjobapplicationComponent implements OnInit {
   ];
 
   ngOnInit(): void {}
+
+  public resetAddNewJobApplForm(): void {
+    this.newJobApplForm.reset({
+      selCompanySizeTypeFormControl: '',
+      selCompanyBusinessTypeFormControl: '',
+      selCompanyContactSalutationFormcontrol: '',
+      dateInputFormatControl: '',
+      countryInputFormatControl: '',
+      cityInputFormatControl: '',
+      companyIndustryTypeFormatcontrol: '',
+      companyContactEmailFormatcontrol: '',
+      companyContactLastNameFormatcontrol: '',
+    });
+  }
 }

@@ -27,7 +27,16 @@
           <td>
             <mat-form-field class="input-field-full-width" appearance="fill">
               <mat-label>Day.Month.Year</mat-label>
-              <input matInput type="text" />
+              <input
+                matInput
+                formControlName="dateInputFormatControl"
+                type="text"
+              />
+
+              <mat-error *ngIf="newJobApplForm.hasError('required')">
+                <strong>Required:</strong> Please provide correct date
+                day.month.year!
+              </mat-error>
             </mat-form-field>
           </td>
         </tr>
@@ -44,7 +53,23 @@
           <td>
             <mat-form-field class="input-field-full-width" appearance="fill">
               <mat-label>Country where you apply</mat-label>
-              <input matInput type="text" />
+              <input
+                matInput
+                formControlName="countryInputFormatControl"
+                type="text"
+              />
+              <mat-error
+                *ngIf="
+                  newJobApplForm.hasError('maxlength') &&
+                  newJobApplForm.hasError('minlength') &&
+                  !newJobApplForm.hasError('required')
+                "
+              >
+                Please enter a country name!
+              </mat-error>
+              <mat-error *ngIf="newJobApplForm.hasError('minlength')">
+                Please provide correct country name!
+              </mat-error>
             </mat-form-field>
           </td>
         </tr>
@@ -61,7 +86,23 @@
           <td>
             <mat-form-field class="input-field-full-width" appearance="fill">
               <mat-label>City where you apply</mat-label>
-              <input matInput type="text" />
+              <input
+                matInput
+                type="text"
+                formControlName="cityInputFormatControl"
+              />
+              <mat-error
+                *ngIf="
+                  newJobApplForm.hasError('maxlength') &&
+                  newJobApplForm.hasError('minlength') &&
+                  !newJobApplForm.hasError('required')
+                "
+              >
+                Please enter a city name!
+              </mat-error>
+              <mat-error *ngIf="newJobApplForm.hasError('minlength')">
+                Please provide correct city name!
+              </mat-error>
             </mat-form-field>
           </td>
         </tr>
@@ -78,7 +119,23 @@
           <td width="300ptx">
             <mat-form-field class="input-field-full-width" appearance="fill">
               <mat-label>Examples: Military, Logistics, Banking</mat-label>
-              <input matInput type="text" />
+              <input
+                matInput
+                formControlName="companyIndustryTypeFormatcontrol"
+                type="text"
+              />
+              <mat-error
+                *ngIf="
+                  newJobApplForm.hasError('maxlength') &&
+                  newJobApplForm.hasError('minlength') &&
+                  !newJobApplForm.hasError('required')
+                "
+              >
+                Please a proper industry description!
+              </mat-error>
+              <mat-error *ngIf="newJobApplForm.hasError('minlength')">
+                Please provide correct industry description!
+              </mat-error>
             </mat-form-field>
           </td>
         </tr>
@@ -153,7 +210,20 @@
           <td>
             <mat-form-field class="input-field-full-width" appearance="fill">
               <mat-label>Company contact email:</mat-label>
-              <input matInput type="text" />
+              <input
+                matInput
+                type="email"
+                formControlName="companyContactEmailFormatcontrol"
+                placeholder="Ex. youremail@example.com"
+              />
+              <mat-error
+                *ngIf="
+                  newJobApplForm.hasError('email') &&
+                  newJobApplForm.hasError('required')
+                "
+              >
+                Please enter a valid email address
+              </mat-error>
             </mat-form-field>
           </td>
         </tr>
@@ -206,7 +276,28 @@
           <td>
             <mat-form-field class="input-field-full-width" appearance="fill">
               <mat-label>Contact last name</mat-label>
-              <input matInput type="text" />
+              <input
+                matInput
+                type="text"
+                formControlName="companyContactLastNameFormatcontrol"
+              />
+              <mat-error
+                *ngIf="
+                  newJobApplForm.hasError('maxlength') &&
+                  newJobApplForm.hasError('minlength') &&
+                  !newJobApplForm.hasError('required')
+                "
+              >
+                Please provide valid name for your contact!
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  newJobApplForm.hasError('minlength') &&
+                  !newJobApplForm.hasError('required')
+                "
+              >
+                Please provide valid name for your contact!
+              </mat-error>
             </mat-form-field>
           </td>
         </tr>
@@ -246,7 +337,13 @@
         </td>
         <td>
           <div align="right">
-            <button mat-raised-button color="warn">Reset form</button>
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="resetAddNewJobApplForm()"
+            >
+              Reset form
+            </button>
           </div>
         </td>
       </tr>
