@@ -1,4 +1,4 @@
 export enum SalutationTypes {
-  Mr,
-  Mrs,
+  Mr = 'Mr',
+  Mrs = 'Mrs',
 }

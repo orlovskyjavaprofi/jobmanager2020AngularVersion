@@ -86,7 +86,13 @@
 
       <div class="form-group">
         <tr>
-          <td><b>Company size type:</b></td>
+          <td>
+            <div align="center">
+              <label for="Company size type:"
+                ><b>Company size type:</b>&nbsp;</label
+              >
+            </div>
+          </td>
           <td width="138ptx"></td>
           <td>
             <mat-form-field appearance="fill">
@@ -116,9 +122,19 @@
           </td>
           <td width="170ptx"></td>
           <td>
-            <mat-form-field class="input-field-full-width" appearance="fill">
-              <mat-label>Small, Medium , Large</mat-label>
-              <input matInput type="text" />
+            <mat-form-field appearance="fill">
+              <mat-label>Business type</mat-label>
+
+              <mat-select formControlName="selCompanyBusinessTypeFormControl">
+                <mat-option
+                  *ngFor="
+                    let selItemCompanyBusinessType of selectionViewForDifferentCompanyTypes
+                  "
+                  [value]="selItemCompanyBusinessType.value"
+                >
+                  {{ selItemCompanyBusinessType.viewValue }}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </td>
         </tr>
@@ -142,26 +158,40 @@
           </td>
         </tr>
       </div>
-      <!-- checkbox case yet to be implementend
-                  <div class="form-group">
-                    <tr>
-                      <td>
-                        <div align="center">
-                          <label for="Company contact email:"
-                            >Contact salutation trough checkbox:&nbsp;</label
-                          >
-                        </div>
-                      </td>
-                      <td width="5ptx"></td>
-                      <td>
-                        <mat-form-field appearance="fill">
-                          <mat-label>Company contact email:</mat-label>
-                          <input matInput type="text" />
-                        </mat-form-field>
-                      </td>
-                    </tr>
-                  </div>
-                -->
+
+      <div class="form-group">
+        <tr>
+          <td>
+            <div align="center">
+              <label for="Company contact person salutation type:"
+                ><b
+                  >Company contact person<br />
+                  salutation type:</b
+                >&nbsp;</label
+              >
+            </div>
+          </td>
+          <td width="98ptx"></td>
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Salutation type</mat-label>
+
+              <mat-select
+                formControlName="selCompanyContactSalutationFormcontrol"
+              >
+                <mat-option
+                  *ngFor="
+                    let selItemCompanySalutationType of selectionViewForDifferentCompanyContactSalutationTypes
+                  "
+                  [value]="selItemCompanySalutationType.value"
+                >
+                  {{ selItemCompanySalutationType.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </tr>
+      </div>
 
       <div class="form-group">
         <tr>
@@ -184,17 +214,23 @@
 
       <div class="form-group">
         <tr>
-          <td>
-            <div align="center">
+          <td width="100ptx">
+            <div align="left">
               <label for="Add note:"><b>Add note:</b>&nbsp;</label>
             </div>
           </td>
-          <td width="205ptx"></td>
+          <td width="98ptx">&nbsp;</td>
           <td>
-            <mat-form-field class="input-field-full-width" appearance="fill">
-              <mat-label>Your note, ideas</mat-label>
-              <input matInput type="text" />
-            </mat-form-field>
+            <div align="right">
+              <mat-form-field
+                class="input-field-full-width"
+                appearance="fill"
+                style="width: 306px"
+              >
+                <mat-label>What do you like to add as description?</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </div>
           </td>
         </tr>
       </div>
@@ -215,8 +251,6 @@
         </td>
       </tr>
     </table>
-
-    <!--add close form tag here-->
   </form>
 </div>
 <br /><br />
