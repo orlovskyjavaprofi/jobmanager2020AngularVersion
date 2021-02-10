@@ -26,7 +26,7 @@ export class CreatenewjobapplicationComponent implements OnInit {
     countryInputFormatControl: new FormControl('', [
       Validators.required,
       Validators.maxLength(20),
-      Validators.minLength(4),
+      Validators.minLength(3),
     ]),
     cityInputFormatControl: new FormControl('', [
       Validators.required,
@@ -47,6 +47,7 @@ export class CreatenewjobapplicationComponent implements OnInit {
       Validators.maxLength(20),
       Validators.minLength(3),
     ]),
+    addNoteaboutCompanyFormatControl: new FormControl(''),
   });
 
   selectionViewForDifferentCompanyContactSalutationTypes: contractForJobApplicationSelectionRepresentation[] = [
@@ -123,6 +124,45 @@ export class CreatenewjobapplicationComponent implements OnInit {
       companyIndustryTypeFormatcontrol: '',
       companyContactEmailFormatcontrol: '',
       companyContactLastNameFormatcontrol: '',
+      addNoteaboutCompanyFormatControl: '',
     });
+  }
+
+  onFormSubmit(): void {
+    console.log(
+      'Date when job application was send: ' +
+        this.newJobApplForm.value.dateInputFormatControl
+    );
+    console.log(
+      'Country: ' + this.newJobApplForm.value.countryInputFormatControl
+    );
+    console.log('City: ' + this.newJobApplForm.value.cityInputFormatControl);
+    console.log(
+      'Industry type: ' +
+        this.newJobApplForm.value.companyIndustryTypeFormatcontrol
+    );
+    console.log(
+      'Company size type: ' +
+        this.newJobApplForm.value.selCompanySizeTypeFormControl
+    );
+    console.log(
+      'Company type: ' +
+        this.newJobApplForm.value.selCompanyBusinessTypeFormControl
+    );
+    console.log(
+      'Company contact email: ' +
+        this.newJobApplForm.value.companyContactEmailFormatcontrol
+    );
+    console.log(
+      'Company contact person salutation type: ' +
+        this.newJobApplForm.value.selCompanyContactSalutationFormcontrol
+    );
+    console.log(
+      'Company contact person last name: ' +
+        this.newJobApplForm.value.companyContactLastNameFormatcontrol
+    );
+    console.log(
+      'Add note: ' + this.newJobApplForm.value.addNoteaboutCompanyFormatControl
+    );
   }
 }

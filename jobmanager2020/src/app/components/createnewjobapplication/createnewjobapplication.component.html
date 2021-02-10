@@ -290,12 +290,7 @@
               >
                 Please provide valid name for your contact!
               </mat-error>
-              <mat-error
-                *ngIf="
-                  newJobApplForm.hasError('minlength') &&
-                  !newJobApplForm.hasError('required')
-                "
-              >
+              <mat-error *ngIf="newJobApplForm.hasError('minlength')">
                 Please provide valid name for your contact!
               </mat-error>
             </mat-form-field>
@@ -319,7 +314,11 @@
                 style="width: 306px"
               >
                 <mat-label>What do you like to add as description?</mat-label>
-                <input matInput type="text" />
+                <input
+                  matInput
+                  type="text"
+                  formControlName="addNoteaboutCompanyFormatControl"
+                />
               </mat-form-field>
             </div>
           </td>
@@ -330,7 +329,7 @@
       <tr>
         <td>
           <div align="left">
-            <button mat-raised-button color="primary">
+            <button mat-raised-button color="primary" (click)="onFormSubmit()">
               Create and add new application
             </button>
           </div>
