@@ -14,7 +14,9 @@ describe('UserDetails', () => {
       CompanySizeTypes.Large,
       CompanyTypes.Goverment,
       'topsecret@dod.com',
-      SalutationTypes.Mr
+      SalutationTypes.Mr,
+      'Smiths',
+      'this is great company!'
     );
   });
 
@@ -26,10 +28,20 @@ describe('UserDetails', () => {
     expect(userJobApplication).toBeDefined();
   });
 
+  test('User job application, check if a note set up for the new job application', () => {
+    expect(userJobApplication.getUserNoteAboutJobAppl()).toBe(
+      'this is great company!'
+    );
+  });
+
   test('User job application, check if date can be set', () => {
     expect(userJobApplication.getDateWhenJobApplicationWasSend()).toBe(
       '1.02.2019'
     );
+  });
+
+  test('User job application, check if company contact person last name can be set', () => {
+    expect(userJobApplication.getCompanyContactPersonLastName()).toBe('Smiths');
   });
 
   test('User job application, check if country can be set', () => {

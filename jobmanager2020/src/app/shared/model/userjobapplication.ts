@@ -10,6 +10,8 @@ export class JobApplication {
   userCompanyType: CompanyTypes = CompanyTypes.Public;
   emailOfCompanyRecipient: string = 'default email';
   companyRecipientSalutation: SalutationTypes = SalutationTypes.Mrs;
+  companyContactPersonLastName: string = 'default contact name';
+  userNoteAboutCompany: string = 'default note about compay';
 
   public constructor(
     userInputForJobApplicationDate: string,
@@ -19,7 +21,9 @@ export class JobApplication {
     userInputForCompanySize: CompanySizeTypes,
     userInputForCompanyType: CompanyTypes,
     userInputForCompanyEmailRecipient: string,
-    userInputForCompanyRecipientSalutation: SalutationTypes
+    userInputForCompanyRecipientSalutation: SalutationTypes,
+    userInputForCompanyContactPersonLastName: string,
+    userInputForNoteAboutCompany: string
   ) {
     this.userJobApplicationDate = userInputForJobApplicationDate;
     this.userJobApplicationCountry = userInputForJobApplicationCountry;
@@ -29,6 +33,16 @@ export class JobApplication {
     this.userCompanyType = userInputForCompanyType;
     this.emailOfCompanyRecipient = userInputForCompanyEmailRecipient;
     this.companyRecipientSalutation = userInputForCompanyRecipientSalutation;
+    this.companyContactPersonLastName = userInputForCompanyContactPersonLastName;
+    this.userNoteAboutCompany = userInputForNoteAboutCompany;
+  }
+
+  getUserNoteAboutJobAppl(): string {
+    return this.userNoteAboutCompany;
+  }
+
+  getCompanyContactPersonLastName(): string {
+    return this.companyContactPersonLastName;
   }
 
   getDateWhenJobApplicationWasSend(): string {
