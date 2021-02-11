@@ -1,5 +1,63 @@
 <h1 align="center"><u>Email SMTP settings</u></h1>
 <br />
+
 <div align="center">
-  <b><u>Display formular for input of user smtp settings</u></b>
+  <form>
+    <table>
+      <tr>
+        <td>
+          <div align="right">
+            <b><u>Email server host:</u></b>
+          </div>
+        </td>
+        <td width="10%"></td>
+        <td>
+          <mat-form-field style="width: 358px">
+            <label for="smtpServerHost"><b>SMTP server host</b></label>
+            <input
+              type="text"
+              matInput
+              placeholder="provide ip or hostname of your email smtp host!"
+          /></mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div align="right">
+            <b><u>Email server host:</u></b>
+          </div>
+        </td>
+        <td width="10%"></td>
+        <td>
+          SELECTION BOX FOR SMTP PORTS: 25, 587, 465, 2525, <br />
+          SSL SMTP 465 -auth<br />
+          TLS SMTP (25 / Alternativ 587) auth<br />
+          // true for 465, false for other ports nodemailer<br />
+          This is what nodemail saying:<br />
+          if true the connection will use TLS when connecting to server. <br />
+          if false (the default) then TLS is used if server supports the
+          STARTTLS extension. <br />
+          In most cases set this value to true if you are connecting to port
+          465. For port 587 or 25 keep it false
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div align="right">
+            <b><u>SMTP user name:</u></b>
+          </div>
+        </td>
+        <td width="10%"></td>
+        <td>
+          <mat-form-field style="width: 440px">
+            <label for="smtpUserName"><b>SMTP user name</b></label>
+            <input
+              type="text"
+              matInput
+              placeholder="provide username which you user for sending your emails!"
+          /></mat-form-field>
+        </td>
+      </tr>
+    </table>
+  </form>
 </div>

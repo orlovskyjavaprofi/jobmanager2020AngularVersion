@@ -1,136 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Create new email from job application</title>
-    <base href="/createnewjobappl" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Create new email from job application</title>
+  <base href="/createnewjobappl" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
 
-  <body>
-    <div align="center">
-      <h1>
-        <u>Create new email from job application</u>
-      </h1>
-    </div>
-    <form class="newemailfromjobappl-form">
-      <table cellpadding="2px" cellspacing="2px" align="center">
-        <tr>
-          <td>
-            <mat-form-field
-              style="width: 1000px"
-              class="input-field-full-width"
-              appearance="fill"
-            >
-              <mat-label><b>Your email topic</b></mat-label>
-              <input
-                matInput
-                placeholder="email title topic"
-                style="font-weight: bold"
-                value="Write here the topic for your email , left mouse click (e.g. My application for xxx job position or Application as xxxx) !"
-              />
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field
-              style="height: 100px"
-              class="input-field-full-width"
-            >
-              <mat-label
-                ><b>Write here your letter to the company where you apply</b>
-              </mat-label>
-              <textarea
-                matInput
-                placeholder="Dear Mr/Mrs XX/YY here by i apply for following job title xxx."
-                style="font-weight: bold"
-                value="Left mouse click!. Write here the reasons why you want to apply for the job role for which you wish to apply m its a cover letter!"
-              ></textarea>
-            </mat-form-field>
-          </td>
-          <td width="16ptx" rowspan="2">&nbsp;</td>
-          <td width="500" rowspan="2">
-            <mat-radio-group aria-label="Select an option">
-              <mat-radio-button value="Greeting1"
-                >Greeting text 1</mat-radio-button
-              ><br />
-              <mat-radio-button value="Greeting2"
-                >Greeting text 2</mat-radio-button
-              ><br />
-              <mat-radio-button value="Greeting3"
-                >Greeting text 3</mat-radio-button
-              ><br />
-              <mat-radio-button value="Greeting4"
-                >Greeting text 4</mat-radio-button
-              ><br />
-              <mat-radio-button value="Greeting5"
-                >Greeting text 5</mat-radio-button
-              ><br />
-            </mat-radio-group>
-          </td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td>
-            <h2><u>Add your personal documents:</u></h2>
+<div align="center">
+  <h1>
+    <u>Create new email from job application</u>
+  </h1>
+</div>
+<form class="newemailfromjobappl-form">
+  <table cellpadding="2px" cellspacing="2px" align="center">
+    <tr>
+      <td>
+        <mat-form-field
+          style="width: 1000px"
+          class="input-field-full-width"
+          appearance="fill"
+        >
+          <mat-label><b>Your email topic</b></mat-label>
+          <input
+            matInput
+            placeholder="email title topic"
+            type="text"
+            style="font-weight: bold"
+            value="Write here the topic for your email , left mouse click (e.g. My application for xxx job position or Application as xxxx) !"
+          />
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field style="height: 100px" class="input-field-full-width">
+          <mat-label
+            ><b>Write here your letter to the company where you apply</b>
+          </mat-label>
+          <textarea
+            matInput
+            placeholder="Dear Mr/Mrs XX/YY here by i apply for following job title xxx."
+            type="text"
+            style="font-weight: bold"
+            value="Left mouse click!. Write here the reasons why you want to apply for the job role for which you wish to apply m its a cover letter!"
+          ></textarea>
+        </mat-form-field>
+      </td>
+      <td width="16ptx" rowspan="2">&nbsp;</td>
+      <td width="500" rowspan="2">
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="Greeting1">Greeting text 1</mat-radio-button
+          ><br />
+          <mat-radio-button value="Greeting2">Greeting text 2</mat-radio-button
+          ><br />
+          <mat-radio-button value="Greeting3">Greeting text 3</mat-radio-button
+          ><br />
+          <mat-radio-button value="Greeting4">Greeting text 4</mat-radio-button
+          ><br />
+          <mat-radio-button value="Greeting5">Greeting text 5</mat-radio-button
+          ><br />
+        </mat-radio-group>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>
+        <h2><u>Add your personal documents:</u></h2>
 
-            <div class="form-group">
-              <label for="file"
-                >Personal user files <b>(only pdf is allowed!)</b>:<br />
-                upload cv, cover letter, certificates, credentials as
-                <b>one pdf file!</b>
-              </label>
-              <br />
-              <br />
-              <input
-                formControlName="file"
-                id="file"
-                type="file"
-                class="form-control"
-                accept=".pdf"
-              />
-            </div>
-          </td>
-        </tr>
-      </table>
-      <br />
-      <table cellpadding="2px" cellspacing="2px" align="center">
-        <tr>
-          <td width="60%">
-            <div align="right">
-              <button
-                mat-raised-button
-                style="font-weight: bold"
-                color="primary"
-              >
-                Create and send this email to your email box!
-              </button>
-            </div>
-          </td>
-          <td width="14">&nbsp;</td>
-          <td width="40%">
-            <div align="left">
-              <button
-                mat-raised-button
-                style="font-weight: bold"
-                color="accent"
-              >
-                Save email, but not send it!
-              </button>
-            </div>
-          </td>
-          <td width="35%">
-            <div align="right">
-              <button mat-raised-button style="font-weight: bold" color="warn">
-                Reset this form!
-              </button>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </form>
-  </body>
-</html>
+        <div class="form-group">
+          <label for="file"
+            >Personal user files <b>(only pdf is allowed!)</b>:<br />
+            upload cv, cover letter, certificates, credentials as
+            <b>one pdf file!</b>
+          </label>
+          <br />
+          <br />
+          <input
+            formControlName="file"
+            id="file"
+            type="file"
+            class="form-control"
+            accept=".pdf"
+          />
+        </div>
+      </td>
+    </tr>
+  </table>
+  <br />
+  <table cellpadding="2px" cellspacing="2px" align="center">
+    <tr>
+      <td width="60%">
+        <div align="right">
+          <button mat-raised-button style="font-weight: bold" color="primary">
+            Create and send this email to your email box!
+          </button>
+        </div>
+      </td>
+      <td width="14">&nbsp;</td>
+      <td width="40%">
+        <div align="left">
+          <button mat-raised-button style="font-weight: bold" color="accent">
+            Save email, but not send it!
+          </button>
+        </div>
+      </td>
+      <td width="35%">
+        <div align="right">
+          <button mat-raised-button style="font-weight: bold" color="warn">
+            Reset this form!
+          </button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>

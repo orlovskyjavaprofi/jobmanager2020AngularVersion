@@ -1,144 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Select job applications for deletion</title>
-    <base href="/userselectjobapplfordel" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Select job applications for deletion</title>
+  <base href="/userselectjobapplfordel" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
 
-  <body>
-    <div align="center">
-      <h1><u>Select job application/s for deletion</u></h1>
-    </div>
-    <table align="center">
-      <tr>
-        <td>
-          <label for="userFromDateForJobAppl"><b>From:</b>&nbsp;</label>
-        </td>
-        <td colspan="2">
-          <mat-form-field class="input-field-full-width" appearance="fill">
-            <mat-label>Day.Month.Year</mat-label>
-            <input matInput type="text" />
-          </mat-form-field>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="userToDateForJobAppl"><b>To:</b>&nbsp;</label>
-        </td>
-        <td colspan="2">
-          <mat-form-field class="input-field-full-width" appearance="fill">
-            <mat-label>Day.Month.Year</mat-label>
-            <input matInput type="text" />
-          </mat-form-field>
-        </td>
-      </tr>
-      <tr>
-        <td>&nbsp;</td>
-        <td>
-          <div align="center">
-            <button mat-raised-button style="font-weight: bold" color="primary">
-              Delete selected applications!
-            </button>
-          </div>
-        </td>
-        <td>&nbsp;</td>
-      </tr>
-    </table>
-    <br />
-    <!--Result table for deletion of job applications-->
-    <div class class="mat-elevation-z8">
-      <table
-        mat-table
-        [dataSource]="dataForDataSource"
-        class="resultTableOFSelectedJobApplicationForDelWidth"
-      >
-        <!-- Company name -->
-        <ng-container matColumnDef="Company name">
-          <th mat-header-cell *matHeaderCellDef>
-            <div align="center"><b>Company name</b></div>
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <div align="center">{{ element.companyName }}</div>
-          </td>
-        </ng-container>
+<div align="center">
+  <h1><u>Select job application/s for deletion</u></h1>
+</div>
+<table align="center">
+  <tr>
+    <td>
+      <label for="userFromDateForJobAppl"><b>From:</b>&nbsp;</label>
+    </td>
+    <td colspan="2">
+      <mat-form-field class="input-field-full-width" appearance="fill">
+        <mat-label>Day.Month.Year</mat-label>
+        <input matInput type="text" />
+      </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label for="userToDateForJobAppl"><b>To:</b>&nbsp;</label>
+    </td>
+    <td colspan="2">
+      <mat-form-field class="input-field-full-width" appearance="fill">
+        <mat-label>Day.Month.Year</mat-label>
+        <input matInput type="text" />
+      </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>
+      <div align="center">
+        <button mat-raised-button style="font-weight: bold" color="primary">
+          Delete selected applications!
+        </button>
+      </div>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<br />
+<!--Result table for deletion of job applications-->
+<div class class="mat-elevation-z8">
+  <table
+    mat-table
+    [dataSource]="dataForDataSource"
+    class="resultTableOFSelectedJobApplicationForDelWidth"
+  >
+    <!-- Company name -->
+    <ng-container matColumnDef="Company name">
+      <th mat-header-cell *matHeaderCellDef>
+        <div align="center"><b>Company name</b></div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div align="center">{{ element.companyName }}</div>
+      </td>
+    </ng-container>
 
-        <!-- Company contact person name -->
-        <ng-container matColumnDef="Contact person">
-          <th mat-header-cell *matHeaderCellDef>
-            <div align="center"><b>Contact person</b></div>
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <div align="center">{{ element.contactPersonName }}</div>
-          </td>
-        </ng-container>
+    <!-- Company contact person name -->
+    <ng-container matColumnDef="Contact person">
+      <th mat-header-cell *matHeaderCellDef>
+        <div align="center"><b>Contact person</b></div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div align="center">{{ element.contactPersonName }}</div>
+      </td>
+    </ng-container>
 
-        <!-- Date of application -->
-        <ng-container matColumnDef="Date when the application was send">
-          <th mat-header-cell *matHeaderCellDef>
-            <div align="center"><b>Date of application</b></div>
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <div align="center">
-              {{ element.dateOfJobApplicationWhenItWasSend }}
-            </div>
-          </td>
-        </ng-container>
+    <!-- Date of application -->
+    <ng-container matColumnDef="Date when the application was send">
+      <th mat-header-cell *matHeaderCellDef>
+        <div align="center"><b>Date of application</b></div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div align="center">
+          {{ element.dateOfJobApplicationWhenItWasSend }}
+        </div>
+      </td>
+    </ng-container>
 
-        <!-- Users job application title -->
-        <ng-container matColumnDef="Title of the job application">
-          <th mat-header-cell *matHeaderCellDef>
-            <div align="center"><b>Title of the job application</b></div>
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <div align="center">
-              {{ element.userJobApplicationTitle }}
-            </div>
-          </td>
-        </ng-container>
+    <!-- Users job application title -->
+    <ng-container matColumnDef="Title of the job application">
+      <th mat-header-cell *matHeaderCellDef>
+        <div align="center"><b>Title of the job application</b></div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div align="center">
+          {{ element.userJobApplicationTitle }}
+        </div>
+      </td>
+    </ng-container>
 
-        <!-- Current job application state -->
-        <ng-container matColumnDef="Current state of job application">
-          <th mat-header-cell *matHeaderCellDef>
-            <div align="center"><b>Current state of the application</b></div>
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <div align="center">
-              {{ element.currentStateOfUserJobApplication }}
-            </div>
-          </td>
-        </ng-container>
-        <!-- Chebox for deletions -->
-        <ng-container matColumnDef="CheckboxesForUserDel">
-          <th mat-header-cell *matHeaderCellDef>
-            <div align="center">
-              <b>Select or deselect all job appllications</b>&nbsp;
-              <mat-checkbox class="checkbox-margin" color="primary">
-              </mat-checkbox>
-            </div>
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <div align="center">
-              <mat-checkbox
-                class="checkbox-margin"
-                color="primary"
-                [checked]="element.currentStateOfUserJobApplication"
-              >
-              </mat-checkbox>
-            </div>
-          </td>
-        </ng-container>
+    <!-- Current job application state -->
+    <ng-container matColumnDef="Current state of job application">
+      <th mat-header-cell *matHeaderCellDef>
+        <div align="center"><b>Current state of the application</b></div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div align="center">
+          {{ element.currentStateOfUserJobApplication }}
+        </div>
+      </td>
+    </ng-container>
+    <!-- Chebox for deletions -->
+    <ng-container matColumnDef="CheckboxesForUserDel">
+      <th mat-header-cell *matHeaderCellDef>
+        <div align="center">
+          <b>Select or deselect all job appllications</b>&nbsp;
+          <mat-checkbox class="checkbox-margin" color="primary"> </mat-checkbox>
+        </div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div align="center">
+          <mat-checkbox
+            class="checkbox-margin"
+            color="primary"
+            [checked]="element.currentStateOfUserJobApplication"
+          >
+          </mat-checkbox>
+        </div>
+      </td>
+    </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
-      <mat-paginator
-        [pageSizeOptions]="[5, 10, 20]"
-        showFirstLastButtons
-      ></mat-paginator>
-    </div>
-    <br />
-  </body>
-</html>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>
+<br />

@@ -1,148 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>User account</title>
-    <base href="/useracn" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>User account</title>
+  <base href="/useracn" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
 
-  <body>
-    <div align="center">
-      <h1><u>User account</u></h1>
-    </div>
-    <div align="center">
-      <h2>
-        Here you can set up your profile and view settings for the view of your
-        job applications
-      </h2>
-    </div>
-    <div align="center">
-      <table>
-        <tr>
-          <td width="50%" rowspan="3">
-            <!--user account upload image-->
-            <div align="center">
-              <mat-card style="margin-top: 10px; width: 50%">
-                <mat-card-content>User image</mat-card-content>
-              </mat-card>
-            </div>
-          </td>
-          <td rowspan="3">&nbsp;</td>
-          <td>
-            <b><u>Upload image</u></b>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label class="image-upload-container btn btn-bwm">
-              <input #imageInput type="file" accept="image/*" />
-            </label>
-          </td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
-        </tr>
-      </table>
-    </div>
-
-    <br />
-    <!--user account upload image-->
-
-    <!-- user personal information -->
-    <div align="center">
-      <table>
-        <tr>
-          <td><b>User first name:</b></td>
-          <td><b>Muser name</b></td>
-        </tr>
-        <tr>
-          <td><b>User last name:</b></td>
-          <td><b>Muster last name</b></td>
-        </tr>
-        <tr>
-          <td><b>User email:</b></td>
-          <td><b>test@test.com</b></td>
-        </tr>
-        <tr>
-          <td><b>User city:</b></td>
-          <td><b>test city</b></td>
-        </tr>
-        <tr>
-          <td><b>User job status:</b></td>
-          <td><b>Contractor</b></td>
-        </tr>
-        <tr>
-          <td><b>Most applied job:</b></td>
-          <td>
-            <b>Java developer</b>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <br />
-    <div align="center">
-      <table>
-        <tr>
-          <td>
-            <b><u>Amount of applications which are already sent:</u></b
-            >&nbsp;
-            <b>5000</b>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <form>
-              <b>Change max job applications displayed <u>per page:</u></b>
-              &nbsp;&nbsp;
-              <mat-form-field style="width: 26vw; height: 1vw">
-                <mat-label>Max amount of applications</mat-label>
-                <input
-                  matInput
-                  name="userInputForJobApplforDisplay"
-                  placeholder="Write here amount of job application to be displayed"
-                  value="10"
-                />
-              </mat-form-field>
-            </form>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div align="center">
-      <!--user multiple upload of files-->
-      <h2><u>User personal file storage</u></h2>
-      <div class="form-group">
-        <label for="file"
-          ><div align="center">
-            <b><u>Upload your personal files:</u></b>
-          </div>
-          Here you can upload your
-          <b>cv, cover letter, certificates, credentials</b> as
-          <b><u>one file</u></b
-          >&nbsp;&nbsp;
+<div align="center">
+  <h1><u>User account</u></h1>
+</div>
+<div align="center">
+  <h2>
+    Here you can set up your profile and view settings for the view of your job
+    applications
+  </h2>
+</div>
+<div align="center">
+  <table>
+    <tr>
+      <td width="50%" rowspan="3">
+        <!--user account upload image-->
+        <div align="center">
+          <mat-card style="margin-top: 10px; width: 50%">
+            <mat-card-content>User image</mat-card-content>
+          </mat-card>
+        </div>
+      </td>
+      <td rowspan="3">&nbsp;</td>
+      <td>
+        <b><u>Upload image</u></b>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label class="image-upload-container btn btn-bwm">
+          <input #imageInput type="file" accept="image/*" />
         </label>
-        <input
-          formControlName="file"
-          id="file"
-          type="file"
-          multiple
-          class="form-control"
-        />
+      </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+</div>
+
+<br />
+<!--user account upload image-->
+
+<!-- user personal information -->
+<div align="center">
+  <table>
+    <tr>
+      <td><b>User first name:</b></td>
+      <td><b>Muser name</b></td>
+    </tr>
+    <tr>
+      <td><b>User last name:</b></td>
+      <td><b>Muster last name</b></td>
+    </tr>
+    <tr>
+      <td><b>User email:</b></td>
+      <td><b>test@test.com</b></td>
+    </tr>
+    <tr>
+      <td><b>User city:</b></td>
+      <td><b>test city</b></td>
+    </tr>
+    <tr>
+      <td><b>User job status:</b></td>
+      <td><b>Contractor</b></td>
+    </tr>
+    <tr>
+      <td><b>Most applied job:</b></td>
+      <td>
+        <b>Java developer</b>
+      </td>
+    </tr>
+  </table>
+</div>
+<br />
+<div align="center">
+  <table>
+    <tr>
+      <td>
+        <b><u>Amount of applications which are already sent:</u></b
+        >&nbsp;
+        <b>5000</b>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <form>
+          <b>Change max job applications displayed <u>per page:</u></b>
+          &nbsp;&nbsp;
+          <mat-form-field style="width: 26vw; height: 1vw">
+            <mat-label>Max amount of applications</mat-label>
+            <input
+              matInput
+              name="userInputForJobApplforDisplay"
+              placeholder="Write here amount of job application to be displayed"
+              value="10"
+            />
+          </mat-form-field>
+        </form>
+      </td>
+    </tr>
+  </table>
+</div>
+<div align="center">
+  <!--user multiple upload of files-->
+  <h2><u>User personal file storage</u></h2>
+  <div class="form-group">
+    <label for="file"
+      ><div align="center">
+        <b><u>Upload your personal files:</u></b>
       </div>
-    </div>
-    <!--user multiple upload of files-->
-    <div align="center">
-      <h2><u>Amount of free quota for file storage:</u> 10 mb left</h2>
-    </div>
-    <br />
-    <br />
-    <div align="center">
-      <button mat-raised-button color="warn">
-        Delete user accoount! (After this all your data stored on this platform
-        will be irrevocably deleted!)
-      </button>
-    </div>
-  </body>
-</html>
+      Here you can upload your
+      <b>cv, cover letter, certificates, credentials</b> as
+      <b><u>one file</u></b
+      >&nbsp;&nbsp;
+    </label>
+    <input
+      formControlName="file"
+      id="file"
+      type="file"
+      multiple
+      class="form-control"
+    />
+  </div>
+</div>
+<!--user multiple upload of files-->
+<div align="center">
+  <h2><u>Amount of free quota for file storage:</u> 10 mb left</h2>
+</div>
+<br />
+<br />
+<div align="center">
+  <button mat-raised-button color="warn">
+    Delete user accoount! (After this all your data stored on this platform will
+    be irrevocably deleted!)
+  </button>
+</div>

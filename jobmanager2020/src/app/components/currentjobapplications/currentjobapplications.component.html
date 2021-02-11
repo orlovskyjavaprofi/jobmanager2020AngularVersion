@@ -1,107 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Current job applications</title>
-    <base href="/currentjobapps" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  </head>
-  <body>
-    <div align="center">
-      <h1><u>View current applications</u></h1>
-    </div>
-    <div class class="mat-elevation-z8">
-      <table mat-table [dataSource]="dataForDataSource">
-        <!-- Company name -->
-        <ng-container matColumnDef="Company name">
-          <th mat-header-cell *matHeaderCellDef>
-            <div align="center"><b>Company name</b></div>
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <div align="center">{{ element.companyName }}</div>
-          </td>
-        </ng-container>
+<head>
+  <meta charset="utf-8" />
+  <title>Current job applications</title>
+  <base href="/currentjobapps" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
 
-        <!-- Company contact person name -->
-        <ng-container matColumnDef="Contact person">
-          <th mat-header-cell *matHeaderCellDef>
-            <div align="center"><b>Contact person</b></div>
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <div align="center">{{ element.contactPersonName }}</div>
-          </td>
-        </ng-container>
+<div align="center">
+  <h1><u>View current applications</u></h1>
+</div>
+<div class class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataForDataSource">
+    <!-- Company name -->
+    <ng-container matColumnDef="Company name">
+      <th mat-header-cell *matHeaderCellDef>
+        <div align="center"><b>Company name</b></div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div align="center">{{ element.companyName }}</div>
+      </td>
+    </ng-container>
 
-        <!-- Current job application state -->
-        <ng-container matColumnDef="Current state of job application">
-          <th mat-header-cell *matHeaderCellDef>
-            <div align="center"><b>Current state of the application</b></div>
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <div align="center">
-              {{ element.currentStateOfUserJobApplication }}
-            </div>
-          </td>
-        </ng-container>
+    <!-- Company contact person name -->
+    <ng-container matColumnDef="Contact person">
+      <th mat-header-cell *matHeaderCellDef>
+        <div align="center"><b>Contact person</b></div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div align="center">{{ element.contactPersonName }}</div>
+      </td>
+    </ng-container>
 
-        <!-- Date of application -->
-        <ng-container matColumnDef="Date when the application was send">
-          <th mat-header-cell *matHeaderCellDef>
-            <div align="center"><b>Date of application</b></div>
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <div align="center">
-              {{ element.dateOfJobApplicationWhenItWasSend }}
-            </div>
-          </td>
-        </ng-container>
+    <!-- Current job application state -->
+    <ng-container matColumnDef="Current state of job application">
+      <th mat-header-cell *matHeaderCellDef>
+        <div align="center"><b>Current state of the application</b></div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div align="center">
+          {{ element.currentStateOfUserJobApplication }}
+        </div>
+      </td>
+    </ng-container>
 
-        <!-- Special note -->
-        <ng-container matColumnDef="Special note">
-          <th mat-header-cell *matHeaderCellDef>
-            <div align="center"><b>Special note</b></div>
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <div align="center">{{ element.specialNoteForJobapplication }}</div>
-          </td>
-        </ng-container>
+    <!-- Date of application -->
+    <ng-container matColumnDef="Date when the application was send">
+      <th mat-header-cell *matHeaderCellDef>
+        <div align="center"><b>Date of application</b></div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div align="center">
+          {{ element.dateOfJobApplicationWhenItWasSend }}
+        </div>
+      </td>
+    </ng-container>
 
-        <!-- Edit note -->
-        <ng-container matColumnDef="Edit job application">
-          <th mat-header-cell *matHeaderCellDef>
-            <div align="center"><b>Edit job application</b></div>
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <div align="center">
-              <button mat-raised-button color="primary">
-                {{ element.editButton }}
-              </button>
-            </div>
-          </td>
-        </ng-container>
+    <!-- Special note -->
+    <ng-container matColumnDef="Special note">
+      <th mat-header-cell *matHeaderCellDef>
+        <div align="center"><b>Special note</b></div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div align="center">{{ element.specialNoteForJobapplication }}</div>
+      </td>
+    </ng-container>
 
-        <!-- Delete note -->
-        <ng-container matColumnDef="Delete job application">
-          <th mat-header-cell *matHeaderCellDef>
-            <div align="center"><b>Delete job application</b></div>
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <div align="center">
-              <button mat-raised-button color="warn">
-                {{ element.deleteButton }}
-              </button>
-            </div>
-          </td>
-        </ng-container>
+    <!-- Edit note -->
+    <ng-container matColumnDef="Edit job application">
+      <th mat-header-cell *matHeaderCellDef>
+        <div align="center"><b>Edit job application</b></div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div align="center">
+          <button mat-raised-button color="primary">
+            {{ element.editButton }}
+          </button>
+        </div>
+      </td>
+    </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
-      <mat-paginator
-        [pageSizeOptions]="[5, 10, 20]"
-        showFirstLastButtons
-      ></mat-paginator>
-    </div>
-  </body>
-</html>
+    <!-- Delete note -->
+    <ng-container matColumnDef="Delete job application">
+      <th mat-header-cell *matHeaderCellDef>
+        <div align="center"><b>Delete job application</b></div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div align="center">
+          <button mat-raised-button color="warn">
+            {{ element.deleteButton }}
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>

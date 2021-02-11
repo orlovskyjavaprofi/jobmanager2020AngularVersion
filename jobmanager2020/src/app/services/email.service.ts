@@ -41,7 +41,8 @@ export class EmailService {
       inputForCompanyName
     );
     let finalResult: boolean = false;
-
+    //this service should be able to read emailsmtpsettingsservice which is stored in the inmemdb , because it should have no global config , but rather
+    //each user have own configuration which you need to set up
     const emailClientSettings = {
       host: '127.0.0.1',
       port: 100,
