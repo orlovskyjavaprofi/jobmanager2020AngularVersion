@@ -2,19 +2,23 @@
 <br />
 
 <div align="center">
-  <h2><u>Please take notice:</u></h2>
+  <h2><u>Please, take notice:</u></h2>
   <font color="red"
     ><b>You can change this settings <u>only 3 times!</u></b
     ><br />
     <b>
       After that the last settings are locked and you need to contact your
-      administrator!</b
+      <a routerLink="/impressum">administrator!</a></b
+    ><br />
+    <b
+      >If you use different and non standard SMTP port contact
+      <a routerLink="/impressum">administrator!</a></b
     ></font
   >
 </div>
 <br />
 <div align="center">
-  <form>
+  <form [formGroup]="smtpSettingSaveForm">
     <table>
       <tr>
         <td>
@@ -41,16 +45,22 @@
         </td>
         <td width="2%"></td>
         <td>
-          SELECTION BOX FOR SMTP PORTS: 25, 587, 465, 2525, <br />
-          SSL SMTP 465 -auth<br />
-          TLS SMTP (25 / Alternativ 587) auth<br />
-          // true for 465, false for other ports nodemailer<br />
-          This is what nodemail saying:<br />
-          if true the connection will use TLS when connecting to server. <br />
-          if false (the default) then TLS is used if server supports the
-          STARTTLS extension. <br />
-          In most cases set this value to true if you are connecting to port
-          465. For port 587 or 25 keep it false
+          <mat-form-field
+            style="width: 350px; font-weight: bold"
+            appearance="fill"
+          >
+            <mat-label>Select your SMTP email port:</mat-label>
+            <mat-select formControlName="selSmtpEmailFormControl">
+              <mat-option
+                *ngFor="
+                  let selItemSmtpEmailPort of selectionViewForDifferentSmtpEmailPorts
+                "
+                [value]="selItemSmtpEmailPort.value"
+              >
+                {{ selItemSmtpEmailPort.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </td>
       </tr>
       <tr>
