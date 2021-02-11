@@ -34,6 +34,7 @@
               type="text"
               matInput
               placeholder="provide ip or hostname of your email smtp host!"
+              formControlName="smtpHostFormControl"
           /></mat-form-field>
         </td>
       </tr>
@@ -50,7 +51,7 @@
             appearance="fill"
           >
             <mat-label>Select your SMTP email port:</mat-label>
-            <mat-select formControlName="selSmtpEmailFormControl">
+            <mat-select formControlName="selSmtpPortFormControl">
               <mat-option
                 *ngFor="
                   let selItemSmtpEmailPort of selectionViewForDifferentSmtpEmailPorts
@@ -77,6 +78,7 @@
               type="text"
               matInput
               placeholder="provide username which you user for sending your emails!"
+              formControlName="smtpUserNameFormControl"
           /></mat-form-field>
         </td>
       </tr>
@@ -94,6 +96,7 @@
               type="password"
               matInput
               placeholder="provide password which you for sending your emails!"
+              formControlName="smtpUserPasswordFormControl"
           /></mat-form-field>
         </td>
       </tr>
@@ -105,10 +108,24 @@
         </td>
         <td width="2%"></td>
         <td>
-          <b
-            >TODO: Display selection box for selectable options like YES or NO
-            Default!</b
+          <mat-form-field
+            style="width: 250px; font-weight: bold"
+            appearance="fill"
           >
+            <mat-label>Confirm usage of port 465</mat-label>
+            <mat-select
+              formControlName="selUserSelectionForSecureSSLTLSFormControl"
+            >
+              <mat-option
+                *ngFor="
+                  let selItemUserInputForSSLTLSPortUsage of selectionViewForUsageOfSecureSslTlsPort
+                "
+                [value]="selItemUserInputForSSLTLSPortUsage.value"
+              >
+                {{ selItemUserInputForSSLTLSPortUsage.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </td>
       </tr>
       <tr>
@@ -120,7 +137,25 @@
           </div>
         </td>
         <td width="2%"></td>
-        <td><b>TODO: Display GDPR checkbox</b></td>
+        <td>
+          <section>
+            <mat-checkbox
+              ngDefaultControl
+              [(ngModel)]="UserChkBoxChekedForGDPR"
+              formControlName="chkBoxUserConfirmReadGDPRFormControl"
+            >
+              <mat-label style="font-weight: bold"
+                >By clicking at this checkbox<br />You confirm that you aware
+                and read GDPR European law.</mat-label
+              >
+              <mat-error *ngIf="smtpSettingSaveForm.hasError('required')">
+                <strong>Required:</strong>
+                You need to checked GDPR checkbox in order to proceed with
+                saving of SMTP email settings !
+              </mat-error>
+            </mat-checkbox>
+          </section>
+        </td>
       </tr>
       <tr>
         <td></td>
@@ -141,7 +176,10 @@
         </td>
         <td width="2%"></td>
         <td>
-          <b>TODO: Display result of the user provided email settings!</b>
+          <b
+            >TODO: here user must see after button click following message: fail
+            or message: success!</b
+          >
         </td>
       </tr>
     </table>
@@ -156,6 +194,7 @@
                 mat-raised-button
                 style="font-weight: bold"
                 color="primary"
+                (click)="onFormSubmit()"
               >
                 Save SMTP email settings
               </button>
@@ -164,7 +203,12 @@
           <td width="2%">&nbsp;</td>
           <td>
             <div align="center">
-              <button mat-raised-button style="font-weight: bold" color="warn">
+              <button
+                mat-raised-button
+                style="font-weight: bold"
+                color="warn"
+                (click)="resetsmtpSettingSaveForm()"
+              >
                 Reset this form
               </button>
             </div>
