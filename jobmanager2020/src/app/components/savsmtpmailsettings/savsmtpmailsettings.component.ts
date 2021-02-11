@@ -82,7 +82,9 @@ export class SavsmtpmailsettingsComponent implements OnInit {
   ngOnInit(): void {}
 
   onFormSubmit(): void {
-    this.debutOutput();
+    if (Object.is(this.validateUserInputForNewJobApplAndStoreInmem(), true)) {
+      this.debutOutput();
+    }
   }
 
   public resetsmtpSettingSaveForm(): void {
@@ -94,6 +96,115 @@ export class SavsmtpmailsettingsComponent implements OnInit {
       smtpUserNameFormControl: '',
       smtpUserPasswordFormControl: '',
     });
+  }
+
+  validateUserInputForNewJobApplAndStoreInmem(): boolean {
+    //Case 0 user provided valid input, meaning all fieldes are populated
+    //Case 1 user provided port 465 and confirmation that user selected port 465
+    //Case 2 user provided other port and confirmation that user selected port 465
+    //Case 3 user provided other port and decline that user selected port 465
+
+    let result: boolean = false;
+
+    let checkForUserSmtpHostInput: boolean =
+      this.smtpSettingSaveForm.value.smtpHostFormControl.length > 0 &&
+      this.smtpSettingSaveForm.value.smtpHostFormControl != null;
+
+    let checkForUserSmtpPortInput: boolean =
+      this.smtpSettingSaveForm.value.selSmtpPortFormControl.toString().length >
+        0 && this.smtpSettingSaveForm.value.selSmtpPortFormControl != null;
+
+    let checkForUserSmtpNameInput: boolean =
+      this.smtpSettingSaveForm.value.smtpUserNameFormControl.length > 0 &&
+      this.smtpSettingSaveForm.value.smtpUserNameFormControl != null;
+
+    let checkForUserSmtpPasswordInput: boolean =
+      this.smtpSettingSaveForm.value.smtpUserPasswordFormControl.length > 0 &&
+      this.smtpSettingSaveForm.value.smtpUserPasswordFormControl != null;
+
+    let checkForUserSecureSSLTLSPortInput: boolean =
+      this.smtpSettingSaveForm.value.selUserSelectionForSecureSSLTLSFormControl
+        .length > 0 &&
+      this.smtpSettingSaveForm.value
+        .selUserSelectionForSecureSSLTLSFormControl != null;
+
+    let checkForUserGDPRCheckboxInput: boolean = this.smtpSettingSaveForm.value
+      .chkBoxUserConfirmReadGDPRFormControl;
+
+    result = this.validateThatUserProvidedNotNullInput(
+      checkForUserSmtpHostInput,
+      checkForUserSmtpPortInput,
+      checkForUserSmtpNameInput,
+      checkForUserSmtpPasswordInput,
+      checkForUserSecureSSLTLSPortInput,
+      checkForUserGDPRCheckboxInput
+    );
+
+    if (Object.is(result, true)) {
+      result = this.validateThatUserProvidedPortSslTlsAndCheckedYes();
+      if (Object.is(result, false)) {
+        result = this.validateThatUserProvidedNotSslTlsPortAndCheckedNo();
+      }
+    }
+
+    return result;
+  }
+
+  private validateThatUserProvidedNotNullInput(
+    userSmtpHostInput: boolean,
+    userSmtpPortInput: boolean,
+    forUserSmtpNameInput: boolean,
+    userSmtpPasswordInput: boolean,
+    forUserSecureSSLTLSPortInput: boolean,
+    userGDPRCheckboxInput: boolean
+  ): boolean {
+    let result: boolean = false;
+    if (
+      Object.is(userSmtpHostInput, true) &&
+      Object.is(userSmtpPortInput, true) &&
+      Object.is(forUserSmtpNameInput, true) &&
+      Object.is(userSmtpPasswordInput, true) &&
+      Object.is(forUserSecureSSLTLSPortInput, true) &&
+      Object.is(userGDPRCheckboxInput, true)
+    ) {
+      result = true;
+    }
+
+    return result;
+  }
+
+  private validateThatUserProvidedPortSslTlsAndCheckedYes(): boolean {
+    let result: boolean = false;
+
+    if (
+      Object.is(
+        this.smtpSettingSaveForm.value.selSmtpPortFormControl.toString(),
+        '465'
+      ) &&
+      Object.is(
+        this.smtpSettingSaveForm.value.selUserSelectionForSecureSSLTLSFormControl.toString(),
+        'Yes'
+      )
+    ) {
+      result = true;
+    }
+
+    return result;
+  }
+
+  private validateThatUserProvidedNotSslTlsPortAndCheckedNo(): boolean {
+    let result: boolean = false;
+
+    if (
+      this.smtpSettingSaveForm.value.selSmtpPortFormControl.toString() !=
+        '465' &&
+      this.smtpSettingSaveForm.value.selUserSelectionForSecureSSLTLSFormControl.toString() ===
+        'No'
+    ) {
+      result = true;
+    }
+
+    return result;
   }
 
   private debutOutput(): void {
