@@ -2,6 +2,18 @@
 <br />
 
 <div align="center">
+  <h2><u>Please take notice:</u></h2>
+  <font color="red"
+    ><b>You can change this settings <u>only 3 times!</u></b
+    ><br />
+    <b>
+      After that the last settings are locked and you need to contact your
+      administrator!</b
+    ></font
+  >
+</div>
+<br />
+<div align="center">
   <form>
     <table>
       <tr>
@@ -10,7 +22,7 @@
             <b><u>Email server host:</u></b>
           </div>
         </td>
-        <td width="10%"></td>
+        <td width="2%"></td>
         <td>
           <mat-form-field style="width: 358px">
             <label for="smtpServerHost"><b>SMTP server host</b></label>
@@ -24,10 +36,10 @@
       <tr>
         <td>
           <div align="right">
-            <b><u>Email server host:</u></b>
+            <b><u>Email server port:</u></b>
           </div>
         </td>
-        <td width="10%"></td>
+        <td width="2%"></td>
         <td>
           SELECTION BOX FOR SMTP PORTS: 25, 587, 465, 2525, <br />
           SSL SMTP 465 -auth<br />
@@ -47,7 +59,7 @@
             <b><u>SMTP user name:</u></b>
           </div>
         </td>
-        <td width="10%"></td>
+        <td width="2%"></td>
         <td>
           <mat-form-field style="width: 440px">
             <label for="smtpUserName"><b>SMTP user name</b></label>
@@ -58,6 +70,98 @@
           /></mat-form-field>
         </td>
       </tr>
+      <tr>
+        <td>
+          <div align="right">
+            <b><u>SMTP user password:</u></b>
+          </div>
+        </td>
+        <td width="2%"></td>
+        <td>
+          <mat-form-field style="width: 440px">
+            <label for="smtpUserPassword"><b>SMTP user password</b></label>
+            <input
+              type="password"
+              matInput
+              placeholder="provide password which you for sending your emails!"
+          /></mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div align="right">
+            <b><u>Have you selected a SMTP port 465?</u></b>
+          </div>
+        </td>
+        <td width="2%"></td>
+        <td>
+          <b
+            >TODO: Display selection box for selectable options like YES or NO
+            Default!</b
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div align="right">
+            <b><u>Here by i confirm that i have read the European</u></b
+            >&nbsp;
+            <b> <a href="https://gdpr.eu/tag/gdpr/">GDPR law</a></b>
+          </div>
+        </td>
+        <td width="2%"></td>
+        <td><b>TODO: Display GDPR checkbox</b></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td width="2%">&nbsp;</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div align="right">
+            <button
+              mat-raised-button
+              style="font-weight: bold"
+              color="checkemailsettings"
+            >
+              Check provided email settings!
+            </button>
+          </div>
+        </td>
+        <td width="2%"></td>
+        <td>
+          <b>TODO: Display result of the user provided email settings!</b>
+        </td>
+      </tr>
     </table>
+    <br />
+    <br />
+    <div align="center">
+      <table>
+        <tr>
+          <td>
+            <div align="center">
+              <button
+                mat-raised-button
+                style="font-weight: bold"
+                color="primary"
+              >
+                Save SMTP email settings
+              </button>
+            </div>
+          </td>
+          <td width="2%">&nbsp;</td>
+          <td>
+            <div align="center">
+              <button mat-raised-button style="font-weight: bold" color="warn">
+                Reset this form
+              </button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
   </form>
 </div>
+<br />

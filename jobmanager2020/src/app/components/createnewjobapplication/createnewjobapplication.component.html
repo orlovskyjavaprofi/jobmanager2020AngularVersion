@@ -338,7 +338,12 @@
       <tr>
         <td>
           <div align="left">
-            <button mat-raised-button color="primary" (click)="onFormSubmit()">
+            <button
+              mat-raised-button
+              color="primary"
+              style="font-weight: bold"
+              (click)="onFormSubmit()"
+            >
               Create and add new application
             </button>
           </div>
@@ -348,6 +353,7 @@
             <button
               mat-raised-button
               color="warn"
+              style="font-weight: bold"
               (click)="resetAddNewJobApplForm()"
             >
               Reset form
