@@ -33,7 +33,7 @@ import { UserselectjobapplfordeleteComponent } from './components/userselectjoba
 import { AuthService } from './services/auth-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminusersmanagementComponent } from './components/adminusersmanagement/adminusersmanagement.component';
-
+import { MatStepperModule } from '@angular/material/stepper';
 import { ViewcompaniesmessagesComponent } from './components/viewcompaniesmessages/viewcompaniesmessages.component';
 import { CompanysendmessagetouserComponent } from './components/companysendmessagetouser/companysendmessagetouser.component';
 import { SavsmtpmailsettingsComponent } from './components/savsmtpmailsettings/savsmtpmailsettings.component';
@@ -87,6 +87,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatRadioModule,
     MatSelectModule,
+    MatStepperModule,
   ],
   providers: [
     AuthService,

@@ -1,5 +1,50 @@
-<h1 align="center"><u>Send message to a candidate!</u></h1>
+<h1 align="center"><u>Send message to a candidate/s!</u></h1>
 <br />
 <div align="center">
-  <b>To do: display formular for sending of message!</b>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="companyRepresentativeProvidesSkillSetFromGroup">
+      <form [formGroup]="companyRepresentativeProvidesSkillSetFromGroup">
+        <ng-template matStepLabel
+          >Specify skills which you look for</ng-template
+        >
+        <mat-form-field>
+          <mat-label>Provide one or many skills names</mat-label>
+          <input matInput placeholder="Java, C#, C++" required />
+        </mat-form-field>
+        <div>
+          <button mat-button mat-raised-button color="primary" matStepperNext>
+            Next
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step
+      [stepControl]="companyRepresentativeMessageForAJobSeeker"
+      label="Message to a jobseeker"
+    >
+      <form [formGroup]="companyRepresentativeMessageForAJobSeeker">
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Ex. 1 Main St, New York, NY" required />
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" matStepperPrevious>
+            Back</button
+          >&nbsp;&nbsp;
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-raised-button matStepperPrevious color="accent">Back</button
+        >&nbsp;&nbsp;
+        <button mat-raised-button color="warn" (click)="stepper.reset()">
+          Reset
+        </button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
 </div>
