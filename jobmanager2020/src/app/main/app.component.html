@@ -45,6 +45,13 @@ the user one by one trought interaction with web ui!-->
 </div>
 <br />
 <div align="center">
+  User:&nbsp;<a routerLink="/useracn" style="color: black">test user</a
+  >&nbsp;&nbsp; Login state:&nbsp;<font color="blue"
+    ><b><u>signed in</u></b></font
+  >
+</div>
+
+<div align="center">
   <b style="color: red"
     ><u
       >Todo: display this menu only if user is auth and only after successeful
@@ -168,27 +175,8 @@ the user one by one trought interaction with web ui!-->
       </button></a
     >
   </b>
-  <br />
-  <br />
-  <div align="right">
-    <table>
-      <tr>
-        <td>
-          User:&nbsp;<a routerLink="/useracn" style="color: black">test user</a>
-        </td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td>
-          Login state:
-          <font color="blue"
-            ><b><u>signed in</u></b></font
-          >
-        </td>
-      </tr>
-    </table>
-  </div>
 </div>
+
 <router-outlet></router-outlet>
 <br />
 <div align="center">

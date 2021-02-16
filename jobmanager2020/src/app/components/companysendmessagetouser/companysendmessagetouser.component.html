@@ -7,13 +7,38 @@
         <ng-template matStepLabel
           >Specify skills which you look for</ng-template
         >
-        <mat-form-field>
-          <mat-label>Provide one or many skills names</mat-label>
-          <input matInput placeholder="Java, C#, C++" required />
+        <mat-form-field style="width: 350px">
+          <mat-label>Provide amount of skill names, only digits!</mat-label>
+
+          <input matInput type="number" placeholder="0,5,10" />
         </mat-form-field>
-        <div>
+
+        <h3>
+          Click the button bellow to generate input fields for skill names!
+        </h3>
+
+        <button mat-button mat-raised-button color="primary">
+          Click here for skill names!</button
+        >&nbsp;&nbsp;
+        <button mat-button mat-raised-button color="warn">Reset</button>
+        <br />
+        <h2>
+          ToDo: Generate further input fields which be used for input of skill
+          names!
+        </h2>
+        <br />
+        <button mat-button mat-raised-button color="primary" disabled>
+          Lookup all candidates with provided skill's
+        </button>
+        <br />
+        <h2>
+          ToDO: Present result of search, where result is a list of usernames
+          with radiobuttons where only one radion button can be clicked!
+        </h2>
+
+        <div align="center">
           <button mat-button mat-raised-button color="primary" matStepperNext>
-            Next
+            Next step!
           </button>
         </div>
       </form>
@@ -23,13 +48,94 @@
       label="Message to a jobseeker"
     >
       <form [formGroup]="companyRepresentativeMessageForAJobSeeker">
-        <mat-form-field>
-          <mat-label>Address</mat-label>
-          <input matInput placeholder="Ex. 1 Main St, New York, NY" required />
-        </mat-form-field>
-        <div>
+        <div align="center">
+          <mat-form-field style="width: 350px">
+            <mat-label style="font-weight: bold"
+              >Topic of your message</mat-label
+            >
+            <input
+              matInput
+              placeholder="Dear XYZ candidate"
+              required
+              style="font-weight: bold"
+            />
+          </mat-form-field>
+          <br />
+          <mat-form-field style="width: 150px">
+            <mat-label style="font-weight: bold">Your first name</mat-label>
+            <input
+              matInput
+              placeholder="Your first name"
+              style="font-weight: bold"
+              type="text"
+              required
+            /> </mat-form-field
+          >&nbsp;&nbsp;
+          <mat-form-field style="width: 150px">
+            <mat-label style="font-weight: bold">Your last name</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="Your last name"
+              style="font-weight: bold"
+              required
+            /> </mat-form-field
+          ><br />
+          <mat-form-field style="width: 550px">
+            <mat-label style="font-weight: bold">Your comapny name</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="Company name"
+              style="font-weight: bold"
+              required
+            /> </mat-form-field
+          ><br />
+          <mat-form-field style="width: 450px">
+            <mat-label style="font-weight: bold"
+              >Your contact phone number</mat-label
+            >
+            <input
+              type="tel"
+              matInput
+              style="font-weight: bold"
+              placeholder="Country cdode companyCode: 00490176"
+              required
+            />
+          </mat-form-field>
+          <br />
+          <mat-form-field style="width: 450px">
+            <mat-label style="font-weight: bold">Your contact email</mat-label>
+            <input
+              type="email"
+              matInput
+              style="font-weight: bold"
+              placeholder="provide your contact email!"
+              required
+            /> </mat-form-field
+          ><br />
+          <mat-form-field style="height: 250px" class="input-field-full-width">
+            <mat-label style="font-weight: bold"
+              >Write here your message to a job seeker
+            </mat-label>
+            <textarea
+              rows="10"
+              matInput
+              placeholder="Dear Mr/Mrs XX/YY my company interested in you."
+              type="text"
+              style="font-weight: bold"
+            ></textarea>
+          </mat-form-field>
+          <button mat-button mat-raised-button color="primary">
+            Click here to send a message!</button
+          >&nbsp;&nbsp;
+          <button mat-button mat-raised-button color="warn">Reset</button>
+        </div>
+        <br />
+        <br />
+        <div align="center">
           <button mat-raised-button color="primary" matStepperPrevious>
-            Back</button
+            Back to previous step!</button
           >&nbsp;&nbsp;
           <button mat-raised-button color="primary" matStepperNext>Next</button>
         </div>
@@ -37,12 +143,15 @@
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
+      <h1>Thank you for your interest!</h1>
+      <h2><u>Soon you will be contacted</u> by the selected job seeker!</h2>
+
       <div>
-        <button mat-raised-button matStepperPrevious color="accent">Back</button
+        <button mat-raised-button matStepperPrevious color="primary">
+          Back to previos step!</button
         >&nbsp;&nbsp;
         <button mat-raised-button color="warn" (click)="stepper.reset()">
-          Reset
+          Begin from first step <u>(all previous data would be lost!)</u>
         </button>
       </div>
     </mat-step>
