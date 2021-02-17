@@ -42,7 +42,12 @@ import { RecentuserjobapplComponent } from './components/recentuserjobappl/recen
 import { UsergreetingtextsmanagerComponent } from './components/usergreetingtextsmanager/usergreetingtextsmanager.component';
 import { RegisteradminuserComponent } from './components/registeradminuser/registeradminuser.component';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatChipsModule } from '@angular/material/chips';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDialogModule } from '@angular/material/dialog';
+import { SkillslistofuserComponent } from './components/skillslistofuser/skillslistofuser.component';
+import { ImpressumComponent } from './components/impressum/impressum.component';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,10 +72,15 @@ import { MatSelectModule } from '@angular/material/select';
     UserresetpasswordComponent,
     RecentuserjobapplComponent,
     UsergreetingtextsmanagerComponent,
+    SkillslistofuserComponent,
+    ImpressumComponent,
   ],
   imports: [
+    MatIconModule,
     HttpClientModule,
+    MatAutocompleteModule,
     MatMenuModule,
+    MatChipsModule,
     MatCheckboxModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,
@@ -88,6 +98,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatRadioModule,
     MatSelectModule,
     MatStepperModule,
+    MatDialogModule,
   ],
   providers: [
     AuthService,

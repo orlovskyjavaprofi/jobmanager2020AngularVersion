@@ -3,3 +3,112 @@
     Skill list of user : <u>ToDO display first and last name of a user!</u>
   </h1>
 </div>
+<div align="center">
+  <mat-form-field class="style-chip-list">
+    <mat-label style="font-weight: bold"
+      >Type or selected your skills</mat-label
+    >
+    <mat-chip-list #chipList aria-label="Skill selection">
+      <mat-chip
+        *ngFor="let skill of skills"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(skill)"
+      >
+        {{ skill }}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      &nbsp;&nbsp;
+      <input
+        placeholder="New skill..."
+        #skillInput
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event)"
+      />
+    </mat-chip-list>
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      (optionSelected)="selected($event)"
+    >
+      <mat-option *ngFor="let skill of filteredSkills | async" [value]="skill">
+        {{ skill }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <br />
+  <button mat-raised-button color="primary" style="font-weight: bold">
+    Create table of your skills!</button
+  >&nbsp;&nbsp;
+  <button mat-raised-button color="warn" style="font-weight: bold">
+    Reset
+  </button>
+  <br />
+  <h2>
+    ToDo: Display table with technology name and radio buttons with different
+    skill level
+  </h2>
+  <br />
+  <b><u>Example how the table should look like:</u></b>
+  <br />
+  <br />
+  <div align="center">
+    <form>
+      <table>
+        <tr>
+          <td>
+            <b><u>Skill</u></b>
+          </td>
+          <td width="10%">&nbsp;</td>
+          <td>
+            <b><u>Level of knowledge</u></b>
+          </td>
+        </tr>
+        <tr>
+          <td><b>Java</b></td>
+          <td>&nbsp;</td>
+          <td>
+            <fieldset>
+              <input
+                type="radio"
+                id="beginnerlvl"
+                name="BeginnerLvl"
+                value="Beginner"
+              />
+              <label for="beginnerlvl"><b>Beginner</b></label
+              ><br />
+              <input
+                type="radio"
+                id="intermediatelvl"
+                name="IntermediateLvl"
+                value="Intermediate"
+              />
+              <label for="intermediatelvl"><b>Intermediate</b></label
+              ><br />
+              <input
+                type="radio"
+                id="expertlvl"
+                name="Expertlvl"
+                value="Expertlvl"
+              />
+              <label for="expertlvl"><b>Expert</b></label>
+            </fieldset>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <br />
+    <button
+      mat-raised-button
+      color="primary"
+      style="font-weight: bold"
+      disabled
+    >
+      Save this list</button
+    >&nbsp;&nbsp;
+    <button mat-raised-button color="warn" style="font-weight: bold" disabled>
+      Delete this list!
+    </button>
+  </div>
+</div>

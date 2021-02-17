@@ -1,0 +1,7 @@
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.style-chip-list {
+  width: 70%;
+  height: 20%;
+}
