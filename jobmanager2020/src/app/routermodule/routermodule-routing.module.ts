@@ -22,7 +22,7 @@ import { ViewcompaniesmessagesComponent } from '../components/viewcompaniesmessa
 import { WelcomecomponentComponent } from '../components/welcomecomponent/welcomecomponent.component';
 import { WrongurlerrorComponent } from '../components/wrongurlerror/wrongurlerror.component';
 import { ImpressumComponent } from '../components/impressum/impressum.component';
-
+import { SkillslistofuserComponent } from '../components/skillslistofuser/skillslistofuser.component';
 const routes: Routes = [
   { path: 'welcome', component: WelcomecomponentComponent },
   { path: 'register', component: UserregistrationComponent },
@@ -75,6 +75,10 @@ const routes: Routes = [
   {
     path: 'usergreetingtextsmanager',
     component: UsergreetingtextsmanagerComponent,
+  },
+  {
+    path: 'userskillslist',
+    component: SkillslistofuserComponent,
   },
   {
     path: 'impressum',
