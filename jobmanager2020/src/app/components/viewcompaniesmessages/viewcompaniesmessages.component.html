@@ -1,5 +1,55 @@
 <h1 align="center"><u>Messages from companies!</u></h1>
 <br />
 <div align="center">
-  <b>To do: Display list of messages from companies to a user</b>
+  <div class="action-buttons">
+    <button
+      mat-raised-button
+      color="primary"
+      style="font-weight: bold"
+      (click)="openAllPanels()"
+    >
+      Expand All
+    </button>
+    &nbsp;&nbsp;
+    <button
+      mat-raised-button
+      color="warn"
+      style="font-weight: bold"
+      (click)="closeAllPanels()"
+    >
+      Collapse All
+    </button>
+  </div>
+  <mat-accordion class="headers-align" multi>
+    <mat-expansion-panel style="width: 50%">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="font-weight: bold">
+          Company message topic
+        </mat-panel-title>
+        <mat-panel-description style="font-weight: bold">
+          Contact person: Mrs. Smith
+          <mat-icon>account_circle</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div align="left">
+        <mat-label><b>Company name</b></mat-label>
+        <br />
+        <mat-label><b>First name</b></mat-label
+        >&nbsp;&nbsp; <mat-label> <b>Last name</b></mat-label
+        ><br />
+      </div>
+      <br />
+      <mat-label> <b>Message text</b></mat-label
+      ><br /><br />
+      <div align="left">
+        <mat-label> <b>Company contact person email:</b></mat-label
+        ><br />
+        <mat-label> <b>Company phone contact telephone number:</b></mat-label>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br />
+  <button mat-raised-button color="accent" style="font-weight: bold">
+    Clear all messages!
+  </button>
 </div>

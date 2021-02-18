@@ -48,6 +48,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { SkillslistofuserComponent } from './components/skillslistofuser/skillslistofuser.component';
 import { ImpressumComponent } from './components/impressum/impressum.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,6 +101,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatSelectModule,
     MatStepperModule,
     MatDialogModule,
+    MatExpansionModule,
   ],
   providers: [
     AuthService,
