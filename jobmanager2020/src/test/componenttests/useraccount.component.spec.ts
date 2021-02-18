@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 describe('UseraccountComponent', () => {
   let component: UseraccountComponent;
   let fixture: ComponentFixture<UseraccountComponent>;
@@ -19,6 +20,7 @@ describe('UseraccountComponent', () => {
         MatInputModule,
         BrowserAnimationsModule,
         HttpClientTestingModule,
+        MatCheckboxModule,
       ],
     }).compileComponents();
   }));
