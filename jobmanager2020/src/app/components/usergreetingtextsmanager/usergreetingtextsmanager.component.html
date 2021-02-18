@@ -1,8 +1,120 @@
 <h1 align="center"><u>Greeting texts manager!</u></h1>
 <br />
 <div align="center">
-  <b
-    >To do: display formular for creating and deleting user greeting texts for
-    email body!</b
-  >
+  <form>
+    <table width="80%">
+      <tr>
+        <td width="50%">
+          <div align="right">
+            <mat-form-field class="input-field-full-width" appearance="fill">
+              <mat-label style="font-weight: bold"
+                >Type here title of the greeting text</mat-label
+              >
+              <input matInput type="text" />
+            </mat-form-field>
+          </div>
+        </td>
+        <td width="2%">&nbsp;</td>
+        <td>
+          <div align="left">
+            <button mat-raised-button color="primary" style="font-weight: bold">
+              Add new greeting text
+            </button>
+            &nbsp;&nbsp;
+            <button mat-raised-button color="warn" style="font-weight: bold">
+              Undo the previous insertion!
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td width="50%">
+          <div align="right">
+            <mat-form-field class="input-field-full-width" appearance="fill">
+              <mat-label style="font-weight: bold"
+                >Type here title name for search</mat-label
+              >
+              <input matInput type="text" />
+            </mat-form-field>
+          </div>
+        </td>
+        <td width="2%">&nbsp;</td>
+        <td>
+          <div align="left">
+            <button mat-raised-button color="primary" style="font-weight: bold">
+              Search for greeting text
+            </button>
+            &nbsp;&nbsp;
+            <button mat-raised-button color="warn" style="font-weight: bold">
+              Reset
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td width="50%">
+          <div align="center">
+            <section>
+              <mat-label style="font-weight: bold"
+                ><u>Select all greeting texts</u></mat-label
+              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <mat-checkbox> </mat-checkbox>
+            </section>
+          </div>
+        </td>
+        <td width="2%">&nbsp;</td>
+        <td>
+          <button mat-raised-button color="primary" style="font-weight: bold">
+            Save selected greeting texts</button
+          >&nbsp;&nbsp;
+          <button mat-raised-button color="warn" style="font-weight: bold">
+            Delete selected greeting texts!
+          </button>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <h2>
+    ToDo: display the result based on provided input, which should like this
+  </h2>
+  <table width="90%">
+    <tr>
+      <td>
+        <div align="center">
+          <mat-label style="font-weight: bold"
+            ><u>ToDo: display title of the greeting</u></mat-label
+          >
+        </div>
+      </td>
+      <td width="10px"></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">
+          <mat-form-field style="height: 100px" class="input-field-full-width">
+            <textarea
+              rows="5"
+              matInput
+              placeholder="Write here your greeting text!"
+              type="text"
+              style="font-weight: bold"
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </td>
+      <td width="10px"></td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">
+          <br />
+          <mat-label style="font-weight: bold"
+            ><u>Save this greeting text ?</u></mat-label
+          >&nbsp;&nbsp;
+          <mat-checkbox><b>Yes!</b></mat-checkbox>
+        </div>
+      </td>
+    </tr>
+  </table>
 </div>
